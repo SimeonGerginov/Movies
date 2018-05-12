@@ -17,6 +17,8 @@ namespace Movies.Persistence.Data
         {
         }
 
+        public virtual IDbSet<Movie> Movies { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
@@ -25,8 +27,9 @@ namespace Movies.Persistence.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Configurations.Add(new BaseEntityConfiguration());
-            modelBuilder.Configurations.Add(new UserConfiguration());
+            modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
+
+            modelBuilder.Configurations.Add(new MovieConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

@@ -41,6 +41,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Tests.UnitTests", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Tests.IntegrationTests", "Movies.Tests.IntegrationTests\Movies.Tests.IntegrationTests.csproj", "{5B81A05F-37BA-4B7F-A9A0-BDDD8588F93E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{774ED81F-BB27-468D-A194-6E8F1085D75A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Common", "Movies.Common\Movies.Common.csproj", "{DC76D796-73F6-49F4-B120-7275F0D8123F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -91,6 +95,10 @@ Global
 		{5B81A05F-37BA-4B7F-A9A0-BDDD8588F93E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B81A05F-37BA-4B7F-A9A0-BDDD8588F93E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B81A05F-37BA-4B7F-A9A0-BDDD8588F93E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC76D796-73F6-49F4-B120-7275F0D8123F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC76D796-73F6-49F4-B120-7275F0D8123F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC76D796-73F6-49F4-B120-7275F0D8123F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC76D796-73F6-49F4-B120-7275F0D8123F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -107,5 +115,6 @@ Global
 		{C644D840-D61F-4F6D-B99F-6FFC0B3CDF3D} = {3374AC10-EC7A-4C04-BA6D-3A75AF286422}
 		{F93EC8CB-E858-4738-887C-99C7119AE64E} = {56490981-8E32-4133-AC14-3820850E1D59}
 		{5B81A05F-37BA-4B7F-A9A0-BDDD8588F93E} = {56490981-8E32-4133-AC14-3820850E1D59}
+		{DC76D796-73F6-49F4-B120-7275F0D8123F} = {774ED81F-BB27-468D-A194-6E8F1085D75A}
 	EndGlobalSection
 EndGlobal
