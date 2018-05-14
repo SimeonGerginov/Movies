@@ -30,6 +30,7 @@ namespace Movies.Persistence.Data
             modelBuilder.Properties<DateTime>().Configure(c => c.HasColumnType("datetime2"));
 
             modelBuilder.Configurations.Add(new MovieConfiguration());
+            modelBuilder.Configurations.Add(new GenreConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

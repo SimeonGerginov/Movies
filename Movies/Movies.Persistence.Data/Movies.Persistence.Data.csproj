@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\GenreConfiguration.cs" />
     <Compile Include="Configurations\MovieConfiguration.cs" />
     <Compile Include="Migrations\201805122049415_Initial.cs" />
     <Compile Include="Migrations\201805122049415_Initial.Designer.cs">
@@ -64,6 +65,10 @@
     <Compile Include="Migrations\201805122055518_AddedMovie.cs" />
     <Compile Include="Migrations\201805122055518_AddedMovie.Designer.cs">
       <DependentUpon>201805122055518_AddedMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805141522525_AddedGenreToMovie.cs" />
+    <Compile Include="Migrations\201805141522525_AddedGenreToMovie.Designer.cs">
+      <DependentUpon>201805141522525_AddedGenreToMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
@@ -91,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805122055518_AddedMovie.resx">
       <DependentUpon>201805122055518_AddedMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805141522525_AddedGenreToMovie.resx">
+      <DependentUpon>201805141522525_AddedGenreToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

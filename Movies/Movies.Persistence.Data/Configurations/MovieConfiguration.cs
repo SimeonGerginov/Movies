@@ -7,6 +7,10 @@ namespace Movies.Persistence.Data.Configurations
     {
         public MovieConfiguration()
         {
+            this.HasRequired(m => m.Genre)
+                .WithMany(g => g.Movies)
+                .HasForeignKey(m => m.GenreId);
+
             this.Property(m => m.Name).IsRequired();
             this.Property(m => m.Year).IsRequired();
             this.Property(m => m.RunningTime).IsRequired();

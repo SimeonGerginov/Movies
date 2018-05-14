@@ -21,5 +21,9 @@ namespace Movies.Core.Models
 
         [Range(GlobalConstants.MinMovieRating, GlobalConstants.MaxMovieRating)]
         public int Rating { get; set; }
+
+        public int GenreId { get; set; }
+
+        public virtual Genre Genre { get; set; }
     }
 }

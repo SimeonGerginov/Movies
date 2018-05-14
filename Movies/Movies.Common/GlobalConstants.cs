@@ -11,5 +11,9 @@
         public const int MovieDescriptionLength = 200;
         public const int MinMovieRating = 1;
         public const int MaxMovieRating = 10;
+
+        // Genre Constants
+        public const int MinGenreNameLength = 3;
+        public const int MaxGenreNameLength = 20;
     }
 }
