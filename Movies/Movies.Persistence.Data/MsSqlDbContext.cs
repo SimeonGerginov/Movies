@@ -19,6 +19,10 @@ namespace Movies.Persistence.Data
 
         public virtual IDbSet<Movie> Movies { get; set; }
 
+        public virtual IDbSet<Genre> Genres { get; set; }
+
+        public virtual IDbSet<Person> People { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
@@ -31,6 +35,7 @@ namespace Movies.Persistence.Data
 
             modelBuilder.Configurations.Add(new MovieConfiguration());
             modelBuilder.Configurations.Add(new GenreConfiguration());
+            modelBuilder.Configurations.Add(new PersonConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

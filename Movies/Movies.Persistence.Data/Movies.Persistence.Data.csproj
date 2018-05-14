@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Configurations\GenreConfiguration.cs" />
     <Compile Include="Configurations\MovieConfiguration.cs" />
+    <Compile Include="Configurations\PersonConfiguration.cs" />
     <Compile Include="Migrations\201805122049415_Initial.cs" />
     <Compile Include="Migrations\201805122049415_Initial.Designer.cs">
       <DependentUpon>201805122049415_Initial.cs</DependentUpon>
@@ -69,6 +70,10 @@
     <Compile Include="Migrations\201805141522525_AddedGenreToMovie.cs" />
     <Compile Include="Migrations\201805141522525_AddedGenreToMovie.Designer.cs">
       <DependentUpon>201805141522525_AddedGenreToMovie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805141605241_AddedPerson.cs" />
+    <Compile Include="Migrations\201805141605241_AddedPerson.Designer.cs">
+      <DependentUpon>201805141605241_AddedPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
@@ -99,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805141522525_AddedGenreToMovie.resx">
       <DependentUpon>201805141522525_AddedGenreToMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805141605241_AddedPerson.resx">
+      <DependentUpon>201805141605241_AddedPerson.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -15,5 +15,11 @@
         // Genre Constants
         public const int MinGenreNameLength = 3;
         public const int MaxGenreNameLength = 20;
+
+        // Person Constants
+        public const int MinPersonNameLength = 3;
+        public const int MaxPersonNameLength = 30;
+        public const int MinPersonNationalityLength = 3;
+        public const int MaxPersonNationalityLength = 30;
     }
 }

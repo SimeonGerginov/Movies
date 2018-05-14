@@ -23,7 +23,6 @@ namespace Movies.Persistence.Data.Migrations
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.IsDeleted);
-            
         }
         
         public override void Down()
