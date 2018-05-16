@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -47,6 +48,10 @@
   <ItemGroup>
     <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Kendo.Mvc, Version=2018.2.515.545, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libraries\Kendo.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -206,6 +211,7 @@
     <Compile Include="App_Start\DependencyInjectionConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -217,15 +223,58 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Kendo\Black\editor.png" />
+    <Content Include="Content\Kendo\Black\imagebrowser.png" />
+    <Content Include="Content\Kendo\Black\indeterminate.gif" />
+    <Content Include="Content\Kendo\Black\loading-image.gif" />
+    <Content Include="Content\Kendo\Black\loading.gif" />
+    <Content Include="Content\Kendo\Black\loading_2x.gif" />
+    <Content Include="Content\Kendo\Black\markers.png" />
+    <Content Include="Content\Kendo\Black\markers_2x.png" />
+    <Content Include="Content\Kendo\Black\slider-h.gif" />
+    <Content Include="Content\Kendo\Black\slider-v.gif" />
+    <Content Include="Content\Kendo\Black\sprite.png" />
+    <Content Include="Content\Kendo\Black\sprite_2x.png" />
+    <Content Include="Content\Kendo\Black\sprite_kpi.png" />
+    <Content Include="Content\Kendo\Black\sprite_kpi_2x.png" />
+    <Content Include="Content\Kendo\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Content\Kendo\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.svg" />
+    <Content Include="Content\Kendo\kendo.black.min.css" />
+    <Content Include="Content\Kendo\kendo.common.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Libraries\Kendo.Mvc.dll" />
+    <Content Include="Libraries\Kendo.Mvc.xml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Content\Kendo\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Content\Kendo\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="Content\Kendo\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="Content\Kendo\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.eot" />
+    <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.ttf" />
+    <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.woff" />
+    <Content Include="Content\Kendo\kendo.black.min.css.map" />
+    <Content Include="Content\Kendo\kendo.common.min.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -234,6 +283,8 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js" />
+    <Content Include="Scripts\Kendo\kendo.web.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -271,8 +322,14 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Scripts\Kendo\kendo.aspnetmvc.min.js.map" />
+    <Content Include="Scripts\Kendo\kendo.web.min.js.map" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Controllers\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
