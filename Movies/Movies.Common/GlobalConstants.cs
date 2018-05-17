@@ -2,6 +2,9 @@
 {
     public static class GlobalConstants
     {
+        // Admin Info
+        public const string AdminRole = "Admin";
+
         // Movie Constants
         public const int MinMovieLength = 3;
         public const int MaxMovieLength = 40;
@@ -21,5 +24,9 @@
         public const int MaxPersonNameLength = 30;
         public const int MinPersonNationalityLength = 3;
         public const int MaxPersonNationalityLength = 30;
+
+        // User Constants
+        public const int MinUserNameLength = 3;
+        public const int MaxUserNameLength = 30;
     }
 }
