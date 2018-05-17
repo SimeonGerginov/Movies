@@ -91,6 +91,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Movies.Common\Movies.Common.csproj">
+      <Project>{DC76D796-73F6-49F4-B120-7275F0D8123F}</Project>
+      <Name>Movies.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Movies.Core.Models\Movies.Core.Models.csproj">
       <Project>{6F111302-9D2D-4B7B-AE84-06624F0E01D5}</Project>
       <Name>Movies.Core.Models</Name>
