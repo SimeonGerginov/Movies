@@ -12,7 +12,7 @@ namespace Movies.Persistence.Data.Migrations
 {
     public sealed class Configuration : DbMigrationsConfiguration<MsSqlDbContext>
     {
-        private const string AdminUsername = "Simeon";
+        private const string AdminUsername = "admin@gmail.com";
         private const string AdminFirstName = "Simeon";
         private const string AdminLastName = "Gerginov";
         private const Gender AdminGender = Gender.Male;
