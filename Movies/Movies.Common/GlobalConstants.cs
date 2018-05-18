@@ -28,5 +28,8 @@
         // User Constants
         public const int MinUserNameLength = 3;
         public const int MaxUserNameLength = 30;
+
+        // Grids
+        public const int GridsPageSize = 12;
     }
 }

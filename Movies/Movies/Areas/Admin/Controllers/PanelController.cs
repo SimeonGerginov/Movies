@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using System.Web.Mvc.Expressions;
+
 using Bytes2you.Validation;
 
 using Movies.Common;
@@ -7,6 +9,7 @@ using Movies.Infrastructure.Attributes;
 using Movies.Services.Contracts;
 using Movies.Services.Mappings;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
+using Movies.Web.Areas.Admin.Controllers.Grids;
 using Movies.Web.Areas.Admin.Models;
 
 namespace Movies.Web.Areas.Admin.Controllers
@@ -42,10 +45,10 @@ namespace Movies.Web.Areas.Admin.Controllers
             if (this.ModelState.IsValid)
             {
                 var mappedGenre = MappingService.MappingProvider.Map<Genre>(genreViewModel);
-                this.genreService.Add(mappedGenre);
+                this.genreService.AddGenre(mappedGenre);
             }
 
-            return this.View();
+            return this.RedirectToAction<GenresGridController>(c => c.Index());
         }
     }
 }
