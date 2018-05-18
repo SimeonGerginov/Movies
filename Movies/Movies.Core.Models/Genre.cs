@@ -2,11 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 
 using Movies.Common;
-using Movies.Core.Contracts;
+using Movies.Core.Entities;
 
 namespace Movies.Core.Models
 {
-    public class Genre : IBaseEntity
+    public class Genre : BaseEntity
     {
         private ICollection<Movie> movies;
 
@@ -14,8 +14,6 @@ namespace Movies.Core.Models
         {
             this.movies = new HashSet<Movie>();
         }
-
-        public int Id { get; set; }
 
         [StringLength(GlobalConstants.MaxGenreNameLength, MinimumLength = GlobalConstants.MinGenreNameLength)]
         public string Name { get; set; }

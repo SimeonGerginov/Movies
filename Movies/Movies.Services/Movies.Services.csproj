@@ -47,12 +47,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IDataService.cs" />
+    <Compile Include="Contracts\IGenreService.cs" />
     <Compile Include="Contracts\IMappingService.cs" />
+    <Compile Include="GenreService.cs" />
     <Compile Include="Mappings\MappingService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Core.Models\Movies.Core.Models.csproj">
+      <Project>{6F111302-9D2D-4B7B-AE84-06624F0E01D5}</Project>
+      <Name>Movies.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Movies.Core\Movies.Core.csproj">
+      <Project>{09E9916A-4EDA-44A6-8B6D-091E514CB473}</Project>
+      <Name>Movies.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
