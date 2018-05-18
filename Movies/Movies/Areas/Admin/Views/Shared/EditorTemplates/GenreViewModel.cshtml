@@ -1,0 +1,25 @@
+﻿@using Movies.Web.Areas.Admin.Models
+@model GenreViewModel
+    
+@using (Html.BeginForm<PanelController>(c => c.AddGenre(null), FormMethod.Post, null, new { id = "add-data-form" }))
+{
+    <div class="form-group">
+        <label>
+            Genre Data
+        </label>
+        
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-flash"></i>
+            </span>
+            @Html.EditorFor(g => g.Name, 
+                new { htmlAttributes = new { @class = "form-control", placeholder = "Name", required = true }})
+        </div>
+        
+        <div>
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+}

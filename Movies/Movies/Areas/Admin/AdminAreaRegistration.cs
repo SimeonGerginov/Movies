@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace Movies.Areas.Admin
+namespace Movies.Web.Areas.Admin
 {
     public class AdminAreaRegistration : AreaRegistration 
     {
