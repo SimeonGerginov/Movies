@@ -7,7 +7,7 @@
     </h1>
     
     @(Html.Kendo()
-          .Grid<GridGenreViewModel>
+          .Grid<GridGenreViewModel>()
           .Name("GenresGrid")
           .Columns(columns =>
           {
@@ -36,7 +36,7 @@
                   })
                   .Read(g => g.Action("ReadGenres", "GenresGrid")).PageSize(GlobalConstants.GridsPageSize)
                   .Destroy(g => g.Action("DeleteGenre", "GenresGrid"))
-                  .Update(g => g.Action("EditGenre", "GenresGrid"))
+                  .Update(g => g.Action("EditGenre", "GenresGrid"));
           })
           .Filterable(f => f.Mode(GridFilterMode.Menu))
           .Deferred())
