@@ -11,9 +11,9 @@
           .Name("GenresGrid")
           .Columns(columns =>
           {
-              columns.Bound(g => g.Name).Width(150);
-              columns.Bound(g => g.CreatedOn).Width(150);
-              columns.Bound(g => g.ModifiedOn).Width(150);
+              columns.Bound(g => g.Name).Title("Genre Name").Width(150);
+              columns.Bound(g => g.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+              columns.Bound(g => g.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
               columns.Command(command =>
               {
                   command.Edit();
@@ -33,6 +33,8 @@
                   .Model(m =>
                   {
                       m.Id(g => g.Id);
+                      m.Field(g => g.CreatedOn).Editable(false);
+                      m.Field(g => g.ModifiedOn).Editable(false);
                   })
                   .Read(g => g.Action("ReadGenres", "GenresGrid")).PageSize(GlobalConstants.GridsPageSize)
                   .Destroy(g => g.Action("DeleteGenre", "GenresGrid"))
