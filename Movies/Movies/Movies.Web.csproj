@@ -218,6 +218,7 @@
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Compile Include="Areas\Admin\Models\GenreViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GridGenreViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\MovieViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />

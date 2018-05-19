@@ -4,5 +4,6 @@
     {
         // Add partials
         public const string AddGenre = "_AddGenrePartial";
+        public const string AddMovie = "_AddMoviePartial";
     }
 }

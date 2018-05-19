@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using System.Web.Mvc.Expressions;
 
 using Bytes2you.Validation;
@@ -17,12 +18,15 @@ namespace Movies.Web.Areas.Admin.Controllers
     public class PanelController : AdminController
     {
         private readonly IGenreService genreService;
+        private readonly IMovieService movieService;
 
-        public PanelController(IGenreService genreService)
+        public PanelController(IGenreService genreService, IMovieService movieService)
         {
             Guard.WhenArgument(genreService, "Genre Service").IsNull().Throw();
+            Guard.WhenArgument(movieService, "Movie Service").IsNull().Throw();
 
             this.genreService = genreService;
+            this.movieService = movieService;
         }
 
         public ActionResult Index()
@@ -49,6 +53,22 @@ namespace Movies.Web.Areas.Admin.Controllers
             }
 
             return this.RedirectToAction<GenresGridController>(c => c.Index());
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult AddMovie()
+        {
+            var genresSelectList = this.genreService
+                .GetAllGenres()
+                .Select(g => new SelectListItem() { Text = g.Name, Value = g.Name });
+
+            var movieViewModel = new MovieViewModel()
+            {
+                GenresSelectList = genresSelectList
+            };
+
+            return this.PartialView(PartialViews.AddMovie, movieViewModel);
         }
     }
 }
