@@ -296,6 +296,8 @@
     <Content Include="Areas\Admin\Views\Shared\_AddGenrePartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\GenreViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\GenresGrid\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AddMoviePartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\MovieViewModel.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -70,5 +70,12 @@ namespace Movies.Web.Areas.Admin.Controllers
 
             return this.PartialView(PartialViews.AddMovie, movieViewModel);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddMovie(MovieViewModel)
+        {
+            return this.View();
+        }
     }
 }

@@ -32,6 +32,18 @@
                                         <span class="glyphicon glyphicon-plus"></span>
                                         <br /> Genre
                                     </a>
+
+                                    <a class="btn btn-primary"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Movie')"
+                                       data-ajax-update="#modal-body"
+                                       href="@(Url.Action<PanelController>(c => c.AddMovie()))">
+                                        <span class="fa fa-upload fa-3x"></span>
+                                        <br /> Add
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <br /> Movie
+                                    </a>
                                 </div>
                             </div>
                             

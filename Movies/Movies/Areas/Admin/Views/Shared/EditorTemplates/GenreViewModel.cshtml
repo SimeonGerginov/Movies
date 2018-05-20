@@ -5,19 +5,16 @@
 {
     <div class="form-group">
         <label>
-            Genre Data
+            Genre Name
         </label>
         
         <div class="input-group">
             <span class="input-group-addon">
-                <i class="glyphicon glyphicon-flash"></i>
+                <i class="glyphicon glyphicon-film"></i>
             </span>
-            @Html.EditorFor(g => g.Name, 
+            @Html.EditorFor(g => g.Name,
                 new { htmlAttributes = new { @class = "form-control", placeholder = "Name", required = true }})
-        </div>
-        
-        <div>
-            @Html.ValidationMessageFor(m => m.Name)
+            @Html.ValidationMessageFor(g => g.Name)
         </div>
     </div>
 
