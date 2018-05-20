@@ -73,9 +73,16 @@ namespace Movies.Web.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddMovie(MovieViewModel)
+        [SaveChanges]
+        public ActionResult AddMovie(MovieViewModel movieViewModel)
         {
-            return this.View();
+            if (this.ModelState.IsValid)
+            {
+                var movieModel = MappingService.MappingProvider.Map<Movie>(movieViewModel);
+                this.movieService.AddMovie(movieModel, movieViewModel.GenreName);
+            }
+
+            return this.RedirectToAction<MoviesGridController>(c => c.Index());
         }
     }
 }

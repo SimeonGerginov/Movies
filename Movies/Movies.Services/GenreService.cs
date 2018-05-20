@@ -25,13 +25,24 @@ namespace Movies.Services
         {
             Guard.WhenArgument(genre, "Genre").IsNull().Throw();
 
+            var genreExists = this.genreRepository
+                .GetAllFiltered(g => g.Name == genre.Name)
+                .Any();
+
+            if (genreExists)
+            {
+                throw new InvalidOperationException("Genre already exists!");
+            }
+
             genre.CreatedOn = DateTime.UtcNow;
             this.genreRepository.Add(genre);
         }
 
         public bool DeleteGenre(string genreName)
         {
-            var targetGenre = this.genreRepository.GetAllFiltered(g => g.Name == genreName).FirstOrDefault();
+            var targetGenre = this.genreRepository
+                .GetAllFiltered(g => g.Name == genreName)
+                .FirstOrDefault();
 
             if (targetGenre == null)
             {
@@ -44,7 +55,9 @@ namespace Movies.Services
 
         public void UpdateGenre(Genre genreToUpdate)
         {
-            var targetGenre = this.genreRepository.GetAllFiltered(g => g.Id == genreToUpdate.Id).FirstOrDefault();
+            var targetGenre = this.genreRepository
+                .GetAllFiltered(g => g.Id == genreToUpdate.Id)
+                .FirstOrDefault();
 
             if (targetGenre != null)
             {

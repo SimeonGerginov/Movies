@@ -13,25 +13,47 @@ namespace Movies.Services
     public class MovieService : IMovieService
     {
         private readonly IRepository<Movie> movieRepository;
+        private readonly IRepository<Genre> genreRepository;
 
-        public MovieService(IRepository<Movie> movieRepository)
+        public MovieService(IRepository<Movie> movieRepository, IRepository<Genre> genreRepository)
         {
             Guard.WhenArgument(movieRepository, "Movie Repository").IsNull().Throw();
+            Guard.WhenArgument(genreRepository, "Genre Repository").IsNull().Throw();
 
             this.movieRepository = movieRepository;
+            this.genreRepository = genreRepository;
         }
 
-        public void AddMovie(Movie movie)
+        public void AddMovie(Movie movie, string genreName)
         {
             Guard.WhenArgument(movie, "Movie").IsNull().Throw();
 
+            var movieExists = this.movieRepository
+                .GetAllFiltered(m => m.Name == movie.Name && m.Year == movie.Year)
+                .Any();
+
+            if (movieExists)
+            {
+                throw new InvalidOperationException("Movie already exists!");
+            }
+
+            var movieGenre = this.genreRepository
+                .GetAllFiltered(g => g.Name == genreName)
+                .FirstOrDefault();
+
+            Guard.WhenArgument(movieGenre, "Movie Genre").IsNull().Throw();
+
+            movie.GenreId = movieGenre.Id;
             movie.CreatedOn = DateTime.UtcNow;
+
             this.movieRepository.Add(movie);
         }
 
         public bool DeleteMovie(string movieName)
         {
-            var targetMovie = this.movieRepository.GetAllFiltered(m => m.Name == movieName).FirstOrDefault();
+            var targetMovie = this.movieRepository
+                .GetAllFiltered(m => m.Name == movieName)
+                .FirstOrDefault();
 
             if (targetMovie == null)
             {
@@ -44,7 +66,9 @@ namespace Movies.Services
 
         public void UpdateMovie(Movie movieToUpdate)
         {
-            var targetMovie = this.movieRepository.GetAllFiltered(m => m.Id == movieToUpdate.Id).FirstOrDefault();
+            var targetMovie = this.movieRepository
+                .GetAllFiltered(m => m.Id == movieToUpdate.Id)
+                .FirstOrDefault();
 
             if (targetMovie != null)
             {

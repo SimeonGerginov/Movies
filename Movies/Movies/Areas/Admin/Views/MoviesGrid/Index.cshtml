@@ -1,0 +1,51 @@
+﻿@using Movies.Web.Areas.Admin.Models
+
+<div class="container body-content">
+    <h1>
+        <i class="fa fa-globe fa-3x" aria-hidden="true"></i>
+        Movies Grid
+    </h1>
+
+    @(Html.Kendo()
+                  .Grid<GridMovieViewModel>()
+                  .Name("MoviesGrid")
+                  .Columns(columns =>
+                  {
+                      columns.Bound(m => m.Name).Title("Movie Name").Width(150);
+                      columns.Bound(m => m.Year).Title("Movie Year").Width(150);
+                      columns.Bound(m => m.RunningTime).Title("Movie Running Time").Width(150);
+                      columns.Bound(m => m.Description).Title("Movie Description").Width(300);
+                      columns.Bound(m => m.Rating).Title("Movie Rating").Width(150);
+                      columns.Bound(m => m.GenreName).Title("Movie Genre").Width(150);
+                      columns.Bound(m => m.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+                      columns.Bound(m => m.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+                      columns.Command(command =>
+                      {
+                          command.Edit();
+                          command.Destroy();
+                      }).Width(250);
+                  })
+                  .Editable(editable => editable.Mode(GridEditMode.InLine))
+                  .Pageable(m =>
+                  {
+                      m.Refresh(true);
+                      m.PageSizes(true);
+                  })
+                  .Sortable()
+                  .DataSource(source =>
+                  {
+                      source.Ajax()
+                          .Model(m =>
+                          {
+                              m.Id(mv => mv.Id);
+                              m.Field(mv => mv.GenreName).Editable(false);
+                              m.Field(mv => mv.CreatedOn).Editable(false);
+                              m.Field(mv => mv.ModifiedOn).Editable(false);
+                          })
+                          .Read(m => m.Action("ReadMovies", "MoviesGrid")).PageSize(GlobalConstants.GridsPageSize)
+                          .Destroy(m => m.Action("DeleteMovie", "MoviesGrid"))
+                          .Update(m => m.Action("EditMovie", "MoviesGrid"));
+                  })
+                  .Filterable(f => f.Mode(GridFilterMode.Menu))
+                  .Deferred())
+</div>
