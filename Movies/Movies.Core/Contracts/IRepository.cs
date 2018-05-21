@@ -14,6 +14,8 @@ namespace Movies.Core.Contracts
 
         IEnumerable<T> GetAllFiltered(Expression<Func<T, bool>> filterExpression);
 
+        IEnumerable<T> GetAllAndIncludeEntity(string entityToInclude);
+
         void Add(T entity);
 
         void Update(T entity);

@@ -72,14 +72,20 @@ namespace Movies.Services
 
             if (targetMovie != null)
             {
+                targetMovie.Name = movieToUpdate.Name;
+                targetMovie.Year = movieToUpdate.Year;
+                targetMovie.RunningTime = movieToUpdate.RunningTime;
+                targetMovie.Description = movieToUpdate.Description;
+                targetMovie.Rating = movieToUpdate.Rating;
                 targetMovie.ModifiedOn = DateTime.UtcNow;
+
                 this.movieRepository.Update(targetMovie);
             }
         }
 
         public IEnumerable<Movie> GetAllMovies()
         {
-            return this.movieRepository.GetAll();
+            return this.movieRepository.GetAllAndIncludeEntity("Genre");
         }
     }
 }

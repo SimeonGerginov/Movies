@@ -62,6 +62,8 @@ namespace Movies.Services
             if (targetGenre != null)
             {
                 targetGenre.ModifiedOn = DateTime.UtcNow;
+                targetGenre.Name = genreToUpdate.Name;
+
                 this.genreRepository.Update(targetGenre);
             }
         }

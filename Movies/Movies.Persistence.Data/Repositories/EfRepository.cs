@@ -43,6 +43,13 @@ namespace Movies.Persistence.Data.Repositories
             return this.dbSet.AsEnumerable();
         }
 
+        public IEnumerable<T> GetAllAndIncludeEntity(string entityToInclude)
+        {
+            return this.dbSet
+                .Include(entityToInclude)
+                .AsEnumerable();
+        }
+
         public IEnumerable<T> GetAllFiltered(Expression<Func<T, bool>> filterExpression)
         {
             return this.dbSet

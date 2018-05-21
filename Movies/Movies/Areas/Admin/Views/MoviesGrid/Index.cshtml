@@ -11,19 +11,19 @@
                   .Name("MoviesGrid")
                   .Columns(columns =>
                   {
-                      columns.Bound(m => m.Name).Title("Movie Name").Width(150);
-                      columns.Bound(m => m.Year).Title("Movie Year").Width(150);
-                      columns.Bound(m => m.RunningTime).Title("Movie Running Time").Width(150);
-                      columns.Bound(m => m.Description).Title("Movie Description").Width(300);
-                      columns.Bound(m => m.Rating).Title("Movie Rating").Width(150);
-                      columns.Bound(m => m.GenreName).Title("Movie Genre").Width(150);
-                      columns.Bound(m => m.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
-                      columns.Bound(m => m.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+                      columns.Bound(m => m.Name).Title("Name").Width(150);
+                      columns.Bound(m => m.Year).Title("Year").Width(150);
+                      columns.Bound(m => m.RunningTime).Title("Running Time");
+                      columns.Bound(m => m.Description).Title("Description").Width(1000);
+                      columns.Bound(m => m.Rating).Title("Rating");
+                      columns.Bound(m => m.GenreName).Title("Genre").Width(150);
+                      columns.Bound(m => m.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(300);
+                      columns.Bound(m => m.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(300);
                       columns.Command(command =>
                       {
                           command.Edit();
                           command.Destroy();
-                      }).Width(250);
+                      }).Width(1000);
                   })
                   .Editable(editable => editable.Mode(GridEditMode.InLine))
                   .Pageable(m =>
