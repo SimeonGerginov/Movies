@@ -23,8 +23,15 @@ namespace Movies.Core.Models
         [StringLength(GlobalConstants.MaxPersonNationalityLength, MinimumLength = GlobalConstants.MinPersonNationalityLength)]
         public string Nationality { get; set; }
 
+        [Range(GlobalConstants.MinPersonAge, GlobalConstants.MaxPersonAge)]
+        public int Age { get; set; }
+
+        public Gender Gender { get; set; }
+
+        public byte[] Picture { get; set; }
+
         [DateValidation]
-        public DateTime Birthday { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         public MovieRole Role { get; set; }
 

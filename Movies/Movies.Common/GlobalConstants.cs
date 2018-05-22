@@ -24,6 +24,8 @@
         public const int MaxPersonNameLength = 30;
         public const int MinPersonNationalityLength = 3;
         public const int MaxPersonNationalityLength = 30;
+        public const int MinPersonAge = 1;
+        public const int MaxPersonAge = 120;
 
         // User Constants
         public const int MinUserNameLength = 3;
