@@ -16,7 +16,8 @@ namespace Movies.Persistence.Data.Configurations
                     cs.ToTable("PersonMovie");
                 });
 
-            this.Property(p => p.Name).IsRequired();
+            this.Property(p => p.FirstName).IsRequired();
+            this.Property(p => p.LastName).IsRequired();
             this.Property(p => p.Nationality).IsRequired();
             this.Property(p => p.Role).IsRequired();
             this.Property(p => p.DateOfBirth).IsRequired();

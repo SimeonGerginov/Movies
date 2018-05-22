@@ -302,6 +302,8 @@
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\MovieViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\MoviesGrid\Index.cshtml" />
     <Content Include="Content\Kendo\kendo.material.min.css.map" />
+    <Content Include="Areas\Admin\Views\Shared\_AddPersonPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\PersonViewModel.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

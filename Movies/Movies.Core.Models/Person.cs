@@ -18,7 +18,10 @@ namespace Movies.Core.Models
         }
 
         [StringLength(GlobalConstants.MaxPersonNameLength, MinimumLength = GlobalConstants.MinPersonNameLength)]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+
+        [StringLength(GlobalConstants.MaxPersonNameLength, MinimumLength = GlobalConstants.MinPersonNameLength)]
+        public string LastName { get; set; }
 
         [StringLength(GlobalConstants.MaxPersonNationalityLength, MinimumLength = GlobalConstants.MinPersonNationalityLength)]
         public string Nationality { get; set; }

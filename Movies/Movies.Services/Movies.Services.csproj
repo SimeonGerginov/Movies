@@ -50,9 +50,11 @@
     <Compile Include="Contracts\IGenreService.cs" />
     <Compile Include="Contracts\IMappingService.cs" />
     <Compile Include="Contracts\IMovieService.cs" />
+    <Compile Include="Contracts\IPersonService.cs" />
     <Compile Include="GenreService.cs" />
     <Compile Include="Mappings\MappingService.cs" />
     <Compile Include="MovieService.cs" />
+    <Compile Include="PersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

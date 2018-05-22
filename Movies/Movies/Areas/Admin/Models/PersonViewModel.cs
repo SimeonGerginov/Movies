@@ -12,15 +12,15 @@ namespace Movies.Web.Areas.Admin.Models
     {
         [Required]
         [StringLength(GlobalConstants.MaxPersonNameLength, MinimumLength = GlobalConstants.MinPersonNameLength)]
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(GlobalConstants.MaxPersonNameLength, MinimumLength = GlobalConstants.MinPersonNameLength)]
+        public string LastName { get; set; }
 
         [Required]
         [StringLength(GlobalConstants.MaxPersonNationalityLength, MinimumLength = GlobalConstants.MinPersonNationalityLength)]
         public string Nationality { get; set; }
-
-        [Required]
-        [Range(GlobalConstants.MinPersonAge, GlobalConstants.MaxPersonAge)]
-        public int Age { get; set; }
 
         [Required]
         public Gender Gender { get; set; }

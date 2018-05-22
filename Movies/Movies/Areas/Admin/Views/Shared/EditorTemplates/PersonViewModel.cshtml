@@ -1,0 +1,112 @@
+﻿@using Movies.Web.Areas.Admin.Models
+@model PersonViewModel
+
+@using (Html.BeginForm<PanelController>(c => c.AddPerson(null), FormMethod.Post, null, new { enctype = "multipart/form-data", id = "add-data-form" }))
+{
+    <div class="form-group">
+        <label>
+            First Name
+        </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-user"></i>
+            </span>
+            @Html.EditorFor(p => p.FirstName,
+                new { htmlAttributes = new { @class = "form-control", placeholder = "First Name", required = true }})
+            @Html.ValidationMessageFor(p => p.FirstName)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Last Name
+        </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-user"></i>
+            </span>
+            @Html.EditorFor(p => p.LastName,
+                new { htmlAttributes = new { @class = "form-control", placeholder = "Last Name", required = true }})
+            @Html.ValidationMessageFor(p => p.LastName)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Nationality
+        </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-flag"></i>
+            </span>
+            @Html.EditorFor(p => p.Nationality,
+                new { htmlAttributes = new { @class = "form-control", placeholder = "Nationality", required = true }})
+            @Html.ValidationMessageFor(p => p.Nationality)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Gender
+        </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-asterisk"></i>
+            </span>
+            @Html.EnumDropDownListFor(p => p.Gender,
+                " ",
+                new { htmlAttributes = new { @class = "form-control", required = true }})
+            @Html.ValidationMessageFor(p => p.Gender)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Role
+        </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-film"></i>
+            </span>
+            @Html.EnumDropDownListFor(p => p.Role,
+                " ",
+                new { htmlAttributes = new { @class = "form-control", required = true }})
+            @Html.ValidationMessageFor(p => p.Role)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Date of Birth
+        </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon k-datepicker-calendar"></i>
+            </span>
+            @Html.Kendo()
+                 .DatePickerFor(p => p.DateOfBirth)
+            @Html.ValidationMessageFor(p => p.DateOfBirth)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>
+            Picture
+        </label>
+
+        <div class="input-group">
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-picture"></i>
+            </span>
+            <input type="file" name="Picture" />
+        </div>
+    </div>
+
+    @Html.AntiForgeryToken()
+}
