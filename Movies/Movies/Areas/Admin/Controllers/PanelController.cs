@@ -84,5 +84,25 @@ namespace Movies.Web.Areas.Admin.Controllers
 
             return this.RedirectToAction<MoviesGridController>(c => c.Index());
         }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult AddPerson()
+        {
+            return this.PartialView(PartialViews.AddPerson);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [SaveChanges]
+        public ActionResult AddPerson(PersonViewModel personViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var personModel = MappingService.MappingProvider.Map<Person>(personViewModel);
+            }
+
+            return this.View();
+        }
     }
 }
