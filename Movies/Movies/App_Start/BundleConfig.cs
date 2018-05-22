@@ -36,7 +36,7 @@ namespace Movies.Web.App_Start
                       "~/Content/fontawesome/font-awesome.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo-css").Include(
-                "~/Content/Kendo/kendo.black.min.css",
+                "~/Content/Kendo/kendo.material.min.css",
                 "~/Content/Kendo/kendo.common.min.css"));
         }
     }

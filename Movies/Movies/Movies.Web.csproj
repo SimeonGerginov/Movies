@@ -252,8 +252,8 @@
     <Content Include="Content\Kendo\fonts\DejaVu\LICENSE.txt" />
     <Content Include="Content\Kendo\fonts\glyphs\KendoUIGlyphs.svg" />
     <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.svg" />
-    <Content Include="Content\Kendo\kendo.black.min.css" />
     <Content Include="Content\Kendo\kendo.common.min.css" />
+    <Content Include="Content\Kendo\kendo.material.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -287,7 +287,6 @@
     <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.eot" />
     <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.ttf" />
     <Content Include="Content\Kendo\fonts\glyphs\WebComponentsIcons.woff" />
-    <Content Include="Content\Kendo\kendo.black.min.css.map" />
     <Content Include="Content\Kendo\kendo.common.min.css.map" />
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Content\fonts\FontAwesome.otf" />
@@ -301,6 +300,7 @@
     <Content Include="Areas\Admin\Views\Shared\_AddMoviePartial.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\EditorTemplates\MovieViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\MoviesGrid\Index.cshtml" />
+    <Content Include="Content\Kendo\kendo.material.min.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

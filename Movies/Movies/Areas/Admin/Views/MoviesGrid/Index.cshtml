@@ -11,10 +11,9 @@
                   .Name("MoviesGrid")
                   .Columns(columns =>
                   {
-                      columns.Bound(m => m.Name).Title("Name").Width(150);
+                      columns.Bound(m => m.Name).Title("Name").Width(300);
                       columns.Bound(m => m.Year).Title("Year").Width(150);
                       columns.Bound(m => m.RunningTime).Title("Running Time");
-                      columns.Bound(m => m.Description).Title("Description").Width(1000);
                       columns.Bound(m => m.Rating).Title("Rating");
                       columns.Bound(m => m.GenreName).Title("Genre").Width(150);
                       columns.Bound(m => m.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(300);
@@ -23,7 +22,7 @@
                       {
                           command.Edit();
                           command.Destroy();
-                      }).Width(1000);
+                      }).Width(500);
                   })
                   .Editable(editable => editable.Mode(GridEditMode.InLine))
                   .Pageable(m =>
