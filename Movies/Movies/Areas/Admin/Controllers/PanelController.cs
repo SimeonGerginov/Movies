@@ -19,14 +19,21 @@ namespace Movies.Web.Areas.Admin.Controllers
     {
         private readonly IGenreService genreService;
         private readonly IMovieService movieService;
+        private readonly IPersonService personService;
+        private readonly IFileConverter fileConverter;
 
-        public PanelController(IGenreService genreService, IMovieService movieService)
+        public PanelController(IGenreService genreService, IMovieService movieService,
+            IPersonService personService, IFileConverter fileConverter)
         {
             Guard.WhenArgument(genreService, "Genre Service").IsNull().Throw();
             Guard.WhenArgument(movieService, "Movie Service").IsNull().Throw();
+            Guard.WhenArgument(personService, "Person Service").IsNull().Throw();
+            Guard.WhenArgument(fileConverter, "File Converter").IsNull().Throw();
 
             this.genreService = genreService;
             this.movieService = movieService;
+            this.personService = personService;
+            this.fileConverter = fileConverter;
         }
 
         public ActionResult Index()
@@ -95,11 +102,20 @@ namespace Movies.Web.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [SaveChanges]
-        public ActionResult AddPerson(PersonViewModel personViewModel)
+        public ActionResult AddPerson([Bind(Exclude = "Picture")]PersonViewModel personViewModel)
         {
             if (this.ModelState.IsValid)
             {
+                if (this.Request.Files.Count > 0)
+                {
+                    var picture = this.Request.Files["Picture"];
+                    var imageData = this.fileConverter.PostedToByteArray(picture);
+
+                    personViewModel.Picture = imageData;
+                }
+
                 var personModel = MappingService.MappingProvider.Map<Person>(personViewModel);
+                this.personService.AddPerson(personModel);
             }
 
             return this.View();
