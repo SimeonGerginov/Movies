@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,10 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IDataService.cs" />
+    <Compile Include="Contracts\IFileConverter.cs" />
     <Compile Include="Contracts\IGenreService.cs" />
     <Compile Include="Contracts\IMappingService.cs" />
     <Compile Include="Contracts\IMovieService.cs" />
     <Compile Include="Contracts\IPersonService.cs" />
+    <Compile Include="FileConverter.cs" />
     <Compile Include="GenreService.cs" />
     <Compile Include="Mappings\MappingService.cs" />
     <Compile Include="MovieService.cs" />
