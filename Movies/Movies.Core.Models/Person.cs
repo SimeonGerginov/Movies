@@ -27,7 +27,7 @@ namespace Movies.Core.Models
         public string Nationality { get; set; }
 
         [Range(GlobalConstants.MinPersonAge, GlobalConstants.MaxPersonAge)]
-        public int Age { get; set; }
+        public int Age { get; private set; }
 
         public Gender Gender { get; set; }
 
@@ -42,6 +42,11 @@ namespace Movies.Core.Models
         {
             get { return this.movies; }
             set { this.movies = value; }
+        }
+
+        public void SetPersonAge()
+        {
+            this.Age = DateTime.UtcNow.Year - this.DateOfBirth.Year;
         }
     }
 }

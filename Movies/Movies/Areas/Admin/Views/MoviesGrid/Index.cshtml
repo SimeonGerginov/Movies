@@ -7,45 +7,45 @@
     </h1>
 
     @(Html.Kendo()
-                  .Grid<GridMovieViewModel>()
-                  .Name("MoviesGrid")
-                  .Columns(columns =>
+          .Grid<GridMovieViewModel>()
+          .Name("MoviesGrid")
+          .Columns(columns =>
+          {
+              columns.Bound(m => m.Name).Title("Name").Width(300);
+              columns.Bound(m => m.Year).Title("Year").Width(150);
+              columns.Bound(m => m.RunningTime).Title("Running Time");
+              columns.Bound(m => m.Rating).Title("Rating");
+              columns.Bound(m => m.GenreName).Title("Genre").Width(150);
+              columns.Bound(m => m.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(300);
+              columns.Bound(m => m.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(300);
+              columns.Command(command =>
+              {
+                  command.Edit();
+                  command.Destroy();
+              }).Width(500);
+          })
+          .Editable(editable => editable.Mode(GridEditMode.InLine))
+          .Scrollable()
+          .Pageable(m =>
+          {
+              m.Refresh(true);
+              m.PageSizes(true);
+          })
+          .Sortable()
+          .DataSource(source =>
+          {
+              source.Ajax()
+                  .Model(m =>
                   {
-                      columns.Bound(m => m.Name).Title("Name").Width(300);
-                      columns.Bound(m => m.Year).Title("Year").Width(150);
-                      columns.Bound(m => m.RunningTime).Title("Running Time");
-                      columns.Bound(m => m.Rating).Title("Rating");
-                      columns.Bound(m => m.GenreName).Title("Genre").Width(150);
-                      columns.Bound(m => m.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(300);
-                      columns.Bound(m => m.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(300);
-                      columns.Command(command =>
-                      {
-                          command.Edit();
-                          command.Destroy();
-                      }).Width(500);
+                      m.Id(mv => mv.Id);
+                      m.Field(mv => mv.GenreName).Editable(false);
+                      m.Field(mv => mv.CreatedOn).Editable(false);
+                      m.Field(mv => mv.ModifiedOn).Editable(false);
                   })
-                  .Editable(editable => editable.Mode(GridEditMode.InLine))
-                  .Scrollable()
-                  .Pageable(m =>
-                  {
-                      m.Refresh(true);
-                      m.PageSizes(true);
-                  })
-                  .Sortable()
-                  .DataSource(source =>
-                  {
-                      source.Ajax()
-                          .Model(m =>
-                          {
-                              m.Id(mv => mv.Id);
-                              m.Field(mv => mv.GenreName).Editable(false);
-                              m.Field(mv => mv.CreatedOn).Editable(false);
-                              m.Field(mv => mv.ModifiedOn).Editable(false);
-                          })
-                          .Read(m => m.Action("ReadMovies", "MoviesGrid")).PageSize(GlobalConstants.GridsPageSize)
-                          .Destroy(m => m.Action("DeleteMovie", "MoviesGrid"))
-                          .Update(m => m.Action("EditMovie", "MoviesGrid"));
-                  })
-                  .Filterable(f => f.Mode(GridFilterMode.Menu))
-                  .Deferred())
+                  .Read(m => m.Action("ReadMovies", "MoviesGrid")).PageSize(GlobalConstants.GridsPageSize)
+                  .Destroy(m => m.Action("DeleteMovie", "MoviesGrid"))
+                  .Update(m => m.Action("EditMovie", "MoviesGrid"));
+          })
+          .Filterable(f => f.Mode(GridFilterMode.Menu))
+          .Deferred())
 </div>

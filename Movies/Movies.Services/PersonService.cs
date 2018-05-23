@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using Bytes2you.Validation;
@@ -37,7 +38,51 @@ namespace Movies.Services
             }
 
             person.CreatedOn = DateTime.UtcNow;
+            person.SetPersonAge();
+         
             this.personRepository.Add(person);
+        }
+
+        public bool DeletePerson(int personId)
+        {
+            var targetPerson = this.personRepository
+                .GetAllFiltered(p => p.Id == personId)
+                .FirstOrDefault();
+
+            if (targetPerson == null)
+            {
+                return false;
+            }
+
+            this.personRepository.Delete(targetPerson);
+            return true;
+        }
+
+        public void UpdatePerson(Person personToUpdate)
+        {
+            var targetPerson = this.personRepository
+                .GetAllFiltered(p => p.Id == personToUpdate.Id)
+                .FirstOrDefault();
+
+            if (targetPerson != null)
+            {
+                targetPerson.FirstName = personToUpdate.FirstName;
+                targetPerson.LastName = personToUpdate.LastName;
+                targetPerson.Nationality = personToUpdate.Nationality;
+                targetPerson.Gender = personToUpdate.Gender;
+                targetPerson.Picture = personToUpdate.Picture;
+                targetPerson.DateOfBirth = personToUpdate.DateOfBirth;
+                targetPerson.Role = personToUpdate.Role;
+                targetPerson.ModifiedOn = DateTime.UtcNow;
+                targetPerson.SetPersonAge();
+
+                this.personRepository.Update(targetPerson);
+            }
+        }
+
+        public IEnumerable<Person> GetAllPeople()
+        {
+            return this.personRepository.GetAll();
         }
     }
 }

@@ -118,7 +118,7 @@ namespace Movies.Web.Areas.Admin.Controllers
                 this.personService.AddPerson(personModel);
             }
 
-            return this.View();
+            return this.RedirectToAction<PeopleGridController>(c => c.Index());
         }
     }
 }

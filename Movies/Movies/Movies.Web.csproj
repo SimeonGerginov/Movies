@@ -215,10 +215,12 @@
     <Compile Include="Areas\Admin\Controllers\Abstraction\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\GenresGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\MoviesGridController.cs" />
+    <Compile Include="Areas\Admin\Controllers\Grids\PeopleGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Compile Include="Areas\Admin\Models\GenreViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GridGenreViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GridMovieViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\GridPersonViewModel.cs" />
     <Compile Include="Areas\Admin\Models\MovieViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PersonViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -305,6 +307,7 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="Areas\Admin\Views\PeopleGrid\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
