@@ -8,8 +8,9 @@ namespace Movies.Web.Areas.Admin.Models
 {
     public class GenreViewModel : IMap<Genre>
     {
-        [Required]
-        [StringLength(GlobalConstants.MaxGenreNameLength, 
+        [Display(Name = "Name of genre")]
+        [Required(ErrorMessage = "The name is required !")]
+        [StringLength(GlobalConstants.MaxGenreNameLength,
             MinimumLength = GlobalConstants.MinGenreNameLength,
             ErrorMessage = "Genre name should be between 3 and 20 symbols long !")]
         public string Name { get; set; }
