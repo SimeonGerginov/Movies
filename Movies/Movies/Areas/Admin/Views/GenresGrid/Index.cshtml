@@ -11,7 +11,7 @@
           .Name("GenresGrid")
           .Columns(columns =>
           {
-              columns.Bound(g => g.Name).Title("Genre Name").Width(150);
+              columns.Bound(g => g.Name).Title("Name").Width(150);
               columns.Bound(g => g.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
               columns.Bound(g => g.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
               columns.Command(command =>
@@ -21,6 +21,7 @@
               }).Width(250);
           })
           .Editable(editable => editable.Mode(GridEditMode.InLine))
+          .Scrollable()
           .Pageable(g =>
           {
               g.Refresh(true);

@@ -49,10 +49,10 @@ namespace Movies.Services
             this.movieRepository.Add(movie);
         }
 
-        public bool DeleteMovie(string movieName)
+        public bool DeleteMovie(int movieId)
         {
             var targetMovie = this.movieRepository
-                .GetAllFiltered(m => m.Name == movieName)
+                .GetAllFiltered(m => m.Id == movieId)
                 .FirstOrDefault();
 
             if (targetMovie == null)

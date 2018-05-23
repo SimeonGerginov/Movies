@@ -7,7 +7,7 @@ namespace Movies.Services.Contracts
     {
         void AddMovie(Movie movie, string genreName);
 
-        bool DeleteMovie(string movieName);
+        bool DeleteMovie(int movieId);
 
         void UpdateMovie(Movie movieToUpdate);
 

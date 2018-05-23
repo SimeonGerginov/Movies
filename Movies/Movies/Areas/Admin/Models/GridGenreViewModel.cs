@@ -11,7 +11,7 @@ namespace Movies.Web.Areas.Admin.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "The name is required !")]
         [StringLength(GlobalConstants.MaxGenreNameLength,
             MinimumLength = GlobalConstants.MinGenreNameLength,
             ErrorMessage = "Genre name should be between 3 and 20 symbols long !")]

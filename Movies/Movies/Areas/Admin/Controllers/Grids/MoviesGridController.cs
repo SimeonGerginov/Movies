@@ -45,7 +45,7 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
         {
             if (movieModel != null)
             {
-                this.movieService.DeleteMovie(movieModel.Name);
+                this.movieService.DeleteMovie(movieModel.Id);
             }
 
             return this.Json(new[] { movieModel });
