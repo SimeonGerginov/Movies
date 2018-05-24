@@ -12,6 +12,10 @@ namespace Movies.Web.Areas.Admin.Models
     {
         public int Id { get; set; }
 
+        public DateTime? CreatedOn { get; set; }
+
+        public DateTime? ModifiedOn { get; set; }
+
         [Required(ErrorMessage = "First name is required !")]
         [StringLength(GlobalConstants.MaxPersonNameLength,
             MinimumLength = GlobalConstants.MinPersonNameLength,

@@ -222,6 +222,7 @@
     <Compile Include="Areas\Admin\Models\GridMovieViewModel.cs" />
     <Compile Include="Areas\Admin\Models\GridPersonViewModel.cs" />
     <Compile Include="Areas\Admin\Models\MovieViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\PersonInMovieViewModel.cs" />
     <Compile Include="Areas\Admin\Models\PersonViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -308,6 +309,8 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="Areas\Admin\Views\PeopleGrid\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AddPersonToMoviePartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\PersonInMovieViewModel.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

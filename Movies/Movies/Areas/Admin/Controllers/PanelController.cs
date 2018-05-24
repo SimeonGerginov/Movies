@@ -120,5 +120,43 @@ namespace Movies.Web.Areas.Admin.Controllers
 
             return this.RedirectToAction<PeopleGridController>(c => c.Index());
         }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult AddPersonToMovie()
+        {
+            var peopleSelectList = this.personService
+                .GetAllPeople()
+                .Select(p => new SelectListItem() { Text = $"{p.FirstName} {p.LastName} ({p.DateOfBirth.Year})",
+                    Value = p.Id.ToString() });
+
+            var moviesSelectList = this.movieService
+                .GetAllMovies()
+                .Select(m => new SelectListItem() { Text = $"{m.Name} ({m.Year})", Value = m.Id.ToString() });
+
+            var perosonInMovieViewModel = new PersonInMovieViewModel()
+            {
+                People = peopleSelectList,
+                Movies = moviesSelectList
+            };
+
+            return this.PartialView(PartialViews.AddPersonToMovie, perosonInMovieViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [SaveChanges]
+        public ActionResult AddPersonToMovie(PersonInMovieViewModel personInMovieViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                int movieId = personInMovieViewModel.MovieId;
+                int personId = personInMovieViewModel.PersonId;
+
+                this.movieService.AddPersonToMovie(movieId, personId);
+            }
+
+            return this.RedirectToAction<PanelController>(c => c.Index());
+        }
     }
 }

@@ -13,14 +13,18 @@ namespace Movies.Services
     public class MovieService : IMovieService
     {
         private readonly IRepository<Movie> movieRepository;
+        private readonly IRepository<Person> personRepository;
         private readonly IRepository<Genre> genreRepository;
 
-        public MovieService(IRepository<Movie> movieRepository, IRepository<Genre> genreRepository)
+        public MovieService(IRepository<Movie> movieRepository, IRepository<Person> personRepository, 
+            IRepository<Genre> genreRepository)
         {
             Guard.WhenArgument(movieRepository, "Movie Repository").IsNull().Throw();
+            Guard.WhenArgument(personRepository, "Person Repository").IsNull().Throw();
             Guard.WhenArgument(genreRepository, "Genre Repository").IsNull().Throw();
 
             this.movieRepository = movieRepository;
+            this.personRepository = personRepository;
             this.genreRepository = genreRepository;
         }
 
@@ -47,6 +51,23 @@ namespace Movies.Services
             movie.CreatedOn = DateTime.UtcNow;
 
             this.movieRepository.Add(movie);
+        }
+
+        public void AddPersonToMovie(int movieId, int personId)
+        {
+            var personToAdd = this.personRepository.GetById(personId);
+            Guard.WhenArgument(personToAdd, "Person").IsNull().Throw();
+
+            var movie = this.movieRepository.GetById(movieId);
+            Guard.WhenArgument(movie, "Movie").IsNull().Throw();
+
+            if (movie.People.Contains(personToAdd))
+            {
+                return;
+            }
+
+            movie.People.Add(personToAdd);
+            this.movieRepository.Update(movie);
         }
 
         public bool DeleteMovie(int movieId)
