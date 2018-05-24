@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 using Movies.Common;
 using Movies.Core.Models;
+using Movies.Core.Models.Enums;
 
 namespace Movies.Persistence.Data.Migrations
 {

@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 using Movies.Common;
 using Movies.Core.Contracts;
+using Movies.Core.Models.Enums;
 
 namespace Movies.Core.Models
 {

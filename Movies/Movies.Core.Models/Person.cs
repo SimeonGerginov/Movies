@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using Movies.Common;
 using Movies.Common.Validations;
 using Movies.Core.Entities;
+using Movies.Core.Models.Enums;
 
 namespace Movies.Core.Models
 {

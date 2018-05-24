@@ -1,4 +1,4 @@
-﻿namespace Movies.Core.Models
+﻿namespace Movies.Core.Models.Enums
 {
     public enum MovieRole
     {

@@ -5,6 +5,7 @@ using System.Web.Mvc;
 using Movies.Common;
 using Movies.Common.Validations;
 using Movies.Core.Models;
+using Movies.Core.Models.Enums;
 using Movies.Infrastructure.Contracts;
 
 namespace Movies.ViewModels.GridViewModels
