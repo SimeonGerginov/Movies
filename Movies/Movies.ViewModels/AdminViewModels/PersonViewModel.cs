@@ -1,51 +1,49 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.Web.Mvc;
 using Movies.Common;
 using Movies.Common.Validations;
 using Movies.Core.Models;
 using Movies.Infrastructure.Contracts;
 
-namespace Movies.Web.Areas.Admin.Models
+namespace Movies.ViewModels.AdminViewModels
 {
-    public class GridPersonViewModel : IMap<Person>
+    public class PersonViewModel : IMap<Person>
     {
-        public int Id { get; set; }
-
-        public DateTime? CreatedOn { get; set; }
-
-        public DateTime? ModifiedOn { get; set; }
-
+        [Display(Name = "First name of person")]
         [Required(ErrorMessage = "First name is required !")]
-        [StringLength(GlobalConstants.MaxPersonNameLength,
+        [StringLength(GlobalConstants.MaxPersonNameLength, 
             MinimumLength = GlobalConstants.MinPersonNameLength,
             ErrorMessage = "First name should be between 3 and 30 symbols long !")]
         public string FirstName { get; set; }
 
+        [Display(Name = "Last name of person")]
         [Required(ErrorMessage = "Last name is required !")]
-        [StringLength(GlobalConstants.MaxPersonNameLength,
+        [StringLength(GlobalConstants.MaxPersonNameLength, 
             MinimumLength = GlobalConstants.MinPersonNameLength,
             ErrorMessage = "Last name should be between 3 and 30 symbols long !")]
         public string LastName { get; set; }
 
+        [Display(Name = "Nationality of person")]
         [Required(ErrorMessage = "Nationality is required !")]
-        [StringLength(GlobalConstants.MaxPersonNationalityLength,
-            MinimumLength = GlobalConstants.MinPersonNationalityLength,
+        [StringLength(GlobalConstants.MaxPersonNationalityLength, 
+            MinimumLength = GlobalConstants.MinPersonNationalityLength, 
             ErrorMessage = "Invalid nationality !")]
         public string Nationality { get; set; }
 
+        [Display(Name = "Gender of person")]
         [Required(ErrorMessage = "Gender of person is required !")]
         public Gender Gender { get; set; }
 
+        [Display(Name = "Picture of person")]
         public byte[] Picture { get; set; }
 
+        [Display(Name = "Date of birth of person")]
         [Required(ErrorMessage = "Date of birth is required !")]
         [DateValidation]
         public DateTime DateOfBirth { get; set; }
 
+        [Display(Name = "Role of person")]
         [Required(ErrorMessage = "Role is required !")]
         public MovieRole Role { get; set; }
-
-        public FileContentResult PictureFile { get; set; }
     }
 }

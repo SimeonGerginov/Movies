@@ -1,10 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
 using Movies.Common;
 using Movies.Core.Models;
-using Movies.Infrastructure.Contracts;
 
-namespace Movies.Web.Areas.Admin.Models
+namespace Movies.Core.ViewModels.Admin
 {
     public class GenreViewModel : IMap<Genre>
     {

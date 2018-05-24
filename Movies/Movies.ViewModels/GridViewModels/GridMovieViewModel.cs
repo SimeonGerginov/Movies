@@ -7,7 +7,7 @@ using Movies.Common;
 using Movies.Core.Models;
 using Movies.Infrastructure.Contracts;
 
-namespace Movies.Web.Areas.Admin.Models
+namespace Movies.ViewModels.GridViewModels
 {
     public class GridMovieViewModel : IMap<Movie>, ICustomMappings
     {

@@ -45,6 +45,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{774ED8
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.Common", "Movies.Common\Movies.Common.csproj", "{DC76D796-73F6-49F4-B120-7275F0D8123F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModels", "ViewModels", "{2DEFD41C-9964-4362-9700-CEF987EB57FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Movies.ViewModels", "Movies.ViewModels\Movies.ViewModels.csproj", "{65FFC81A-B18A-48D5-A28F-47EE6573336D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +103,10 @@ Global
 		{DC76D796-73F6-49F4-B120-7275F0D8123F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC76D796-73F6-49F4-B120-7275F0D8123F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC76D796-73F6-49F4-B120-7275F0D8123F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65FFC81A-B18A-48D5-A28F-47EE6573336D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65FFC81A-B18A-48D5-A28F-47EE6573336D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65FFC81A-B18A-48D5-A28F-47EE6573336D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65FFC81A-B18A-48D5-A28F-47EE6573336D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -116,5 +124,9 @@ Global
 		{F93EC8CB-E858-4738-887C-99C7119AE64E} = {56490981-8E32-4133-AC14-3820850E1D59}
 		{5B81A05F-37BA-4B7F-A9A0-BDDD8588F93E} = {56490981-8E32-4133-AC14-3820850E1D59}
 		{DC76D796-73F6-49F4-B120-7275F0D8123F} = {774ED81F-BB27-468D-A194-6E8F1085D75A}
+		{65FFC81A-B18A-48D5-A28F-47EE6573336D} = {2DEFD41C-9964-4362-9700-CEF987EB57FF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D051E13-35BD-4EE2-AD99-5A5918DB9197}
 	EndGlobalSection
 EndGlobal

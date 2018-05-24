@@ -217,13 +217,6 @@
     <Compile Include="Areas\Admin\Controllers\Grids\MoviesGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\Grids\PeopleGridController.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
-    <Compile Include="Areas\Admin\Models\GenreViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\GridGenreViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\GridMovieViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\GridPersonViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\MovieViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\PersonInMovieViewModel.cs" />
-    <Compile Include="Areas\Admin\Models\PersonViewModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -412,6 +405,10 @@
     <ProjectReference Include="..\Movies.Services\Movies.Services.csproj">
       <Project>{437E1D1A-D97E-4ACC-BF3A-2C0A7742CC39}</Project>
       <Name>Movies.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Movies.ViewModels\Movies.ViewModels.csproj">
+      <Project>{65FFC81A-B18A-48D5-A28F-47EE6573336D}</Project>
+      <Name>Movies.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

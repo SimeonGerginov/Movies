@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
-namespace Movies.Web.Areas.Admin.Models
+namespace Movies.ViewModels.AdminViewModels
 {
     public class PersonInMovieViewModel
     {

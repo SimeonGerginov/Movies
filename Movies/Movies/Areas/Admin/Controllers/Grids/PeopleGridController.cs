@@ -11,8 +11,9 @@ using Movies.Infrastructure.Attributes;
 using Movies.Infrastructure.Extensions;
 using Movies.Services.Contracts;
 using Movies.Services.Mappings;
+using Movies.ViewModels.GridViewModels;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
-using Movies.Web.Areas.Admin.Models;
+
 using WebGrease.Css.Extensions;
 
 namespace Movies.Web.Areas.Admin.Controllers.Grids
