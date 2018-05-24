@@ -1,5 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
+
 using Bytes2you.Validation;
 
 using Kendo.Mvc.Extensions;
@@ -12,6 +13,7 @@ using Movies.Services.Contracts;
 using Movies.Services.Mappings;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
 using Movies.Web.Areas.Admin.Models;
+using WebGrease.Css.Extensions;
 
 namespace Movies.Web.Areas.Admin.Controllers.Grids
 {
@@ -20,6 +22,9 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
         private readonly IPersonService personService;
         private readonly IFileConverter fileConverter;
 
+        private IEnumerable<GridPersonViewModel> people;
+        private IDictionary<int, FileContentResult> pictures;
+
         public PeopleGridController(IPersonService personService, IFileConverter fileConverter)
         {
             Guard.WhenArgument(personService, "Person Service").IsNull().Throw();
@@ -27,6 +32,9 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
 
             this.personService = personService;
             this.fileConverter = fileConverter;
+
+            this.pictures = new Dictionary<int, FileContentResult>();
+            this.GetPeople();
         }
 
         public ActionResult Index()
@@ -36,11 +44,7 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
 
         public ActionResult ReadPeople([DataSourceRequest] DataSourceRequest request)
         {
-            var people = this.personService
-                .GetAllPeople()
-                .Map<Person, GridPersonViewModel>()
-                .Select(p => p.PictureFile = this.GetPersonPhoto(p))
-                .ToDataSourceResult(request);
+            var people = this.people.ToDataSourceResult(request);
 
             return this.Json(people);
         }
@@ -68,19 +72,39 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
             return this.Json(new[] { personModel });
         }
 
-        public FileContentResult GetPersonPhoto(GridPersonViewModel person)
+        public FileContentResult GetPhoto(string id)
+        {
+            return this.pictures[int.Parse(id)];
+        }
+
+        private void GetPeople()
+        {
+            this.people = this.personService
+                .GetAllPeople()
+                .Map<Person, GridPersonViewModel>();
+
+            this.people.ForEach(p => p.PictureFile = this.SetPersonPhoto(p));
+        }
+
+        private FileContentResult SetPersonPhoto(GridPersonViewModel person)
         {
             var personImage = person.Picture;
 
             if (personImage == null)
             {
                 var defaultImage = this.fileConverter.GetDefaultPicture();
+                var file = this.File(defaultImage, "image/png");
 
-                return this.File(defaultImage, "image/png");
+                this.pictures.Add(person.Id, file);
+
+                return file;
             }
             else
             {
-                return this.File(personImage, "image/jpeg");
+                var file = this.File(personImage, "image/jpeg");
+                this.pictures.Add(person.Id, file);
+
+                return file;
             }
         }
     }

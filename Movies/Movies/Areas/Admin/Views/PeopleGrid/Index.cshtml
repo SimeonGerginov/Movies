@@ -12,15 +12,20 @@
           .Columns(columns =>
           {
               columns.Bound(p => p.Picture)
-                     .ClientTemplate("<img src='" + "#: PictureFile #" + "'/>");
+                     .ClientTemplate("<img class='grid-photo' src='" + Url.Action("getPhoto", "PeopleGrid") + "/#= Id #" + "'/>");
+              columns.Bound(p => p.FirstName).Title("First name").Width(100);
+              columns.Bound(p => p.LastName).Title("Last name").Width(100);
+              columns.Bound(p => p.Nationality).Width(100);
+              columns.Bound(p => p.DateOfBirth).Title("Date of birth").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+              columns.Bound(p => p.Gender).Width(100);
+              columns.Bound(p => p.Role).Width(100);
               columns.Command(command =>
               {
                   command.Edit();
                   command.Destroy();
-              }).Width(1000);
+              }).Width(500);
           })
           .Editable(editable => editable.Mode(GridEditMode.InLine))
-          .Scrollable()
           .Pageable(p =>
           {
               p.Refresh(true);
@@ -33,6 +38,7 @@
                   .Model(m =>
                   {
                       m.Id(p => p.Id);
+                      m.Field(p => p.Picture).Editable(false);
                   })
                   .Read(p => p.Action("ReadPeople", "PeopleGrid")).PageSize(GlobalConstants.GridsPageSize)
                   .Destroy(p => p.Action("DeletePerson", "PeopleGrid"))

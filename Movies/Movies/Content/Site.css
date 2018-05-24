@@ -25,6 +25,12 @@ textarea {
     height: 30px;
 }
 
+/* Custom styles */
+.grid-photo {
+    width: 60px;
+    height: auto;
+}
+
 /* Bootstrap Overrides*/
 body,
 h1,
