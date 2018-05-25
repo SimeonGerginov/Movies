@@ -12,10 +12,12 @@ namespace Movies.Core.Models
     public class Person : BaseEntity
     {
         private ICollection<Movie> movies;
+        private ICollection<MovieRole> roles;
 
         public Person()
         {
             this.movies = new HashSet<Movie>();
+            this.roles = new HashSet<MovieRole>();
         }
 
         [StringLength(GlobalConstants.MaxPersonNameLength, MinimumLength = GlobalConstants.MinPersonNameLength)]
@@ -37,12 +39,16 @@ namespace Movies.Core.Models
         [DateValidation]
         public DateTime DateOfBirth { get; set; }
 
-        public MovieRole Role { get; set; }
-
         public virtual ICollection<Movie> Movies
         {
             get { return this.movies; }
             set { this.movies = value; }
+        }
+
+        public virtual ICollection<MovieRole> Roles
+        {
+            get { return this.roles; }
+            set { this.roles = value; }
         }
 
         public void SetPersonAge()

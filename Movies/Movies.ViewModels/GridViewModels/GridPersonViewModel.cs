@@ -45,9 +45,6 @@ namespace Movies.ViewModels.GridViewModels
         [DateValidation]
         public DateTime DateOfBirth { get; set; }
 
-        [Required(ErrorMessage = "Role is required !")]
-        public MovieRole Role { get; set; }
-
         public FileContentResult PictureFile { get; set; }
     }
 }

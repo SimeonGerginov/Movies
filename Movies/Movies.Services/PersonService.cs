@@ -72,7 +72,6 @@ namespace Movies.Services
                 targetPerson.Gender = personToUpdate.Gender;
                 targetPerson.Picture = personToUpdate.Picture;
                 targetPerson.DateOfBirth = personToUpdate.DateOfBirth;
-                targetPerson.Role = personToUpdate.Role;
                 targetPerson.ModifiedOn = DateTime.UtcNow;
                 targetPerson.SetPersonAge();
 

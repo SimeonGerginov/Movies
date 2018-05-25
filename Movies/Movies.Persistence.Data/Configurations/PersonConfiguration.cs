@@ -19,7 +19,6 @@ namespace Movies.Persistence.Data.Configurations
             this.Property(p => p.FirstName).IsRequired();
             this.Property(p => p.LastName).IsRequired();
             this.Property(p => p.Nationality).IsRequired();
-            this.Property(p => p.Role).IsRequired();
             this.Property(p => p.DateOfBirth).IsRequired();
             this.Property(p => p.Age).IsRequired();
             this.Property(p => p.Gender).IsRequired();

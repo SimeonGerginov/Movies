@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+
 using Movies.Common;
 using Movies.Common.Validations;
 using Movies.Core.Models;
@@ -42,9 +43,5 @@ namespace Movies.ViewModels.AdminViewModels
         [Required(ErrorMessage = "Date of birth is required !")]
         [DateValidation]
         public DateTime DateOfBirth { get; set; }
-
-        [Display(Name = "Role of person")]
-        [Required(ErrorMessage = "Role is required !")]
-        public MovieRole Role { get; set; }
     }
 }

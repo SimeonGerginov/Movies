@@ -1,6 +1,6 @@
 ﻿namespace Movies.Core.Models.Enums
 {
-    public enum MovieRole
+    public enum Role
     {
         Actor = 0,
         Director = 1,
