@@ -7,7 +7,6 @@ namespace Movies.Persistence.Data.Configurations
     {
         public GenreConfiguration()
         {
-            this.HasKey(g => g.Id);
             this.Property(g => g.Name).IsRequired();
         }
     }

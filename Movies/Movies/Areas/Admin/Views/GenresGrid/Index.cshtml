@@ -1,0 +1,45 @@
+﻿@using Movies.ViewModels.GridViewModels
+
+<div class="container body-content">
+    <h1>
+        <i class="fa fa-globe fa-3x" aria-hidden="true"></i>
+        Genres Grid
+    </h1>
+    
+    @(Html.Kendo()
+          .Grid<GridGenreViewModel>()
+          .Name("GenresGrid")
+          .Columns(columns =>
+          {
+              columns.Bound(g => g.Name).Title("Name").Width(150);
+              columns.Bound(g => g.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+              columns.Bound(g => g.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+              columns.Command(command =>
+              {
+                  command.Edit();
+                  command.Destroy();
+              }).Width(250);
+          })
+          .Editable(editable => editable.Mode(GridEditMode.InLine))
+          .Pageable(g =>
+          {
+              g.Refresh(true);
+              g.PageSizes(true);
+          })
+          .Sortable()
+          .DataSource(source =>
+          {
+              source.Ajax()
+                  .Model(m =>
+                  {
+                      m.Id(g => g.Id);
+                      m.Field(g => g.CreatedOn).Editable(false);
+                      m.Field(g => g.ModifiedOn).Editable(false);
+                  })
+                  .Read(g => g.Action("ReadGenres", "GenresGrid")).PageSize(GlobalConstants.GridsPageSize)
+                  .Destroy(g => g.Action("DeleteGenre", "GenresGrid"))
+                  .Update(g => g.Action("EditGenre", "GenresGrid"));
+          })
+          .Filterable(f => f.Mode(GridFilterMode.Menu))
+          .Deferred())
+</div>

@@ -1,0 +1,145 @@
+﻿<div class="container body-content">
+    <h1>
+        <i class="fa fa-pencil" area-hidden="true"></i>
+        Movies
+    </h1>
+
+    <div class="container">
+        <section>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                                Admin Board
+                            </h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <h4>Add Data</h4>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-primary"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Genre')"
+                                       data-ajax-update="#modal-body"
+                                       href="@(Url.Action<PanelController>(c => c.AddGenre()))">
+                                        <span class="fa fa-upload fa-3x"></span>
+                                        <br /> Add
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <br /> Genre
+                                    </a>
+
+                                    <a class="btn btn-primary"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Movie')"
+                                       data-ajax-update="#modal-body"
+                                       href="@(Url.Action<PanelController>(c => c.AddMovie()))">
+                                        <span class="fa fa-upload fa-3x"></span>
+                                        <br /> Add
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <br /> Movie
+                                    </a>
+
+                                    <a class="btn btn-primary"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Person')"
+                                       data-ajax-update="#modal-body"
+                                       href="@(Url.Action<PanelController>(c => c.AddPerson()))">
+                                        <span class="fa fa-upload fa-3x"></span>
+                                        <br /> Add
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <br /> Person
+                                    </a>
+                                </div>
+                            </div>
+
+                            <h4>View Data</h4>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-warning"
+                                       href="@(Url.Action<GenresGridController>(c => c.Index()))">
+                                        <span class="fa fa-search-plus fa-3x"></span>
+                                        <br />
+                                        View
+                                        <i class="glyphicon glyphicon-info-sign"></i>
+                                        <br />
+                                        Genres
+                                    </a>
+
+                                    <a class="btn btn-warning"
+                                       href="@(Url.Action<MoviesGridController>(c => c.Index()))">
+                                        <span class="fa fa-search-plus fa-3x"></span>
+                                        <br />
+                                        View
+                                        <i class="glyphicon glyphicon-info-sign"></i>
+                                        <br />
+                                        Movies
+                                    </a>
+
+                                    <a class="btn btn-warning"
+                                       href="@(Url.Action<PeopleGridController>(c => c.Index()))">
+                                        <span class="fa fa-search-plus fa-3x"></span>
+                                        <br />
+                                        View
+                                        <i class="glyphicon glyphicon-info-sign"></i>
+                                        <br />
+                                        People
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <h4>Manage Data</h4>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-info"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Person to Movie')"
+                                       data-ajax-update="#modal-body"
+                                       href="@(Url.Action<PanelController>(c => c.AddPersonToMovie()))">
+                                        <span class="fa fa-upload fa-3x"></span>
+                                        <br /> Add
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <br />
+                                        Person to Movie
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="add-form-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content" id="modal-form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit content</h4>
+                </div>
+
+                <div class="modal-body" id="modal-body">
+                </div>
+
+                <div class="modal-footer">
+                    <button id="btn-submit-form" class="btn btn-primary">Add</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/modals")
+}

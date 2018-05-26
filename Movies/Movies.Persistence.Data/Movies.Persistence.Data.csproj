@@ -58,7 +58,9 @@
   <ItemGroup>
     <Compile Include="Configurations\GenreConfiguration.cs" />
     <Compile Include="Configurations\MovieConfiguration.cs" />
+    <Compile Include="Configurations\MovieRoleConfiguration.cs" />
     <Compile Include="Configurations\PersonConfiguration.cs" />
+    <Compile Include="Configurations\UserConfiguration.cs" />
     <Compile Include="Migrations\201805122049415_Initial.cs" />
     <Compile Include="Migrations\201805122049415_Initial.Designer.cs">
       <DependentUpon>201805122049415_Initial.cs</DependentUpon>
@@ -75,6 +77,22 @@
     <Compile Include="Migrations\201805141605241_AddedPerson.Designer.cs">
       <DependentUpon>201805141605241_AddedPerson.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805170516446_UpdatedUser.cs" />
+    <Compile Include="Migrations\201805170516446_UpdatedUser.Designer.cs">
+      <DependentUpon>201805170516446_UpdatedUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805181541103_UpdatedGenre.cs" />
+    <Compile Include="Migrations\201805181541103_UpdatedGenre.Designer.cs">
+      <DependentUpon>201805181541103_UpdatedGenre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805221706526_UpdatedPerson.cs" />
+    <Compile Include="Migrations\201805221706526_UpdatedPerson.Designer.cs">
+      <DependentUpon>201805221706526_UpdatedPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805261610458_AddedMovieRole.cs" />
+    <Compile Include="Migrations\201805261610458_AddedMovieRole.Designer.cs">
+      <DependentUpon>201805261610458_AddedMovieRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +104,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Movies.Common\Movies.Common.csproj">
+      <Project>{DC76D796-73F6-49F4-B120-7275F0D8123F}</Project>
+      <Name>Movies.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Movies.Core.Models\Movies.Core.Models.csproj">
       <Project>{6F111302-9D2D-4B7B-AE84-06624F0E01D5}</Project>
       <Name>Movies.Core.Models</Name>
@@ -107,6 +129,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805141605241_AddedPerson.resx">
       <DependentUpon>201805141605241_AddedPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805170516446_UpdatedUser.resx">
+      <DependentUpon>201805170516446_UpdatedUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805181541103_UpdatedGenre.resx">
+      <DependentUpon>201805181541103_UpdatedGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805221706526_UpdatedPerson.resx">
+      <DependentUpon>201805221706526_UpdatedPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805261610458_AddedMovieRole.resx">
+      <DependentUpon>201805261610458_AddedMovieRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

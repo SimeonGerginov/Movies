@@ -11,7 +11,7 @@ using Movies.Core.Entities;
 
 namespace Movies.Persistence.Data.Repositories
 {
-    public class EfRepository<T> : IRepository<T> where T : BaseEntity
+    public class EfRepository<T> : IRepository<T> where T : BaseEntity 
     {
         private readonly IDbSet<T> dbSet;
         private readonly MsSqlDbContext dbContext;
@@ -41,6 +41,13 @@ namespace Movies.Persistence.Data.Repositories
         public IEnumerable<T> GetAll()
         {
             return this.dbSet.AsEnumerable();
+        }
+
+        public IEnumerable<T> GetAllAndIncludeEntity(string entityToInclude)
+        {
+            return this.dbSet
+                .Include(entityToInclude)
+                .AsEnumerable();
         }
 
         public IEnumerable<T> GetAllFiltered(Expression<Func<T, bool>> filterExpression)

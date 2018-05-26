@@ -1,0 +1,52 @@
+﻿@using Movies.ViewModels.GridViewModels
+
+<div class="container body-content">
+    <h1>
+        <i class="fa fa-globe fa-3x" aria-hidden="true"></i>
+        People Grid
+    </h1>
+
+    @(Html.Kendo()
+          .Grid<GridPersonViewModel>()
+          .Name("PeopleGrid")
+          .Columns(columns =>
+          {
+              columns.Bound(p => p.Picture)
+                     .ClientTemplate("<img class='grid-photo' src='" + Url.Action("getPhoto", "PeopleGrid") + "/#= Id #" + "'/>");
+              columns.Bound(p => p.FirstName).Title("First name").Width(100);
+              columns.Bound(p => p.LastName).Title("Last name").Width(100);
+              columns.Bound(p => p.Nationality).Width(100);
+              columns.Bound(p => p.DateOfBirth).Title("Date of birth").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+              columns.Bound(p => p.Gender).Width(100);
+              columns.Bound(p => p.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+              columns.Bound(p => p.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(150);
+              columns.Command(command =>
+              {
+                  command.Edit();
+                  command.Destroy();
+              }).Width(500);
+          })
+          .Editable(editable => editable.Mode(GridEditMode.InLine))
+          .Pageable(p =>
+          {
+              p.Refresh(true);
+              p.PageSizes(true);
+          })
+          .Sortable()
+          .DataSource(source =>
+          {
+              source.Ajax()
+                  .Model(m =>
+                  {
+                      m.Id(p => p.Id);
+                      m.Field(p => p.Picture).Editable(false);
+                      m.Field(p => p.CreatedOn).Editable(false);
+                      m.Field(p => p.ModifiedOn).Editable(false);
+                  })
+                  .Read(p => p.Action("ReadPeople", "PeopleGrid")).PageSize(GlobalConstants.GridsPageSize)
+                  .Destroy(p => p.Action("DeletePerson", "PeopleGrid"))
+                  .Update(p => p.Action("EditPerson", "PeopleGrid"));
+          })
+          .Filterable(f => f.Mode(GridFilterMode.Menu))
+          .Deferred())
+</div>

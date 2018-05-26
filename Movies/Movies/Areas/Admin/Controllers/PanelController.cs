@@ -1,0 +1,164 @@
+﻿using System.Linq;
+using System.Web.Mvc;
+using System.Web.Mvc.Expressions;
+
+using Bytes2you.Validation;
+
+using Movies.Common;
+using Movies.Core.Models;
+using Movies.Core.Models.Enums;
+using Movies.Infrastructure.Attributes;
+using Movies.Services.Contracts;
+using Movies.Services.Mappings;
+using Movies.ViewModels.AdminViewModels;
+using Movies.Web.Areas.Admin.Controllers.Abstraction;
+using Movies.Web.Areas.Admin.Controllers.Grids;
+
+namespace Movies.Web.Areas.Admin.Controllers
+{
+    public class PanelController : AdminController
+    {
+        private readonly IGenreService genreService;
+        private readonly IMovieService movieService;
+        private readonly IPersonService personService;
+        private readonly IFileConverter fileConverter;
+
+        public PanelController(IGenreService genreService, IMovieService movieService,
+            IPersonService personService, IFileConverter fileConverter)
+        {
+            Guard.WhenArgument(genreService, "Genre Service").IsNull().Throw();
+            Guard.WhenArgument(movieService, "Movie Service").IsNull().Throw();
+            Guard.WhenArgument(personService, "Person Service").IsNull().Throw();
+            Guard.WhenArgument(fileConverter, "File Converter").IsNull().Throw();
+
+            this.genreService = genreService;
+            this.movieService = movieService;
+            this.personService = personService;
+            this.fileConverter = fileConverter;
+        }
+
+        public ActionResult Index()
+        {
+            return this.View();
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult AddGenre()
+        {
+            return this.PartialView(PartialViews.AddGenre);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [SaveChanges]
+        public ActionResult AddGenre(GenreViewModel genreViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var mappedGenre = MappingService.MappingProvider.Map<Genre>(genreViewModel);
+                this.genreService.AddGenre(mappedGenre);
+            }
+
+            return this.RedirectToAction<GenresGridController>(c => c.Index());
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult AddMovie()
+        {
+            var genresSelectList = this.genreService
+                .GetAllGenres()
+                .Select(g => new SelectListItem() { Text = g.Name, Value = g.Name });
+
+            var movieViewModel = new MovieViewModel()
+            {
+                GenresSelectList = genresSelectList
+            };
+
+            return this.PartialView(PartialViews.AddMovie, movieViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [SaveChanges]
+        public ActionResult AddMovie(MovieViewModel movieViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                var movieModel = MappingService.MappingProvider.Map<Movie>(movieViewModel);
+                this.movieService.AddMovie(movieModel, movieViewModel.GenreName);
+            }
+
+            return this.RedirectToAction<MoviesGridController>(c => c.Index());
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult AddPerson()
+        {
+            return this.PartialView(PartialViews.AddPerson);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [SaveChanges]
+        public ActionResult AddPerson([Bind(Exclude = "Picture")]PersonViewModel personViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                if (this.Request.Files.Count > 0)
+                {
+                    var picture = this.Request.Files["Picture"];
+                    var imageData = this.fileConverter.PostedToByteArray(picture);
+
+                    personViewModel.Picture = imageData;
+                }
+
+                var personModel = MappingService.MappingProvider.Map<Person>(personViewModel);
+                this.personService.AddPerson(personModel);
+            }
+
+            return this.RedirectToAction<PeopleGridController>(c => c.Index());
+        }
+
+        [HttpGet]
+        [AjaxOnly]
+        public ActionResult AddPersonToMovie()
+        {
+            var peopleSelectList = this.personService
+                .GetAllPeople()
+                .Select(p => new SelectListItem() { Text = $"{p.FirstName} {p.LastName} ({p.DateOfBirth.Year})",
+                    Value = p.Id.ToString() });
+
+            var moviesSelectList = this.movieService
+                .GetAllMovies()
+                .Select(m => new SelectListItem() { Text = $"{m.Name} ({m.Year})", Value = m.Id.ToString() });
+
+            var perosonInMovieViewModel = new PersonInMovieViewModel()
+            {
+                People = peopleSelectList,
+                Movies = moviesSelectList
+            };
+
+            return this.PartialView(PartialViews.AddPersonToMovie, perosonInMovieViewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [SaveChanges]
+        public ActionResult AddPersonToMovie(PersonInMovieViewModel personInMovieViewModel)
+        {
+            if (this.ModelState.IsValid)
+            {
+                int movieId = personInMovieViewModel.MovieId;
+                int personId = personInMovieViewModel.PersonId;
+                Role role = personInMovieViewModel.Role;
+
+                this.movieService.AddPersonToMovie(movieId, personId, role);
+            }
+
+            return this.RedirectToAction<PanelController>(c => c.Index());
+        }
+    }
+}

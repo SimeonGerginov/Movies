@@ -38,6 +38,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,12 +48,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\IDataService.cs" />
+    <Compile Include="Contracts\IFileConverter.cs" />
+    <Compile Include="Contracts\IGenreService.cs" />
     <Compile Include="Contracts\IMappingService.cs" />
+    <Compile Include="Contracts\IMovieService.cs" />
+    <Compile Include="Contracts\IPersonService.cs" />
+    <Compile Include="FileConverter.cs" />
+    <Compile Include="GenreService.cs" />
     <Compile Include="Mappings\MappingService.cs" />
+    <Compile Include="MovieService.cs" />
+    <Compile Include="PersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Core.Models\Movies.Core.Models.csproj">
+      <Project>{6F111302-9D2D-4B7B-AE84-06624F0E01D5}</Project>
+      <Name>Movies.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Movies.Core.ViewModels\Movies.Core.ViewModels.csproj">
+      <Project>{5D77F4DD-126C-41AC-A3F1-41BAD8D033D0}</Project>
+      <Name>Movies.Core.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Movies.Core\Movies.Core.csproj">
+      <Project>{09E9916A-4EDA-44A6-8B6D-091E514CB473}</Project>
+      <Name>Movies.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

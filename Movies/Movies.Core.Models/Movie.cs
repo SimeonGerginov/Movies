@@ -9,10 +9,12 @@ namespace Movies.Core.Models
     public class Movie : BaseEntity
     {
         private ICollection<Person> people;
+        private ICollection<MovieRole> roles;
 
         public Movie()
         {
             this.people = new HashSet<Person>();
+            this.roles = new HashSet<MovieRole>();
         }
 
         [StringLength(GlobalConstants.MaxMovieLength, MinimumLength = GlobalConstants.MinMovieLength)]
@@ -38,6 +40,12 @@ namespace Movies.Core.Models
         {
             get { return this.people; }
             set { this.people = value; }
+        }
+
+        public virtual ICollection<MovieRole> Roles
+        {
+            get { return this.roles; }
+            set { this.roles = value; }
         }
     }
 }
