@@ -1,11 +1,10 @@
-﻿using Movies.Core.Models.Enums;
+﻿using Movies.Core.Entities;
+using Movies.Core.Models.Enums;
 
 namespace Movies.Core.Models
 {
-    public class MovieRole
-    {
-        public int Id { get; set; }
-        
+    public class MovieRole : BaseEntity
+    {   
         public int PersonId { get; set; }
 
         public virtual Person Person { get; set; }

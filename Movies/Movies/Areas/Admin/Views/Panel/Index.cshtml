@@ -17,7 +17,7 @@
                         </div>
 
                         <div class="panel-body">
-                            <h4>Adding Data</h4>
+                            <h4>Add Data</h4>
                             <hr />
                             <div class="row">
                                 <div class="col-md-12">
@@ -56,22 +56,10 @@
                                         <span class="glyphicon glyphicon-plus"></span>
                                         <br /> Person
                                     </a>
-
-                                    <a class="btn btn-primary"
-                                       data-ajax="true"
-                                       data-ajax-mode="replace"
-                                       data-ajax-success="showModal('#add-form-modal', 'Add Person to Movie')"
-                                       data-ajax-update="#modal-body"
-                                       href="@(Url.Action<PanelController>(c => c.AddPersonToMovie()))">
-                                        <span class="fa fa-upload fa-3x"></span>
-                                        <br /> Add
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                        <br /> Person to Movie
-                                    </a>
                                 </div>
                             </div>
 
-                            <h4>Data Management</h4>
+                            <h4>View Data</h4>
                             <hr />
                             <div class="row">
                                 <div class="col-md-12">
@@ -103,6 +91,25 @@
                                         <i class="glyphicon glyphicon-info-sign"></i>
                                         <br />
                                         People
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <h4>Manage Data</h4>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <a class="btn btn-info"
+                                       data-ajax="true"
+                                       data-ajax-mode="replace"
+                                       data-ajax-success="showModal('#add-form-modal', 'Add Person to Movie')"
+                                       data-ajax-update="#modal-body"
+                                       href="@(Url.Action<PanelController>(c => c.AddPersonToMovie()))">
+                                        <span class="fa fa-upload fa-3x"></span>
+                                        <br /> Add
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <br />
+                                        Person to Movie
                                     </a>
                                 </div>
                             </div>

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+
 using Movies.Core.Models;
+using Movies.Core.Models.Enums;
 
 namespace Movies.Services.Contracts
 {
@@ -7,7 +9,7 @@ namespace Movies.Services.Contracts
     {
         void AddMovie(Movie movie, string genreName);
 
-        void AddPersonToMovie(int movieId, int personId);
+        void AddPersonToMovie(int movieId, int personId, Role role);
 
         bool DeleteMovie(int movieId);
 

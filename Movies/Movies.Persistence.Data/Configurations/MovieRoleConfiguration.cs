@@ -7,7 +7,6 @@ namespace Movies.Persistence.Data.Configurations
     {
         public MovieRoleConfiguration()
         {
-            this.HasKey(mr => mr.Id);
             this.Property(mr => mr.PersonId).IsRequired();
             this.Property(mr => mr.MovieId).IsRequired();
         }

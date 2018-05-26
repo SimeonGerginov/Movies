@@ -6,6 +6,7 @@ using Bytes2you.Validation;
 
 using Movies.Common;
 using Movies.Core.Models;
+using Movies.Core.Models.Enums;
 using Movies.Infrastructure.Attributes;
 using Movies.Services.Contracts;
 using Movies.Services.Mappings;
@@ -152,8 +153,9 @@ namespace Movies.Web.Areas.Admin.Controllers
             {
                 int movieId = personInMovieViewModel.MovieId;
                 int personId = personInMovieViewModel.PersonId;
+                Role role = personInMovieViewModel.Role;
 
-                this.movieService.AddPersonToMovie(movieId, personId);
+                this.movieService.AddPersonToMovie(movieId, personId, role);
             }
 
             return this.RedirectToAction<PanelController>(c => c.Index());

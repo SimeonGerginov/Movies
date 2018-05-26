@@ -23,6 +23,8 @@ namespace Movies.Persistence.Data
 
         public virtual IDbSet<Person> People { get; set; }
 
+        public virtual IDbSet<MovieRole> MovieRoles { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();

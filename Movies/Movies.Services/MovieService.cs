@@ -6,6 +6,7 @@ using Bytes2you.Validation;
 
 using Movies.Core.Contracts;
 using Movies.Core.Models;
+using Movies.Core.Models.Enums;
 using Movies.Services.Contracts;
 
 namespace Movies.Services
@@ -15,17 +16,20 @@ namespace Movies.Services
         private readonly IRepository<Movie> movieRepository;
         private readonly IRepository<Person> personRepository;
         private readonly IRepository<Genre> genreRepository;
+        private readonly IRepository<MovieRole> movieRoleRepository;
 
         public MovieService(IRepository<Movie> movieRepository, IRepository<Person> personRepository, 
-            IRepository<Genre> genreRepository)
+            IRepository<Genre> genreRepository, IRepository<MovieRole> movieRoleRepository)
         {
             Guard.WhenArgument(movieRepository, "Movie Repository").IsNull().Throw();
             Guard.WhenArgument(personRepository, "Person Repository").IsNull().Throw();
             Guard.WhenArgument(genreRepository, "Genre Repository").IsNull().Throw();
+            Guard.WhenArgument(movieRoleRepository, "Movie Role Repository").IsNull().Throw();
 
             this.movieRepository = movieRepository;
             this.personRepository = personRepository;
             this.genreRepository = genreRepository;
+            this.movieRoleRepository = movieRoleRepository;
         }
 
         public void AddMovie(Movie movie, string genreName)
@@ -53,7 +57,7 @@ namespace Movies.Services
             this.movieRepository.Add(movie);
         }
 
-        public void AddPersonToMovie(int movieId, int personId)
+        public void AddPersonToMovie(int movieId, int personId, Role role)
         {
             var personToAdd = this.personRepository.GetById(personId);
             Guard.WhenArgument(personToAdd, "Person").IsNull().Throw();
@@ -68,6 +72,16 @@ namespace Movies.Services
 
             movie.People.Add(personToAdd);
             this.movieRepository.Update(movie);
+
+            var movieRole = new MovieRole()
+            {
+                PersonId = personId,
+                Role = role,
+                MovieId = movieId,
+                CreatedOn = DateTime.UtcNow
+            };
+
+            this.movieRoleRepository.Add(movieRole);
         }
 
         public bool DeleteMovie(int movieId)

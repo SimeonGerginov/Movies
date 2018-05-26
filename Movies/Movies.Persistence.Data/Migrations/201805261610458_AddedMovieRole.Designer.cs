@@ -13,7 +13,7 @@ namespace Movies.Persistence.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201805251302337_AddedMovieRole"; }
+            get { return "201805261610458_AddedMovieRole"; }
         }
         
         string IMigrationMetadata.Source

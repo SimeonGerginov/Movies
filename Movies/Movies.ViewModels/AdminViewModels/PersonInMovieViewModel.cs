@@ -2,6 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
+using Movies.Core.Models.Enums;
+
 namespace Movies.ViewModels.AdminViewModels
 {
     public class PersonInMovieViewModel
@@ -11,6 +13,9 @@ namespace Movies.ViewModels.AdminViewModels
 
         [Display(Name = "Movie")]
         public int MovieId { get; set; }
+
+        [Display(Name = "Role in movie")]
+        public Role Role { get; set; }
 
         public IEnumerable<SelectListItem> People { get; set; }
 

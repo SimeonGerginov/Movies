@@ -11,7 +11,7 @@ using Movies.Core.Entities;
 
 namespace Movies.Persistence.Data.Repositories
 {
-    public class EfRepository<T> : IRepository<T> where T : BaseEntity
+    public class EfRepository<T> : IRepository<T> where T : BaseEntity 
     {
         private readonly IDbSet<T> dbSet;
         private readonly MsSqlDbContext dbContext;

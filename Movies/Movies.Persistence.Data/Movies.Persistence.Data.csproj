@@ -89,9 +89,9 @@
     <Compile Include="Migrations\201805221706526_UpdatedPerson.Designer.cs">
       <DependentUpon>201805221706526_UpdatedPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805251302337_AddedMovieRole.cs" />
-    <Compile Include="Migrations\201805251302337_AddedMovieRole.Designer.cs">
-      <DependentUpon>201805251302337_AddedMovieRole.cs</DependentUpon>
+    <Compile Include="Migrations\201805261610458_AddedMovieRole.cs" />
+    <Compile Include="Migrations\201805261610458_AddedMovieRole.Designer.cs">
+      <DependentUpon>201805261610458_AddedMovieRole.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
@@ -139,8 +139,8 @@
     <EmbeddedResource Include="Migrations\201805221706526_UpdatedPerson.resx">
       <DependentUpon>201805221706526_UpdatedPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805251302337_AddedMovieRole.resx">
-      <DependentUpon>201805251302337_AddedMovieRole.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805261610458_AddedMovieRole.resx">
+      <DependentUpon>201805261610458_AddedMovieRole.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
