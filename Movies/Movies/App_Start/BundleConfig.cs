@@ -7,33 +7,40 @@ namespace Movies.Web.App_Start
         // For more information on bundling, visit https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            RegisterScripts(bundles);
+            RegisterStyles(bundles);
+        }
+
+        private static void RegisterScripts(BundleCollection bundles)
+        {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js",
-                        "~/Scripts/jquery.unobtrusive-ajax.min.js"));
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/jquery.unobtrusive-ajax.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/kendo").Include(
                 "~/Scripts/Kendo/kendo.web.min.js",
                 "~/Scripts/Kendo/kendo.aspnetmvc.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/jquery.validate*"));
+                "~/Scripts/jquery.validate*"));
 
-            // Use the development version of Modernizr to develop with and learn from. Then, when you're
-            // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/modernizr-*"));
+                "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/modals").Include(
                 "~/Scripts/show-modal.js"));
+        }
 
+        private static void RegisterStyles(BundleCollection bundles)
+        {
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/Site.css",
-                      "~/Content/font-awesome.min.css"));
+                "~/Content/superhero.bootstrap.css",
+                "~/Content/font-awesome.min.css",
+                "~/Content/Site.css"));
 
             bundles.Add(new StyleBundle("~/Content/kendo-css").Include(
                 "~/Content/Kendo/kendo.material.min.css",
