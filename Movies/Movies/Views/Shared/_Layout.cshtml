@@ -19,24 +19,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Movie System", "Index", "Home", new { area = string.Empty }, new { @class = "navbar-brand" })
+                @(Html.ActionLink("Movie System", (HomeController c) => c.Index(), null, new { @class = "navbar-brand" }))
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        @Html.ActionLink("Home", "Index", "Home", new { area = string.Empty }, null)
+                        @(Html.ActionLink("Home", (HomeController c) => c.Index()))
                     </li>
                     <li>
-                        @Html.ActionLink("About", "About", "Home", new {area = string.Empty}, null)
+                        @(Html.ActionLink("About", (HomeController c) => c.About()))
                     </li>
                     <li>
-                        @Html.ActionLink("Contact", "Contact", "Home", new {area = string.Empty}, null)
+                        @(Html.ActionLink("Contact", (HomeController c) => c.Contact()))
                     </li>
 
                     @if (User.IsInRole("Admin"))
                     {
                         <li>
-                            @Html.ActionLink("Panel", "Index", "Panel", new {area = "Admin"}, null)
+                            @(Html.ActionLink("Panel", (PanelController c) => c.Index()))
                         </li>
                     }
                 </ul>
