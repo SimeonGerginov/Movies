@@ -59,6 +59,12 @@
     <Compile Include="Services\GenreServiceTests\DeleteGenre_Should.cs" />
     <Compile Include="Services\GenreServiceTests\GetAllGenres_Should.cs" />
     <Compile Include="Services\GenreServiceTests\UpdateGenre_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\AddMovie_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\AddPersonToMovie_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\Ctor_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\DeleteMovie_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\GetAllMovies_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\UpdateMovie_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
