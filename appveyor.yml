@@ -18,7 +18,7 @@ services:
 
 environment:
   COVERALLS_REPO_TOKEN:
-    secure: kFlbvATtbSl8GYla91oFNiJQbsxK4p7la
+    secure: UROAtGL79mnyN2Ndh/0B7Q==
 
 after_test: 
         - Movies\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -filter:"+[Movies*]*" -target:"Movies\packages\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe" -targetargs:"/domain:multiple /process:Separate Movies\Movies.Tests.UnitTests\bin\Debug\Movies.Tests.UnitTests.dll Movies\Movies.Tests.IntegrationTests\bin\Debug\Movies.Tests.IntegrationTests.dll" -output:cover.xml
