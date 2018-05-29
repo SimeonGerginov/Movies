@@ -54,9 +54,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GenreServiceTests\AddGenre_Should.cs" />
+    <Compile Include="Services\GenreServiceTests\Ctor_Should.cs" />
+    <Compile Include="Services\GenreServiceTests\DeleteGenre_Should.cs" />
+    <Compile Include="Services\GenreServiceTests\GetAllGenres_Should.cs" />
+    <Compile Include="Services\GenreServiceTests\UpdateGenre_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\AddMovie_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\AddPersonToMovie_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\Ctor_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\DeleteMovie_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\GetAllMovies_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\UpdateMovie_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Core.Models\Movies.Core.Models.csproj">
+      <Project>{6F111302-9D2D-4B7B-AE84-06624F0E01D5}</Project>
+      <Name>Movies.Core.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Movies.Core\Movies.Core.csproj">
+      <Project>{09E9916A-4EDA-44A6-8B6D-091E514CB473}</Project>
+      <Name>Movies.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Movies.Services\Movies.Services.csproj">
+      <Project>{437E1D1A-D97E-4ACC-BF3A-2C0A7742CC39}</Project>
+      <Name>Movies.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
