@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Mvc.Expressions;
 
+using AutoMapper;
 using Bytes2you.Validation;
 
 using Movies.Common;
@@ -22,19 +23,22 @@ namespace Movies.Web.Areas.Admin.Controllers
         private readonly IMovieService movieService;
         private readonly IPersonService personService;
         private readonly IFileConverter fileConverter;
+        private readonly IMapper mapper;
 
         public PanelController(IGenreService genreService, IMovieService movieService,
-            IPersonService personService, IFileConverter fileConverter)
+            IPersonService personService, IFileConverter fileConverter, IMapper mapper)
         {
             Guard.WhenArgument(genreService, "Genre Service").IsNull().Throw();
             Guard.WhenArgument(movieService, "Movie Service").IsNull().Throw();
             Guard.WhenArgument(personService, "Person Service").IsNull().Throw();
             Guard.WhenArgument(fileConverter, "File Converter").IsNull().Throw();
+            Guard.WhenArgument(mapper, "Mapper").IsNull().Throw();
 
             this.genreService = genreService;
             this.movieService = movieService;
             this.personService = personService;
             this.fileConverter = fileConverter;
+            this.mapper = mapper;
         }
 
         public ActionResult Index()
@@ -56,7 +60,8 @@ namespace Movies.Web.Areas.Admin.Controllers
         {
             if (this.ModelState.IsValid)
             {
-                var mappedGenre = MappingService.MappingProvider.Map<Genre>(genreViewModel);
+                // var mappedGenre = MappingService.MappingProvider.Map<Genre>(genreViewModel);
+                var mappedGenre = this.mapper.Map<Genre>(genreViewModel);
                 this.genreService.AddGenre(mappedGenre);
             }
 
