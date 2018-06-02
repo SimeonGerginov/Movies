@@ -84,6 +84,12 @@
   <ItemGroup>
     <Compile Include="Controllers\Admin\PanelControllerTests\AddGenre_Post_Should.cs" />
     <Compile Include="Controllers\Admin\PanelControllerTests\AddGenre_Should.cs" />
+    <Compile Include="Controllers\Admin\PanelControllerTests\AddMovie_Post_Should.cs" />
+    <Compile Include="Controllers\Admin\PanelControllerTests\AddMovie_Should.cs" />
+    <Compile Include="Controllers\Admin\PanelControllerTests\AddPersonToMovie_Post_Should.cs" />
+    <Compile Include="Controllers\Admin\PanelControllerTests\AddPersonToMovie_Should.cs" />
+    <Compile Include="Controllers\Admin\PanelControllerTests\AddPerson_Post_Should.cs" />
+    <Compile Include="Controllers\Admin\PanelControllerTests\AddPerson_Should.cs" />
     <Compile Include="Controllers\Admin\PanelControllerTests\Ctor_Should.cs" />
     <Compile Include="Controllers\Admin\PanelControllerTests\Index_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

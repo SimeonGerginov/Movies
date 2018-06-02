@@ -10,7 +10,6 @@ using Movies.Core.Models;
 using Movies.Core.Models.Enums;
 using Movies.Infrastructure.Attributes;
 using Movies.Services.Contracts;
-using Movies.Services.Mappings;
 using Movies.ViewModels.AdminViewModels;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
 using Movies.Web.Areas.Admin.Controllers.Grids;
@@ -58,12 +57,14 @@ namespace Movies.Web.Areas.Admin.Controllers
         [SaveChanges]
         public ActionResult AddGenre(GenreViewModel genreViewModel)
         {
-            if (this.ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                // var mappedGenre = MappingService.MappingProvider.Map<Genre>(genreViewModel);
-                var mappedGenre = this.mapper.Map<Genre>(genreViewModel);
-                this.genreService.AddGenre(mappedGenre);
+                return this.PartialView(PartialViews.AddGenre);
             }
+
+            // var mappedGenre = MappingService.MappingProvider.Map<Genre>(genreViewModel);
+            var mappedGenre = this.mapper.Map<Genre>(genreViewModel);
+            this.genreService.AddGenre(mappedGenre);
 
             return this.RedirectToAction<GenresGridController>(c => c.Index());
         }
@@ -89,11 +90,14 @@ namespace Movies.Web.Areas.Admin.Controllers
         [SaveChanges]
         public ActionResult AddMovie(MovieViewModel movieViewModel)
         {
-            if (this.ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                var movieModel = MappingService.MappingProvider.Map<Movie>(movieViewModel);
-                this.movieService.AddMovie(movieModel, movieViewModel.GenreName);
+                return this.PartialView(PartialViews.AddMovie, movieViewModel);
             }
+
+            // var movieModel = MappingService.MappingProvider.Map<Movie>(movieViewModel);
+            var movieModel = this.mapper.Map<Movie>(movieViewModel);
+            this.movieService.AddMovie(movieModel, movieViewModel.GenreName);
 
             return this.RedirectToAction<MoviesGridController>(c => c.Index());
         }
@@ -110,19 +114,22 @@ namespace Movies.Web.Areas.Admin.Controllers
         [SaveChanges]
         public ActionResult AddPerson([Bind(Exclude = "Picture")]PersonViewModel personViewModel)
         {
-            if (this.ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                if (this.Request.Files.Count > 0)
-                {
-                    var picture = this.Request.Files["Picture"];
-                    var imageData = this.fileConverter.PostedToByteArray(picture);
-
-                    personViewModel.Picture = imageData;
-                }
-
-                var personModel = MappingService.MappingProvider.Map<Person>(personViewModel);
-                this.personService.AddPerson(personModel);
+                return this.PartialView(PartialViews.AddPerson, personViewModel);
             }
+
+            if (this.Request.Files.Count > 0)
+            {
+                var picture = this.Request.Files["Picture"];
+                var imageData = this.fileConverter.PostedToByteArray(picture);
+
+                personViewModel.Picture = imageData;
+            }
+
+            // var personModel = MappingService.MappingProvider.Map<Person>(personViewModel);
+            var personModel = this.mapper.Map<Person>(personViewModel);
+            this.personService.AddPerson(personModel);
 
             return this.RedirectToAction<PeopleGridController>(c => c.Index());
         }
@@ -154,14 +161,11 @@ namespace Movies.Web.Areas.Admin.Controllers
         [SaveChanges]
         public ActionResult AddPersonToMovie(PersonInMovieViewModel personInMovieViewModel)
         {
-            if (this.ModelState.IsValid)
-            {
-                int movieId = personInMovieViewModel.MovieId;
-                int personId = personInMovieViewModel.PersonId;
-                Role role = personInMovieViewModel.Role;
+            int movieId = personInMovieViewModel.MovieId;
+            int personId = personInMovieViewModel.PersonId;
+            Role role = personInMovieViewModel.Role;
 
-                this.movieService.AddPersonToMovie(movieId, personId, role);
-            }
+            this.movieService.AddPersonToMovie(movieId, personId, role);
 
             return this.RedirectToAction<PanelController>(c => c.Index());
         }
