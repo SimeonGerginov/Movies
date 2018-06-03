@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+
+using AutoMapper;
 using Bytes2you.Validation;
 
 using Kendo.Mvc.Extensions;
@@ -6,7 +9,6 @@ using Kendo.Mvc.UI;
 
 using Movies.Core.Models;
 using Movies.Infrastructure.Attributes;
-using Movies.Infrastructure.Extensions;
 using Movies.Services.Contracts;
 using Movies.Services.Mappings;
 using Movies.ViewModels.GridViewModels;
@@ -17,12 +19,15 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
     public class GenresGridController : AdminController
     {
         private readonly IGenreService genreService;
+        private readonly IMapper mapper;
 
-        public GenresGridController(IGenreService genreService)
+        public GenresGridController(IGenreService genreService, IMapper mapper)
         {
             Guard.WhenArgument(genreService, "Genre Service").IsNull().Throw();
+            Guard.WhenArgument(mapper, "Mapper").IsNull().Throw();
 
             this.genreService = genreService;
+            this.mapper = mapper;
         }
 
         public ActionResult Index()
@@ -34,7 +39,7 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
         {
             var genres = this.genreService
                 .GetAllGenres()
-                .Map<Genre, GridGenreViewModel>()
+                .Select(g => this.mapper.Map<GridGenreViewModel>(g))
                 .ToDataSourceResult(request);
 
             return this.Json(genres);
@@ -56,7 +61,8 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
         {
             if (genreModel != null)
             {
-                var genre = MappingService.MappingProvider.Map<Genre>(genreModel);
+                // var genre = MappingService.MappingProvider.Map<Genre>(genreModel);
+                var genre = this.mapper.Map<Genre>(genreModel);
                 this.genreService.UpdateGenre(genre);
             }
 
