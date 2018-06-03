@@ -73,6 +73,7 @@
     <Compile Include="GridViewModels\GridMovieViewModel.cs" />
     <Compile Include="GridViewModels\GridPersonViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Movies.Common\Movies.Common.csproj">
