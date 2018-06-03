@@ -7,9 +7,9 @@ namespace Movies.Persistence.Data.Configurations
     {
         public UserConfiguration()
         {
-            this.Property(u => u.FirstName).IsRequired();
-            this.Property(u => u.LastName).IsRequired();
-            this.Property(u => u.Gender).IsRequired();
+            this.Property(u => u.FirstName).IsOptional();
+            this.Property(u => u.LastName).IsOptional();
+            this.Property(u => u.Gender).IsOptional();
             this.Property(u => u.ProfilePicture).IsOptional();
         }
     }
