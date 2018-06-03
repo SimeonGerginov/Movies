@@ -10,7 +10,6 @@ using Kendo.Mvc.UI;
 using Movies.Core.Models;
 using Movies.Infrastructure.Attributes;
 using Movies.Services.Contracts;
-using Movies.Services.Mappings;
 using Movies.ViewModels.GridViewModels;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
 
@@ -61,7 +60,6 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
         {
             if (genreModel != null)
             {
-                // var genre = MappingService.MappingProvider.Map<Genre>(genreModel);
                 var genre = this.mapper.Map<Genre>(genreModel);
                 this.genreService.UpdateGenre(genre);
             }

@@ -1,4 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+
+using AutoMapper;
 using Bytes2you.Validation;
 
 using Kendo.Mvc.Extensions;
@@ -6,9 +9,7 @@ using Kendo.Mvc.UI;
 
 using Movies.Core.Models;
 using Movies.Infrastructure.Attributes;
-using Movies.Infrastructure.Extensions;
 using Movies.Services.Contracts;
-using Movies.Services.Mappings;
 using Movies.ViewModels.GridViewModels;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
 
@@ -17,12 +18,15 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
     public class MoviesGridController : AdminController
     {
         private readonly IMovieService movieService;
+        private readonly IMapper mapper;
 
-        public MoviesGridController(IMovieService movieService)
+        public MoviesGridController(IMovieService movieService, IMapper mapper)
         {
             Guard.WhenArgument(movieService, "Movie Service").IsNull().Throw();
+            Guard.WhenArgument(mapper, "Mapper").IsNull().Throw();
 
             this.movieService = movieService;
+            this.mapper = mapper;
         }
 
         public ActionResult Index()
@@ -34,7 +38,7 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
         {
             var movies = this.movieService
                 .GetAllMovies()
-                .Map<Movie, GridMovieViewModel>()
+                .Select(m => this.mapper.Map<GridMovieViewModel>(m))
                 .ToDataSourceResult(request);
 
             return this.Json(movies);
@@ -56,7 +60,7 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
         {
             if (movieModel != null)
             {
-                var movie = MappingService.MappingProvider.Map<Movie>(movieModel);
+                var movie = this.mapper.Map<Movie>(movieModel);
                 this.movieService.UpdateMovie(movie);
             }
 

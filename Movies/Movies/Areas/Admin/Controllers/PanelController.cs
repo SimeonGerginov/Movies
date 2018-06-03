@@ -61,8 +61,7 @@ namespace Movies.Web.Areas.Admin.Controllers
             {
                 return this.PartialView(PartialViews.AddGenre);
             }
-
-            // var mappedGenre = MappingService.MappingProvider.Map<Genre>(genreViewModel);
+            
             var mappedGenre = this.mapper.Map<Genre>(genreViewModel);
             this.genreService.AddGenre(mappedGenre);
 
@@ -94,8 +93,7 @@ namespace Movies.Web.Areas.Admin.Controllers
             {
                 return this.PartialView(PartialViews.AddMovie, movieViewModel);
             }
-
-            // var movieModel = MappingService.MappingProvider.Map<Movie>(movieViewModel);
+            
             var movieModel = this.mapper.Map<Movie>(movieViewModel);
             this.movieService.AddMovie(movieModel, movieViewModel.GenreName);
 
@@ -126,8 +124,7 @@ namespace Movies.Web.Areas.Admin.Controllers
 
                 personViewModel.Picture = imageData;
             }
-
-            // var personModel = MappingService.MappingProvider.Map<Person>(personViewModel);
+            
             var personModel = this.mapper.Map<Person>(personViewModel);
             this.personService.AddPerson(personModel);
 

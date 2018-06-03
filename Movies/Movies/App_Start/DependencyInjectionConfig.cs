@@ -7,6 +7,7 @@ namespace Movies.Web.App_Start
     using System.Data.Entity;
     using System.Web;
 
+    using AutoMapper;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
     using Movies.Core.Contracts;
@@ -93,6 +94,7 @@ namespace Movies.Web.App_Start
 
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
             kernel.Bind(typeof(IRepository<>)).To(typeof(EfRepository<>)).InRequestScope();
+            kernel.Bind<IMapper>().ToMethod(ctx => Mapper.Instance).InSingletonScope();
 
             kernel.BindFilter<SaveChangesFilter>(System.Web.Mvc.FilterScope.Controller, 0)
                 .WhenActionMethodHas<SaveChangesAttribute>();
