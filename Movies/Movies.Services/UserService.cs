@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Bytes2you.Validation;
 
 using Movies.Core.Models;
@@ -20,9 +21,16 @@ namespace Movies.Services
 
         public User GetUser(string username)
         {
-            return this.context
+            var user = this.context
                 .Users
                 .FirstOrDefault(u => u.UserName == username);
+
+            if (user == null)
+            {
+                throw new InvalidOperationException("User not found !");
+            }
+
+            return user;
         }
     }
 }
