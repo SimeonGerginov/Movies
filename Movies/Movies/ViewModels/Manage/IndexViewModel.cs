@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
 
-namespace Movies.Core.ViewModels.Manage
+namespace Movies.Web.ViewModels.Manage
 {
     public class IndexViewModel
     {

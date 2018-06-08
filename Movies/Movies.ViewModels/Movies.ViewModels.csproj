@@ -65,15 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminViewModels\GenreViewModel.cs" />
-    <Compile Include="AdminViewModels\MovieViewModel.cs" />
-    <Compile Include="AdminViewModels\PersonInMovieViewModel.cs" />
-    <Compile Include="AdminViewModels\PersonViewModel.cs" />
-    <Compile Include="GridViewModels\GridGenreViewModel.cs" />
-    <Compile Include="GridViewModels\GridMovieViewModel.cs" />
-    <Compile Include="GridViewModels\GridPersonViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Movies.Common\Movies.Common.csproj">
@@ -92,6 +84,10 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AdminViewModels\" />
+    <Folder Include="GridViewModels\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

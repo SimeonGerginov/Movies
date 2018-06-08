@@ -7,9 +7,8 @@ using Moq;
 using Movies.Common;
 using Movies.Core.Models;
 using Movies.Services.Contracts;
-using Movies.ViewModels.AdminViewModels;
 using Movies.Web.Areas.Admin.Controllers;
-
+using Movies.Web.ViewModels.AdminViewModels;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 

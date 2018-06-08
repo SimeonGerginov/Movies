@@ -9,7 +9,7 @@ using Microsoft.Owin.Security;
 
 using Movies.Auth.ApplicationManagers;
 using Movies.Core.Models;
-using Movies.Core.ViewModels.Account;
+using Movies.Web.ViewModels.Account;
 
 namespace Movies.Web.Controllers
 {

@@ -10,9 +10,9 @@ using Movies.Core.Models;
 using Movies.Core.Models.Enums;
 using Movies.Infrastructure.Attributes;
 using Movies.Services.Contracts;
-using Movies.ViewModels.AdminViewModels;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
 using Movies.Web.Areas.Admin.Controllers.Grids;
+using Movies.Web.ViewModels.Admin;
 
 namespace Movies.Web.Areas.Admin.Controllers
 {

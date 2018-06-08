@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace Movies.Core.ViewModels.Manage
+namespace Movies.Web.ViewModels.Manage
 {
     public class ManageLoginsViewModel
     {

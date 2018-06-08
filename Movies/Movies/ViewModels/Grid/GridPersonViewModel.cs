@@ -8,7 +8,7 @@ using Movies.Core.Models;
 using Movies.Core.Models.Enums;
 using Movies.Infrastructure.Contracts;
 
-namespace Movies.ViewModels.GridViewModels
+namespace Movies.Web.ViewModels.Grid
 {
     public class GridPersonViewModel : IMap<Person>
     {

@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 using Movies.Core.Models.Enums;
 
-namespace Movies.ViewModels.AdminViewModels
+namespace Movies.Web.ViewModels.Admin
 {
     public class PersonInMovieViewModel
     {

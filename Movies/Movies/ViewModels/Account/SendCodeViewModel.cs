@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace Movies.Core.ViewModels.Account
+namespace Movies.Web.ViewModels.Account
 {
     public class SendCodeViewModel
     {

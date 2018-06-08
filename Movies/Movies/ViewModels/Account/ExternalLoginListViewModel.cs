@@ -1,4 +1,4 @@
-﻿namespace Movies.Core.ViewModels.Account
+﻿namespace Movies.Web.ViewModels.Account
 {
     public class ExternalLoginListViewModel
     {

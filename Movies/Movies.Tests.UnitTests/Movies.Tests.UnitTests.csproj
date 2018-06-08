@@ -135,10 +135,6 @@
       <Project>{437E1D1A-D97E-4ACC-BF3A-2C0A7742CC39}</Project>
       <Name>Movies.Services</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Movies.ViewModels\Movies.ViewModels.csproj">
-      <Project>{65FFC81A-B18A-48D5-A28F-47EE6573336D}</Project>
-      <Name>Movies.ViewModels</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Movies\Movies.Web.csproj">
       <Project>{9EA48739-5E2B-49DC-A3D8-A896ECDAAD0A}</Project>
       <Name>Movies.Web</Name>

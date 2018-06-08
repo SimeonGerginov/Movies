@@ -11,9 +11,8 @@ using Kendo.Mvc.UI;
 using Movies.Core.Models;
 using Movies.Infrastructure.Attributes;
 using Movies.Services.Contracts;
-using Movies.ViewModels.GridViewModels;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
-
+using Movies.Web.ViewModels.Grid;
 using WebGrease.Css.Extensions;
 
 namespace Movies.Web.Areas.Admin.Controllers.Grids

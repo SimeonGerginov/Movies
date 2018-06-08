@@ -7,7 +7,7 @@ using Movies.Core.Models;
 using Movies.Core.Models.Enums;
 using Movies.Infrastructure.Contracts;
 
-namespace Movies.ViewModels.AdminViewModels
+namespace Movies.Web.ViewModels.Admin
 {
     public class PersonViewModel : IMap<Person>
     {

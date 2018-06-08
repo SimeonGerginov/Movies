@@ -5,7 +5,7 @@ using Movies.Common;
 using Movies.Core.Models;
 using Movies.Infrastructure.Contracts;
 
-namespace Movies.ViewModels.GridViewModels
+namespace Movies.Web.ViewModels.Grid
 {
     public class GridGenreViewModel : IMap<Genre>
     {

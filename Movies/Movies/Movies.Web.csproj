@@ -204,6 +204,31 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginConfirmationViewModel.cs" />
+    <Compile Include="ViewModels\Account\ExternalLoginListViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\ForgotViewModel.cs" />
+    <Compile Include="ViewModels\Account\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Account\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
+    <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
+    <Compile Include="ViewModels\Admin\GenreViewModel.cs" />
+    <Compile Include="ViewModels\Admin\MovieViewModel.cs" />
+    <Compile Include="ViewModels\Admin\PersonInMovieViewModel.cs" />
+    <Compile Include="ViewModels\Admin\PersonViewModel.cs" />
+    <Compile Include="ViewModels\Grid\GridGenreViewModel.cs" />
+    <Compile Include="ViewModels\Grid\GridMovieViewModel.cs" />
+    <Compile Include="ViewModels\Grid\GridPersonViewModel.cs" />
+    <Compile Include="ViewModels\Manage\AddPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Manage\ChangePasswordViewModel.cs" />
+    <Compile Include="ViewModels\Manage\ConfigureTwoFactorViewModel.cs" />
+    <Compile Include="ViewModels\Manage\FactorViewModel.cs" />
+    <Compile Include="ViewModels\Manage\IndexViewModel.cs" />
+    <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
+    <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
+    <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\User\UserDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -369,10 +394,6 @@
       <Project>{6F111302-9D2D-4B7B-AE84-06624F0E01D5}</Project>
       <Name>Movies.Core.Models</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Movies.Core.ViewModels\Movies.Core.ViewModels.csproj">
-      <Project>{5D77F4DD-126C-41AC-A3F1-41BAD8D033D0}</Project>
-      <Name>Movies.Core.ViewModels</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Movies.Core\Movies.Core.csproj">
       <Project>{09E9916A-4EDA-44A6-8B6D-091E514CB473}</Project>
       <Name>Movies.Core</Name>
@@ -388,10 +409,6 @@
     <ProjectReference Include="..\Movies.Services\Movies.Services.csproj">
       <Project>{437E1D1A-D97E-4ACC-BF3A-2C0A7742CC39}</Project>
       <Name>Movies.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Movies.ViewModels\Movies.ViewModels.csproj">
-      <Project>{65FFC81A-B18A-48D5-A28F-47EE6573336D}</Project>
-      <Name>Movies.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
