@@ -5,7 +5,7 @@ using Moq;
 using Movies.Core.Models;
 using Movies.Services.Contracts;
 using Movies.Web.Areas.Admin.Controllers.Grids;
-using Movies.Web.ViewModels.GridViewModels;
+using Movies.Web.ViewModels.Grid;
 using NUnit.Framework;
 
 namespace Movies.Tests.UnitTests.Controllers.Grids.GenresGridControllerTests

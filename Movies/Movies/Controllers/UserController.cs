@@ -1,12 +1,12 @@
 ﻿using System.Web.Mvc;
-using System.Web.UI.WebControls;
 using AutoMapper;
 using Bytes2you.Validation;
 using Microsoft.AspNet.Identity;
+
 using Movies.Core.Models;
 using Movies.Infrastructure.Attributes;
 using Movies.Services.Contracts;
-using Movies.Web.ViewModels;
+using Movies.Web.ViewModels.User;
 
 namespace Movies.Web.Controllers
 {
@@ -57,7 +57,13 @@ namespace Movies.Web.Controllers
 
                 var userId = this.User.Identity.GetUserId();
                 var user = this.mapper.Map<User>(userVm);
+
+                this.userService.EditUser(userId, user);
+
+                return this.RedirectToAction("Index", "Home");
             }
+
+            return this.View(userVm);
         }
 
         public ActionResult UserProfile(string username)

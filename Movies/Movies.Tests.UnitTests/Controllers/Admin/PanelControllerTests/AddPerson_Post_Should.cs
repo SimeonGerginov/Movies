@@ -12,7 +12,7 @@ using Movies.Core.Models;
 using Movies.Core.Models.Enums;
 using Movies.Services.Contracts;
 using Movies.Web.Areas.Admin.Controllers;
-using Movies.Web.ViewModels.AdminViewModels;
+using Movies.Web.ViewModels.Admin;
 using NUnit.Framework;
 
 namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
