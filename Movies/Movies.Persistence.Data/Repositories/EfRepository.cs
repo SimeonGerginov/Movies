@@ -5,13 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 
 using Bytes2you.Validation;
-
 using Movies.Core.Contracts;
-using Movies.Core.Entities;
 
 namespace Movies.Persistence.Data.Repositories
 {
-    public class EfRepository<T> : IRepository<T> where T : BaseEntity 
+    public class EfRepository<T> : IRepository<T> where T : class, IAuditable, IDeletable
     {
         private readonly IDbSet<T> dbSet;
         private readonly MsSqlDbContext dbContext;

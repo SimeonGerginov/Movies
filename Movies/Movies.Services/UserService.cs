@@ -1,36 +1,48 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Bytes2you.Validation;
 
+using Movies.Core.Contracts;
 using Movies.Core.Models;
-using Movies.Persistence.Data;
 using Movies.Services.Contracts;
 
 namespace Movies.Services
 {
     public class UserService : IUserService
     {
-        private readonly MsSqlDbContext context;
+        private readonly IRepository<User> userRepository;
 
-        public UserService(MsSqlDbContext context)
+        public UserService(IRepository<User> userRepository)
         {
-            Guard.WhenArgument(context, "Context").IsNull().Throw();
+            Guard.WhenArgument(userRepository, "User Repository").IsNull().Throw();
 
-            this.context = context;
+            this.userRepository = userRepository;
         }
 
         public User GetUser(string username)
         {
-            var user = this.context
-                .Users
-                .FirstOrDefault(u => u.UserName == username);
+            var user = this.userRepository
+                .GetAllFiltered(u => u.UserName == username)
+                .FirstOrDefault();
 
-            if (user == null)
-            {
-                throw new InvalidOperationException("User not found !");
-            }
+            Guard.WhenArgument(user, "User").IsNull().Throw();
 
             return user;
+        }
+
+        public void EditUser(string userId, User userModel)
+        {
+            Guard.WhenArgument(userId, "User Id").IsNull().Throw();
+
+            var user = this.userRepository
+                .GetAllFiltered(u => u.Id == userId)
+                .FirstOrDefault();
+
+            if (user != null)
+            {
+                user.FirstName = userModel.FirstName;
+                user.LastName = userModel.LastName;
+                user.Email = userModel.Email;
+            }
         }
     }
 }
