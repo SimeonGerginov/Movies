@@ -74,7 +74,6 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
                 Year = "2000",
                 RunningTime = 120,
                 Description = "Movie Description",
-                Rating = 5,
                 GenreId = 1
             };
 

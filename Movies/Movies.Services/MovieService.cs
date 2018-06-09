@@ -111,7 +111,6 @@ namespace Movies.Services
                 targetMovie.Year = movieToUpdate.Year;
                 targetMovie.RunningTime = movieToUpdate.RunningTime;
                 targetMovie.Description = movieToUpdate.Description;
-                targetMovie.Rating = movieToUpdate.Rating;
                 targetMovie.ModifiedOn = DateTime.UtcNow;
 
                 this.movieRepository.Update(targetMovie);

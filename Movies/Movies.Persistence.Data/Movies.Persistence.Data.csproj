@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Configurations\GenreConfiguration.cs" />
     <Compile Include="Configurations\MovieConfiguration.cs" />
+    <Compile Include="Configurations\MovieRatingConfiguration.cs" />
     <Compile Include="Configurations\MovieRoleConfiguration.cs" />
     <Compile Include="Configurations\PersonConfiguration.cs" />
     <Compile Include="Configurations\UserConfiguration.cs" />
@@ -92,6 +93,10 @@
     <Compile Include="Migrations\201805261610458_AddedMovieRole.cs" />
     <Compile Include="Migrations\201805261610458_AddedMovieRole.Designer.cs">
       <DependentUpon>201805261610458_AddedMovieRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806091833057_AddedMovieRatingAndMovieImage.cs" />
+    <Compile Include="Migrations\201806091833057_AddedMovieRatingAndMovieImage.Designer.cs">
+      <DependentUpon>201806091833057_AddedMovieRatingAndMovieImage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
@@ -141,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805261610458_AddedMovieRole.resx">
       <DependentUpon>201805261610458_AddedMovieRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806091833057_AddedMovieRatingAndMovieImage.resx">
+      <DependentUpon>201806091833057_AddedMovieRatingAndMovieImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

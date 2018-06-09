@@ -33,11 +33,6 @@ namespace Movies.Web.ViewModels.Grid
             ErrorMessage = "Movie running time should be between 10 and 600 minutes long !")]
         public int RunningTime { get; set; }
 
-        [Required(ErrorMessage = "Rating is required !")]
-        [Range(GlobalConstants.MinMovieRating, GlobalConstants.MaxMovieRating,
-            ErrorMessage = "Movie rating should be between 1 and 10 !")]
-        public int Rating { get; set; }
-
         public string GenreName { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)

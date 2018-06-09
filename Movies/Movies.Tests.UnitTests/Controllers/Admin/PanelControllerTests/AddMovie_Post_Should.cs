@@ -50,7 +50,6 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
                 Year = "2000",
                 RunningTime = 120,
                 Description = "Movie Description",
-                Rating = 5,
                 GenreName = "Genre Name"
             };
 
@@ -60,7 +59,6 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
                 Year = movieViewModel.Year,
                 RunningTime = movieViewModel.RunningTime,
                 Description = movieViewModel.Description,
-                Rating = movieViewModel.Rating,
                 GenreId = 1
             };
 

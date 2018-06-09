@@ -38,12 +38,6 @@ namespace Movies.Web.ViewModels.Admin
             ErrorMessage = "Movie description should be no more than 200 symbols long !")]
         public string Description { get; set; }
 
-        [Display(Name = "Rating of movie")]
-        [Required(ErrorMessage = "Rating is required !")]
-        [Range(GlobalConstants.MinMovieRating, GlobalConstants.MaxMovieRating,
-            ErrorMessage = "Movie rating should be between 1 and 10 !")]
-        public int Rating { get; set; }
-
         [Display(Name = "Genre of movie")]
         [Required(ErrorMessage = "Genre is required !")]
         [StringLength(GlobalConstants.MaxGenreNameLength, MinimumLength = GlobalConstants.MinGenreNameLength,
