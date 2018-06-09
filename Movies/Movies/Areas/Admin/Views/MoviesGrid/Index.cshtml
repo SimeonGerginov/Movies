@@ -10,6 +10,8 @@
           .Name("MoviesGrid")
           .Columns(columns =>
           {
+              columns.Bound(m => m.Image)
+                  .ClientTemplate("<img class='grid-photo' src='" + Url.Action("getImage", "MoviesGrid") + "/#= Id #" + "'/>");
               columns.Bound(m => m.Name).Title("Name").Width(300);
               columns.Bound(m => m.Year).Title("Year").Width(150);
               columns.Bound(m => m.RunningTime).Title("Running Time");
@@ -35,6 +37,7 @@
                   .Model(m =>
                   {
                       m.Id(mv => mv.Id);
+                      m.Field(mv => mv.Image).Editable(false);
                       m.Field(mv => mv.GenreName).Editable(false);
                       m.Field(mv => mv.CreatedOn).Editable(false);
                       m.Field(mv => mv.ModifiedOn).Editable(false);

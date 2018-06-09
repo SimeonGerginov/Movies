@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
+
 using AutoMapper;
 
 using Movies.Common;
@@ -34,6 +36,10 @@ namespace Movies.Web.ViewModels.Grid
         public int RunningTime { get; set; }
 
         public string GenreName { get; set; }
+
+        public byte[] Image { get; set; }
+
+        public FileContentResult ImageFile { get; set; }
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {

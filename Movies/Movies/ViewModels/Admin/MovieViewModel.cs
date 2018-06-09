@@ -43,5 +43,8 @@ namespace Movies.Web.ViewModels.Admin
         [StringLength(GlobalConstants.MaxGenreNameLength, MinimumLength = GlobalConstants.MinGenreNameLength,
             ErrorMessage = "Genre name should be between 3 and 20 symbols long !")]
         public string GenreName { get; set; }
+
+        [Display(Name = "Movie image")]
+        public byte[] Image { get; set; }
     }
 }

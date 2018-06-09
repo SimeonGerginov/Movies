@@ -87,11 +87,19 @@ namespace Movies.Web.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [SaveChanges]
-        public ActionResult AddMovie(MovieViewModel movieViewModel)
+        public ActionResult AddMovie([Bind(Exclude = "Image")]MovieViewModel movieViewModel)
         {
             if (!this.ModelState.IsValid)
             {
                 return this.PartialView(PartialViews.AddMovie, movieViewModel);
+            }
+
+            if (this.Request.Files.Count > 0)
+            {
+                var image = this.Request.Files["Image"];
+                var imageData = this.fileConverter.PostedToByteArray(image);
+
+                movieViewModel.Image = imageData;
             }
             
             var movieModel = this.mapper.Map<Movie>(movieViewModel);
