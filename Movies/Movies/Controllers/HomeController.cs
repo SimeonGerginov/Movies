@@ -1,26 +1,34 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
+using AutoMapper;
+using Bytes2you.Validation;
+using Movies.Services.Contracts;
+using Movies.Web.ViewModels.Movie;
 
 namespace Movies.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private const int moviesToShow = 10;
+
+        private readonly IMovieService movieService;
+        private readonly IMapper mapper;
+
+        public HomeController(IMovieService movieService, IMapper mapper)
+        {
+            Guard.WhenArgument(movieService, "Movie Service").IsNull().Throw();
+            Guard.WhenArgument(mapper, "Mapper").IsNull().Throw();
+
+            this.movieService = movieService;
+        }
+
         public ActionResult Index()
         {
-            return this.View();
-        }
+            var movies = this.movieService
+                .GetTopRatedMovies(moviesToShow)
+                .Select(m => this.mapper.Map<MovieViewModel>(m));
 
-        public ActionResult About()
-        {
-            this.ViewBag.Message = "Your application description page.";
-
-            return this.View();
-        }
-
-        public ActionResult Contact()
-        {
-            this.ViewBag.Message = "Your contact page.";
-
-            return this.View();
+            return this.View(movies);
         }
     }
 }

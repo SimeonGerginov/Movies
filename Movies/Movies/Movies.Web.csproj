@@ -228,6 +228,7 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
+    <Compile Include="ViewModels\Movie\MovieViewModel.cs" />
     <Compile Include="ViewModels\User\UserDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -374,9 +375,7 @@
     <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModels\Movie\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
