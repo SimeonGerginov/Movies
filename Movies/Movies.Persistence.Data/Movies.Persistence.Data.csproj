@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configurations\CommentConfiguration.cs" />
     <Compile Include="Configurations\GenreConfiguration.cs" />
     <Compile Include="Configurations\MovieConfiguration.cs" />
     <Compile Include="Configurations\MovieRatingConfiguration.cs" />
@@ -97,6 +98,10 @@
     <Compile Include="Migrations\201806091833057_AddedMovieRatingAndMovieImage.cs" />
     <Compile Include="Migrations\201806091833057_AddedMovieRatingAndMovieImage.Designer.cs">
       <DependentUpon>201806091833057_AddedMovieRatingAndMovieImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806091845422_AddedComments.cs" />
+    <Compile Include="Migrations\201806091845422_AddedComments.Designer.cs">
+      <DependentUpon>201806091845422_AddedComments.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MsSqlDbContext.cs" />
@@ -149,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806091833057_AddedMovieRatingAndMovieImage.resx">
       <DependentUpon>201806091833057_AddedMovieRatingAndMovieImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806091845422_AddedComments.resx">
+      <DependentUpon>201806091845422_AddedComments.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

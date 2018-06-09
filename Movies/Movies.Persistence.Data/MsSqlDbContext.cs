@@ -27,6 +27,8 @@ namespace Movies.Persistence.Data
 
         public virtual IDbSet<MovieRating> MovieRatings { get; set; }
 
+        public virtual IDbSet<Comment> Comments { get; set; }
+
         public override int SaveChanges()
         {
             this.ApplyAuditInfoRules();
@@ -43,6 +45,7 @@ namespace Movies.Persistence.Data
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new MovieRoleConfiguration());
             modelBuilder.Configurations.Add(new MovieRatingConfiguration());
+            modelBuilder.Configurations.Add(new CommentConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

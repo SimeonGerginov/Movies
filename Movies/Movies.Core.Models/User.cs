@@ -18,10 +18,12 @@ namespace Movies.Core.Models
     public class User : IdentityUser, IAuditable, IDeletable
     {
         private ICollection<MovieRating> ratings;
+        private ICollection<Comment> comments;
 
         public User()
         {
             this.ratings = new HashSet<MovieRating>();
+            this.comments = new HashSet<Comment>();
         }
 
         [StringLength(GlobalConstants.MaxUserNameLength, MinimumLength = GlobalConstants.MinUserNameLength)]
@@ -47,6 +49,12 @@ namespace Movies.Core.Models
         {
             get { return this.ratings; }
             set { this.ratings = value; }
+        }
+
+        public ICollection<Comment> Comments
+        {
+            get { return this.comments; }
+            set { this.comments = value; }
         }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

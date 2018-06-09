@@ -31,6 +31,10 @@
         public const int MinUserNameLength = 3;
         public const int MaxUserNameLength = 30;
 
+        // Comment Constants
+        public const int MinCommentLength = 10;
+        public const int MaxCommentLength = 200;
+
         // Grids
         public const int GridsPageSize = 12;
     }

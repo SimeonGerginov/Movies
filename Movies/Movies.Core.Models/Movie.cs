@@ -11,12 +11,14 @@ namespace Movies.Core.Models
         private ICollection<Person> people;
         private ICollection<MovieRole> roles;
         private ICollection<MovieRating> ratings;
+        private ICollection<Comment> comments;
 
         public Movie()
         {
             this.people = new HashSet<Person>();
             this.roles = new HashSet<MovieRole>();
             this.ratings = new HashSet<MovieRating>();
+            this.comments = new HashSet<Comment>();
         }
 
         [StringLength(GlobalConstants.MaxMovieLength, MinimumLength = GlobalConstants.MinMovieLength)]
@@ -53,6 +55,12 @@ namespace Movies.Core.Models
         {
             get { return this.ratings; }
             set { this.ratings = value; }
+        }
+
+        public virtual ICollection<Comment> Comments
+        {
+            get { return this.comments; }
+            set { this.comments = value; }
         }
     }
 }
