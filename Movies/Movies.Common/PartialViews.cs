@@ -8,5 +8,6 @@
         public const string AddPerson = "_AddPersonPartial";
         public const string AddPersonToMovie = "_AddPersonToMoviePartial";
         public const string TopRatedMovies = "_TopRatedMoviesPartial";
+        public const string MovieDetails = "_MovieDetailsPartial";
     }
 }

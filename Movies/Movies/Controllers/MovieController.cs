@@ -13,16 +13,20 @@ namespace Movies.Web.Controllers
     public class MovieController : Controller
     {
         private readonly IMovieService movieService;
+        private readonly IMovieRoleService movieRoleService;
         private readonly IFileConverter fileConverter;
         private readonly IMapper mapper;
 
-        public MovieController(IMovieService movieService, IFileConverter fileConverter, IMapper mapper)
+        public MovieController(IMovieService movieService, IMovieRoleService movieRoleService,
+            IFileConverter fileConverter, IMapper mapper)
         {
             Guard.WhenArgument(movieService, "Movie Service").IsNull().Throw();
+            Guard.WhenArgument(movieRoleService, "Movie Role Service").IsNull().Throw();
             Guard.WhenArgument(fileConverter, "File Converter").IsNull().Throw();
             Guard.WhenArgument(mapper, "Mapper").IsNull().Throw();
 
             this.movieService = movieService;
+            this.movieRoleService = movieRoleService;
             this.fileConverter = fileConverter;
             this.mapper = mapper;
         }
@@ -35,6 +39,20 @@ namespace Movies.Web.Controllers
                 .Select(m => this.mapper.Map<TopRatedMovieViewModel>(m));
 
             return this.PartialView(PartialViews.TopRatedMovies, topRatedMovies);
+        }
+
+        [ChildActionOnly]
+        public ActionResult MovieDetails(int movieId)
+        {
+            var movie = this.movieService.GetMovie(movieId);
+            var movieVm = this.mapper.Map<MovieDetailsViewModel>(movie);
+
+            foreach (var participant in movieVm.Participants)
+            {
+                participant.Role = this.movieRoleService.GetRoleInMovie(movieVm.Id, participant.Id);
+            }
+
+            return this.PartialView(PartialViews.MovieDetails, movieVm);
         }
 
         public ActionResult MovieImage(int movieId)

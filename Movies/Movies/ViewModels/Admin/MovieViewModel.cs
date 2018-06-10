@@ -3,12 +3,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
 
 using Movies.Common;
-using Movies.Core.Models;
 using Movies.Infrastructure.Contracts;
 
 namespace Movies.Web.ViewModels.Admin
 {
-    public class MovieViewModel : IMap<Movie>
+    public class MovieViewModel : IMap<Core.Models.Movie>
     {
         public IEnumerable<SelectListItem> GenresSelectList { get; set; }
 

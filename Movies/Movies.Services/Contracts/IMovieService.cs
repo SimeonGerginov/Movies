@@ -17,6 +17,8 @@ namespace Movies.Services.Contracts
 
         byte[] GetMovieImage(int movieId);
 
+        Movie GetMovie(int movieId);
+
         IEnumerable<Movie> GetAllMovies();
 
         IEnumerable<Movie> GetTopRatedMovies(int moviesToTake);

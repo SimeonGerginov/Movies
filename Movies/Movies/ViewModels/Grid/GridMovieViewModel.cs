@@ -5,12 +5,11 @@ using System.Web.Mvc;
 using AutoMapper;
 
 using Movies.Common;
-using Movies.Core.Models;
 using Movies.Infrastructure.Contracts;
 
 namespace Movies.Web.ViewModels.Grid
 {
-    public class GridMovieViewModel : IMap<Movie>, ICustomMappings
+    public class GridMovieViewModel : IMap<Core.Models.Movie>, ICustomMappings
     {
         public int Id { get; set; }
 
@@ -43,7 +42,7 @@ namespace Movies.Web.ViewModels.Grid
 
         public void CreateMappings(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<Movie, GridMovieViewModel>()
+            configuration.CreateMap<Core.Models.Movie, GridMovieViewModel>()
                 .ForMember(m => m.GenreName, opt => opt.MapFrom(m => m.Genre.Name));
         }
     }

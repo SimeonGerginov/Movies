@@ -27,12 +27,6 @@
                     <li>
                         @(Html.ActionLink("Home", (HomeController c) => c.Index()))
                     </li>
-                    <li>
-                        @(Html.ActionLink("About", (HomeController c) => c.About()))
-                    </li>
-                    <li>
-                        @(Html.ActionLink("Contact", (HomeController c) => c.Contact()))
-                    </li>
 
                     @if (User.IsInRole("Admin"))
                     {

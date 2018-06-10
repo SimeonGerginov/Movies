@@ -53,11 +53,13 @@
     <Compile Include="Contracts\IDataService.cs" />
     <Compile Include="Contracts\IFileConverter.cs" />
     <Compile Include="Contracts\IGenreService.cs" />
+    <Compile Include="Contracts\IMovieRoleService.cs" />
     <Compile Include="Contracts\IMovieService.cs" />
     <Compile Include="Contracts\IPersonService.cs" />
     <Compile Include="Contracts\IUserService.cs" />
     <Compile Include="FileConverter.cs" />
     <Compile Include="GenreService.cs" />
+    <Compile Include="MovieRoleService.cs" />
     <Compile Include="MovieService.cs" />
     <Compile Include="PersonService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

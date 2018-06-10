@@ -130,6 +130,15 @@ namespace Movies.Services
             return movie.Image;
         }
 
+        public Movie GetMovie(int movieId)
+        {
+            var movie = this.movieRepository.GetById(movieId);
+
+            Guard.WhenArgument(movie, "Movie").IsNull().Throw();
+
+            return movie;
+        }
+
         public IEnumerable<Movie> GetAllMovies()
         {
             return this.movieRepository.GetAllAndIncludeEntity("Genre");
