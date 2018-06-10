@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentService.cs" />
+    <Compile Include="Contracts\ICommentService.cs" />
     <Compile Include="Contracts\IDataService.cs" />
     <Compile Include="Contracts\IFileConverter.cs" />
     <Compile Include="Contracts\IGenreService.cs" />
