@@ -14,6 +14,7 @@
         public const int MovieDescriptionLength = 200;
         public const int MinMovieRating = 1;
         public const int MaxMovieRating = 10;
+        public const int TopRatedMoviesCount = 10;
 
         // Genre Constants
         public const int MinGenreNameLength = 3;

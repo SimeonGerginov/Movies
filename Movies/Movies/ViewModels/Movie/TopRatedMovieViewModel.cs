@@ -2,7 +2,7 @@
 
 namespace Movies.Web.ViewModels.Movie
 {
-    public class MovieViewModel : IMap<Core.Models.Movie>
+    public class TopRatedMovieViewModel : IMap<Core.Models.Movie>
     {
         public int Id { get; set; }
 

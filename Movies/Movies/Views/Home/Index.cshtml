@@ -1,27 +1,5 @@
-﻿@model IEnumerable<Movies.Web.ViewModels.Movie.MovieViewModel>
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="row">
-    @if (Model.Any())
-    {
-        foreach (var movie in Model)
-        {
-            <div class="col-md-4">
-                <h2>
-                    @movie.Name
-                </h2>
-                <p>
-                    @movie.Year
-                </p>
-            </div>
-        }
-    }
-    else
-    {
-        <h2>
-            There are no movies at the moment.
-        </h2>
-    }
-</div>
+@{Html.RenderAction("GetTopRatedMovies", "Movie");}

@@ -199,6 +199,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MovieController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -228,7 +229,7 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\Movie\MovieViewModel.cs" />
+    <Compile Include="ViewModels\Movie\TopRatedMovieViewModel.cs" />
     <Compile Include="ViewModels\User\UserDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -374,6 +375,7 @@
     <Content Include="Scripts\Kendo\kendo.web.min.js.map" />
     <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
+    <Content Include="Views\Shared\_TopRatedMoviesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
