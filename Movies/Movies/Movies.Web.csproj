@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -378,8 +379,11 @@
     <Content Include="Views\User\UserProfile.cshtml" />
     <Content Include="Views\User\EditUser.cshtml" />
     <Content Include="Views\Shared\_TopRatedMoviesPartial.cshtml" />
+    <Content Include="Views\Shared\_MovieDetailsPartial.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Person\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config">
       <SubType>Designer</SubType>
