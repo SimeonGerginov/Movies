@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity;
 using Movies.Core.Models;
 using Movies.Infrastructure.Attributes;
 using Movies.Services.Contracts;
-using Movies.Web.ViewModels.User;
+using Movies.Web.ViewModels.UserViewModels;
 
 namespace Movies.Web.Controllers
 {

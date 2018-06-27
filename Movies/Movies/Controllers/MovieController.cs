@@ -6,7 +6,7 @@ using Bytes2you.Validation;
 
 using Movies.Common;
 using Movies.Services.Contracts;
-using Movies.Web.ViewModels.Movie;
+using Movies.Web.ViewModels.MovieViewModels;
 
 namespace Movies.Web.Controllers
 {

@@ -1,12 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using Movies.Common;
+using Movies.Core.Models;
 using Movies.Core.Models.Enums;
 using Movies.Infrastructure.Contracts;
 
-namespace Movies.Web.ViewModels.User
+namespace Movies.Web.ViewModels.UserViewModels
 {
-    public class UserDetailsViewModel : IMap<Core.Models.User>
+    public class UserDetailsViewModel : IMap<User>
     {
         [StringLength(GlobalConstants.MaxUserNameLength, MinimumLength = GlobalConstants.MinUserNameLength)]
         public string FirstName { get; set; }

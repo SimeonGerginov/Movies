@@ -230,10 +230,10 @@
     <Compile Include="ViewModels\Manage\ManageLoginsViewModel.cs" />
     <Compile Include="ViewModels\Manage\SetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Manage\VerifyPhoneNumberViewModel.cs" />
-    <Compile Include="ViewModels\Movie\MovieDetailsViewModel.cs" />
-    <Compile Include="ViewModels\Movie\TopRatedMovieViewModel.cs" />
-    <Compile Include="ViewModels\Person\MovieParticipantViewModel.cs" />
-    <Compile Include="ViewModels\User\UserDetailsViewModel.cs" />
+    <Compile Include="ViewModels\MovieViewModels\MovieDetailsViewModel.cs" />
+    <Compile Include="ViewModels\MovieViewModels\TopRatedMovieViewModel.cs" />
+    <Compile Include="ViewModels\PersonViewModels\MovieParticipantViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModels\UserDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />

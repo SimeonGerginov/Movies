@@ -1,8 +1,9 @@
-﻿using Movies.Infrastructure.Contracts;
+﻿using Movies.Core.Models;
+using Movies.Infrastructure.Contracts;
 
-namespace Movies.Web.ViewModels.Movie
+namespace Movies.Web.ViewModels.MovieViewModels
 {
-    public class TopRatedMovieViewModel : IMap<Core.Models.Movie>
+    public class TopRatedMovieViewModel : IMap<Movie>
     {
         public int Id { get; set; }
 

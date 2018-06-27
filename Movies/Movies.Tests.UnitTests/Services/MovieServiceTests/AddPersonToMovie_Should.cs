@@ -23,13 +23,14 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var personRepositoryMock = new Mock<IRepository<Person>>();
             var genreRepositoryMock = new Mock<IRepository<Genre>>();
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
+            var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
             Person person = null;
             Role role = Role.Actor;
 
             personRepositoryMock.Setup(pr => pr.GetById(It.IsAny<int>())).Returns(person);
 
             var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object);
+                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
 
             // Act && Assert
             Assert.Throws<ArgumentNullException>(() => movieService
@@ -44,6 +45,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var personRepositoryMock = new Mock<IRepository<Person>>();
             var genreRepositoryMock = new Mock<IRepository<Genre>>();
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
+            var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
             var personMock = new Mock<Person>();
             Movie movie = null;
             Role role = Role.Actor;
@@ -52,7 +54,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             movieRepositoryMock.Setup(mr => mr.GetById(It.IsAny<int>())).Returns(movie);
 
             var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object);
+                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
 
             // Act && Assert
             Assert.Throws<ArgumentNullException>(() => movieService
@@ -67,6 +69,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var personRepositoryMock = new Mock<IRepository<Person>>();
             var genreRepositoryMock = new Mock<IRepository<Genre>>();
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
+            var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
             var personMock = new Mock<Person>();
             var movieMock = new Mock<Movie>();
             Role role = Role.Actor;
@@ -79,7 +82,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             movieRepositoryMock.Setup(mr => mr.GetById(It.IsAny<int>())).Returns(movieMock.Object);
 
             var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object);
+                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
 
             // Act
             movieService.AddPersonToMovie(It.IsAny<int>(), It.IsAny<int>(), role);
@@ -96,6 +99,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var personRepositoryMock = new Mock<IRepository<Person>>();
             var genreRepositoryMock = new Mock<IRepository<Genre>>();
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
+            var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
             var personMock = new Mock<Person>();
             var movieMock = new Mock<Movie>();
             Role role = Role.Actor;
@@ -107,7 +111,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             movieRepositoryMock.Setup(mr => mr.GetById(It.IsAny<int>())).Returns(movieMock.Object);
 
             var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object);
+                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
 
             // Act
             movieService.AddPersonToMovie(It.IsAny<int>(), It.IsAny<int>(), role);
@@ -124,6 +128,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var personRepositoryMock = new Mock<IRepository<Person>>();
             var genreRepositoryMock = new Mock<IRepository<Genre>>();
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
+            var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
             var personMock = new Mock<Person>();
             var movieMock = new Mock<Movie>();
             Role role = Role.Actor;
@@ -135,7 +140,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             movieRepositoryMock.Setup(mr => mr.GetById(It.IsAny<int>())).Returns(movieMock.Object);
 
             var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object);
+                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
 
             // Act
             movieService.AddPersonToMovie(It.IsAny<int>(), It.IsAny<int>(), role);

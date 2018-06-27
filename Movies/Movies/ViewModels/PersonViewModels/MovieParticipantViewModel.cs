@@ -3,7 +3,7 @@
 using Movies.Core.Models.Enums;
 using Movies.Infrastructure.Contracts;
 
-namespace Movies.Web.ViewModels.Person
+namespace Movies.Web.ViewModels.PersonViewModels
 {
     public class MovieParticipantViewModel : ICustomMappings
     {

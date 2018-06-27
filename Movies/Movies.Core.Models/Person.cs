@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
 using Movies.Common;
 using Movies.Common.Validations;
 using Movies.Core.Entities;

@@ -2,9 +2,9 @@
 using AutoMapper;
 
 using Movies.Infrastructure.Contracts;
-using Movies.Web.ViewModels.Person;
+using Movies.Web.ViewModels.PersonViewModels;
 
-namespace Movies.Web.ViewModels.Movie
+namespace Movies.Web.ViewModels.MovieViewModels
 {
     public class MovieDetailsViewModel : ICustomMappings
     {
