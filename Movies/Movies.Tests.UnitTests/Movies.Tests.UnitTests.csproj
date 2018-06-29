@@ -101,6 +101,12 @@
     <Compile Include="Controllers\Grids\GenresGridControllerTests\EditGenre_Should.cs" />
     <Compile Include="Controllers\Grids\GenresGridControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\Grids\GenresGridControllerTests\ReadGenres_Should.cs" />
+    <Compile Include="Controllers\Grids\MoviesGridControllerTests\Ctor_Should.cs" />
+    <Compile Include="Controllers\Grids\MoviesGridControllerTests\DeleteMovie_Should.cs" />
+    <Compile Include="Controllers\Grids\MoviesGridControllerTests\EditMovie_Should.cs" />
+    <Compile Include="Controllers\Grids\MoviesGridControllerTests\GetImage_Should.cs" />
+    <Compile Include="Controllers\Grids\MoviesGridControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\Grids\MoviesGridControllerTests\ReadMovies_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GenreServiceTests\AddGenre_Should.cs" />
     <Compile Include="Services\GenreServiceTests\Ctor_Should.cs" />
