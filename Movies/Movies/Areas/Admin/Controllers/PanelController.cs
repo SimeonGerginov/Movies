@@ -55,11 +55,11 @@ namespace Movies.Web.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [SaveChanges]
-        public ActionResult AddGenre(GenreViewModel genreViewModel)
+        public ActionResult AddGenre(AddGenreViewModel genreViewModel)
         {
             if (!this.ModelState.IsValid)
             {
-                return this.PartialView(PartialViews.AddGenre);
+                return this.RedirectToAction<PanelController>(c => c.Index());
             }
             
             var mappedGenre = this.mapper.Map<Genre>(genreViewModel);
@@ -76,7 +76,7 @@ namespace Movies.Web.Areas.Admin.Controllers
                 .GetAllGenres()
                 .Select(g => new SelectListItem() { Text = g.Name, Value = g.Name });
 
-            var movieViewModel = new MovieViewModel()
+            var movieViewModel = new AddMovieViewModel()
             {
                 GenresSelectList = genresSelectList
             };
@@ -87,11 +87,11 @@ namespace Movies.Web.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [SaveChanges]
-        public ActionResult AddMovie([Bind(Exclude = "Image")]MovieViewModel movieViewModel)
+        public ActionResult AddMovie([Bind(Exclude = "Image")]AddMovieViewModel movieViewModel)
         {
             if (!this.ModelState.IsValid)
             {
-                return this.PartialView(PartialViews.AddMovie, movieViewModel);
+                return this.RedirectToAction<PanelController>(c => c.Index());
             }
 
             if (this.Request.Files.Count > 0)

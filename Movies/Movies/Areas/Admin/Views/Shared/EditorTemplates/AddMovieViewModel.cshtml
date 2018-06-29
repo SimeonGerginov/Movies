@@ -1,11 +1,11 @@
-﻿@model Movies.Web.ViewModels.Admin.MovieViewModel
+﻿@model Movies.Web.ViewModels.Admin.AddMovieViewModel
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 
 @using (Html.BeginForm<PanelController>(c => c.AddMovie(null), FormMethod.Post, null, new { enctype = "multipart/form-data", id = "add-data-form" }))
 {
-    <span class="alert-danger">
+    <span class="alert-danger text-warning">
         @Html.ValidationSummary()
     </span>
 
@@ -19,7 +19,7 @@
                 <i class="glyphicon glyphicon-film"></i>
             </span>
             @Html.EditorFor(m => m.Name,
-                new { htmlAttributes = new { @class = "form-control", placeholder = "movie name", required = true }})
+                new { htmlAttributes = new { @class = "form-control", placeholder = "Movie name", required = true }})
         </div>
     </div>
 
@@ -33,7 +33,7 @@
                 <i class="fa fa-calendar-times-o" aria-hidden="true"></i>
             </span>
             @Html.EditorFor(m => m.Year,
-                new { htmlAttributes = new { @class = "form-control", placeholder = "movie year", required = true }})
+                new { htmlAttributes = new { @class = "form-control", placeholder = "Movie year", required = true }})
         </div>
     </div>
 
@@ -54,7 +54,7 @@
                type = "number",
                min = GlobalConstants.MinMovieRunningTime,
                max = GlobalConstants.MaxMovieRunningTime,
-               placeholder = "movie running time",
+               placeholder = "Movie running time",
                required = true
            }
        })
@@ -70,7 +70,7 @@
             <span class="input-group-addon">
                 <i class="fa fa-pencil-square" aria-hidden="true"></i>
             </span>
-            @Html.EditorFor(m => m.Description, new
+            @Html.TextAreaFor(m => m.Description, new
        {
            htmlAttributes = new
            {

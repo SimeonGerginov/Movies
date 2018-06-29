@@ -215,8 +215,8 @@
     <Compile Include="ViewModels\Account\ResetPasswordViewModel.cs" />
     <Compile Include="ViewModels\Account\SendCodeViewModel.cs" />
     <Compile Include="ViewModels\Account\VerifyCodeViewModel.cs" />
-    <Compile Include="ViewModels\Admin\GenreViewModel.cs" />
-    <Compile Include="ViewModels\Admin\MovieViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AddGenreViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AddMovieViewModel.cs" />
     <Compile Include="ViewModels\Admin\PersonInMovieViewModel.cs" />
     <Compile Include="ViewModels\Admin\PersonViewModel.cs" />
     <Compile Include="ViewModels\Grid\GridGenreViewModel.cs" />
@@ -298,10 +298,10 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Panel\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AddGenrePartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\GenreViewModel.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\AddGenreViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\GenresGrid\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AddMoviePartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\MovieViewModel.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\EditorTemplates\AddMovieViewModel.cshtml" />
     <Content Include="Areas\Admin\Views\MoviesGrid\Index.cshtml" />
     <Content Include="Content\Kendo\kendo.material.min.css.map" />
     <Content Include="Areas\Admin\Views\Shared\_AddPersonPartial.cshtml" />

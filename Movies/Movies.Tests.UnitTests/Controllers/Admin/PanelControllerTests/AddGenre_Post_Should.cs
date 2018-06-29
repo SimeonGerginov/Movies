@@ -8,6 +8,7 @@ using Movies.Core.Models;
 using Movies.Services.Contracts;
 using Movies.Web.Areas.Admin.Controllers;
 using Movies.Web.ViewModels.Admin;
+
 using NUnit.Framework;
 
 namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
@@ -19,7 +20,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
         public void OnlyRedirect_WhenModelStateIsValid()
         {
             // Arrange
-            var genreViewModel = new GenreViewModel()
+            var genreViewModel = new AddGenreViewModel()
             {
             };
 
@@ -44,7 +45,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var fileConverterMock = new Mock<IFileConverter>();
             var mapperMock = new Mock<IMapper>();
 
-            var genreViewModel = new GenreViewModel()
+            var genreViewModel = new AddGenreViewModel()
             {
                 Name = "Genre"
             };
@@ -83,7 +84,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var fileConverterMock = new Mock<IFileConverter>();
             var mapperMock = new Mock<IMapper>();
 
-            var genreViewModel = new GenreViewModel()
+            var genreViewModel = new AddGenreViewModel()
             {
             };
 

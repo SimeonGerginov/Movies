@@ -45,7 +45,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             panelController
                 .WithCallTo(c => c.AddMovie())
                 .ShouldRenderPartialView(addMoviePartialView)
-                .WithModel<MovieViewModel>(viewModel =>
+                .WithModel<AddMovieViewModel>(viewModel =>
                 {
                     Assert.AreEqual(viewModel.GenresSelectList.FirstOrDefault().Text, genreModel.Name);
                 });

@@ -23,7 +23,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
         public void OnlyRedirect_WhenModelStateIsValid()
         {
             // Arrange
-            var movieViewModel = new MovieViewModel()
+            var movieViewModel = new AddMovieViewModel()
             {
             };
 
@@ -48,7 +48,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var fileConverterMock = new Mock<IFileConverter>();
             var mapperMock = new Mock<IMapper>();
 
-            var movieViewModel = new MovieViewModel()
+            var movieViewModel = new AddMovieViewModel()
             {
                 Name = "Movie Name",
                 Year = "2000",
@@ -105,7 +105,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var fileConverterMock = new Mock<IFileConverter>();
             var mapperMock = new Mock<IMapper>();
 
-            var movieViewModel = new MovieViewModel()
+            var movieViewModel = new AddMovieViewModel()
             {
                 GenreName = "Genre Name"
             };
@@ -143,7 +143,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var fileConverterMock = new Mock<IFileConverter>();
             var mapperMock = new Mock<IMapper>();
 
-            var movieViewModel = new MovieViewModel()
+            var movieViewModel = new AddMovieViewModel()
             {
                 Name = "Movie Name",
                 Year = "2000",

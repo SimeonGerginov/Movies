@@ -8,40 +8,41 @@ using Movies.Infrastructure.Contracts;
 
 namespace Movies.Web.ViewModels.Admin
 {
-    public class MovieViewModel : IMap<Movie>
+    public class AddMovieViewModel : IMap<Movie>
     {
         public IEnumerable<SelectListItem> GenresSelectList { get; set; }
 
-        [Display(Name = "Name of movie")]
-        [Required(ErrorMessage = "The name is required !")]
+        [Display(Name = "Movie name")]
+        [Required(ErrorMessage = "{0} is required!")]
         [StringLength(GlobalConstants.MaxMovieLength,
             MinimumLength = GlobalConstants.MinMovieLength,
-            ErrorMessage = "Movie name should be between 3 and 40 symbols long !")]
+            ErrorMessage = "{0} should be between {2} and {1} symbols long!")]
         public string Name { get; set; }
 
-        [Display(Name = "Year of movie")]
-        [Required(ErrorMessage = "The year is required !")]
+        [Display(Name = "Movie year")]
+        [Required(ErrorMessage = "{0} is required!")]
         [StringLength(GlobalConstants.MovieYearLength,
             MinimumLength = GlobalConstants.MovieYearLength,
-            ErrorMessage = "Movie year should be 4 symbols long !")]
+            ErrorMessage = "{0} should be {1} symbols long!")]
         public string Year { get; set; }
 
-        [Display(Name = "Running time of movie")]
-        [Required(ErrorMessage = "Running time is required !")]
+        [Display(Name = "Movie running time")]
+        [Required(ErrorMessage = "{0} is required!")]
         [Range(GlobalConstants.MinMovieRunningTime, GlobalConstants.MaxMovieRunningTime,
-            ErrorMessage = "Movie running time should be between 10 and 600 minutes long !")]
+            ErrorMessage = "{0} should be between {1} and {2} minutes long!")]
         public int RunningTime { get; set; }
 
-        [Display(Name = "Description of movie")]
-        [Required(ErrorMessage = "Description is required !")]
+        [Display(Name = "Movie description")]
+        [DataType(DataType.MultilineText)]
+        [Required(ErrorMessage = "{0} is required!")]
         [StringLength(GlobalConstants.MovieDescriptionLength, 
-            ErrorMessage = "Movie description should be no more than 200 symbols long !")]
+            ErrorMessage = "{0} should not be more than {1} symbols long!")]
         public string Description { get; set; }
 
-        [Display(Name = "Genre of movie")]
-        [Required(ErrorMessage = "Genre is required !")]
+        [Display(Name = "Movie genre")]
+        [Required(ErrorMessage = "{0} is required!")]
         [StringLength(GlobalConstants.MaxGenreNameLength, MinimumLength = GlobalConstants.MinGenreNameLength,
-            ErrorMessage = "Genre name should be between 3 and 20 symbols long !")]
+            ErrorMessage = "{0} should be between {2} and {1} symbols long!")]
         public string GenreName { get; set; }
 
         [Display(Name = "Movie image")]
