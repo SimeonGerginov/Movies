@@ -19,10 +19,11 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var personRepositoryMock = new Mock<IRepository<Person>>();
             var genreRepositoryMock = new Mock<IRepository<Genre>>();
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
+            var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
             string genreEntity = "Genre";
 
             var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object);
+                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
 
             // Act
             var result = movieService.GetAllMovies();

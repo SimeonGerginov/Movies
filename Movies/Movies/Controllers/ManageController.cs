@@ -8,7 +8,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 
 using Movies.Auth.ApplicationManagers;
-using Movies.Core.ViewModels.Manage;
+using Movies.Web.ViewModels.Manage;
 
 namespace Movies.Web.Controllers
 {

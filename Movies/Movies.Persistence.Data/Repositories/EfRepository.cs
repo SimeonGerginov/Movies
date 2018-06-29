@@ -5,13 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 
 using Bytes2you.Validation;
-
 using Movies.Core.Contracts;
-using Movies.Core.Entities;
 
 namespace Movies.Persistence.Data.Repositories
 {
-    public class EfRepository<T> : IRepository<T> where T : BaseEntity 
+    public class EfRepository<T> : IRepository<T> where T : class, IAuditable, IDeletable
     {
         private readonly IDbSet<T> dbSet;
         private readonly MsSqlDbContext dbContext;
@@ -22,6 +20,15 @@ namespace Movies.Persistence.Data.Repositories
 
             this.dbContext = context;
             this.dbSet = this.dbContext.Set<T>();
+        }
+
+        public IEnumerable<T> GetAllFilteredAndOrdered(Expression<Func<T, bool>> filterExpression, 
+            Func<T, object> orderByFunc)
+        {
+            return this.dbSet
+                .Where(filterExpression)
+                .OrderByDescending(orderByFunc)
+                .AsEnumerable();
         }
 
         public void Add(T entity)

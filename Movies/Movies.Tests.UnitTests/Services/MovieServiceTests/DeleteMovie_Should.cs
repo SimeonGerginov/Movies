@@ -23,6 +23,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var personRepositoryMock = new Mock<IRepository<Person>>();
             var genreRepositoryMock = new Mock<IRepository<Genre>>();
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
+            var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
 
             IEnumerable<Movie> filteredMovies = new List<Movie>();
 
@@ -30,7 +31,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
                 .Returns(filteredMovies);
 
             var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object);
+                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
 
             // Act
             var result = movieService.DeleteMovie(It.IsAny<int>());
@@ -47,6 +48,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var personRepositoryMock = new Mock<IRepository<Person>>();
             var genreRepositoryMock = new Mock<IRepository<Genre>>();
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
+            var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
             var movieMock = new Mock<Movie>();
 
             ICollection<Movie> filteredMovies = new List<Movie>();
@@ -56,7 +58,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
                 .Returns(filteredMovies);
 
             var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object);
+                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
 
             // Act
             movieService.DeleteMovie(It.IsAny<int>());
@@ -73,6 +75,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var personRepositoryMock = new Mock<IRepository<Person>>();
             var genreRepositoryMock = new Mock<IRepository<Genre>>();
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
+            var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
             var movieMock = new Mock<Movie>();
 
             ICollection<Movie> filteredMovies = new List<Movie>();
@@ -82,7 +85,7 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
                 .Returns(filteredMovies);
 
             var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object);
+                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
 
             // Act
             var result = movieService.DeleteMovie(It.IsAny<int>());

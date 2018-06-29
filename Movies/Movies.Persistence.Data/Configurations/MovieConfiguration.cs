@@ -15,7 +15,6 @@ namespace Movies.Persistence.Data.Configurations
             this.Property(m => m.Year).IsRequired();
             this.Property(m => m.RunningTime).IsRequired();
             this.Property(m => m.Description).IsRequired();
-            this.Property(m => m.Rating).IsRequired();
         }
     }
 }

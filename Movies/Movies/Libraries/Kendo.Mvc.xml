@@ -6539,6 +6539,57 @@
             </summary>
             <param name="series">The series.</param>
         </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.ChartWaterfallSeriesBuilder`1.Line(System.Int32,System.String,Kendo.Mvc.UI.ChartDashType)">
+            <summary>
+            Configures the series lines.
+            </summary>
+            <param name="width">The lines width.</param>
+            <param name="color">The lines color.</param>
+            <param name="dashType">The lines dashType.</param>
+            <example>
+            <code lang="CS">
+            &lt;% Html.Kendo().Chart()
+                      .Name("Chart")
+                      .Series(series => series
+                          .Waterfall(new int[] { 180, -60, -20, 10, 30 })
+                          .Line(2, "red", ChartDashType.Dot)
+                      )
+                      .Render();
+            %&gt;
+            </code>
+            </example>
+        </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.ChartWaterfallSeriesBuilder`1.Line(System.Int32)">
+            <summary>
+            Configures the series lines width.
+            </summary>
+            <param name="width">The lines width.</param>
+        </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.ChartWaterfallSeriesBuilder`1.Line(System.Int32,System.String)">
+            <summary>
+            Configures the series lines.
+            </summary>
+            <param name="width">The lines width.</param>
+            <param name="color">The lines color.</param>
+        </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.ChartWaterfallSeriesBuilder`1.Line(System.Action{Kendo.Mvc.UI.Fluent.ChartLineBuilder})">
+            <summary>
+            Configures the series lines.
+            </summary>
+            <param name="configurator">The configuration action.</param>
+            <example>
+            <code lang="CS">
+            &lt;% Html.Kendo().Chart()
+                      .Name("Chart")
+                      .Series(series => series
+                          .Waterfall(new int[] { 180, -60, -20, 10, 30 })
+                          .Line(line => line.Color("#00ff00"))
+                      )
+                      .Render();
+            %&gt;
+            </code>
+            </example>
+        </member>
         <member name="T:Kendo.Mvc.UI.Fluent.ChartLineSeriesHighlightBuilder">
             <summary>
             Defines the fluent interface for configuring candlestick series highlight.
@@ -21743,6 +21794,11 @@
             The highlight visual handler.
             </value>
         </member>
+        <member name="P:Kendo.Mvc.UI.IWaterfallSeries.Line">
+            <summary>
+            The series line configuration.
+            </summary>
+        </member>
         <member name="P:Kendo.Mvc.UI.IWaterfallSeries.SummaryMember">
             <summary>
             Gets the model summary type member name.
@@ -24475,13 +24531,13 @@
         </member>
         <member name="M:Kendo.Mvc.UI.Fluent.DropDownTreeEventBuilder.Change(System.String)">
             <summary>
-            Triggered when the selection has changed (either by the user or through the select method).
+            Fired when the value of the widget is changed by the user.
             </summary>
             <param name="handler">The name of the JavaScript function that will handle the change event.</param>
         </member>
         <member name="M:Kendo.Mvc.UI.Fluent.DropDownTreeEventBuilder.Open(System.String)">
             <summary>
-            Triggered before a subgroup gets opend. Cancellable.
+            Fired when the popup of the widget is opened by the user.
             </summary>
             <param name="handler">The name of the JavaScript function that will handle the open event.</param>
         </member>
@@ -24493,7 +24549,7 @@
         </member>
         <member name="M:Kendo.Mvc.UI.Fluent.DropDownTreeEventBuilder.Close(System.String)">
             <summary>
-            Triggered before a subgroup gets closeed.
+             Fired when the popup of the widget is closed.
             </summary>
             <param name="handler">The name of the JavaScript function that will handle the close event.</param>
         </member>
@@ -27013,6 +27069,12 @@
             </summary>
             <param name="configurator">The action that configures the items.</param>
         </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.ButtonGroupBuilder.BindTo(System.Collections.Generic.IEnumerable{Kendo.Mvc.UI.ButtonGroupItem})">
+            <summary>
+            BindTo method of the ButtonGroup
+            </summary>
+            <param name="configurator">The action that configures the items.</param>
+        </member>
         <member name="M:Kendo.Mvc.UI.Fluent.ButtonGroupBuilder.Events(System.Action{Kendo.Mvc.UI.Fluent.ButtonGroupEventBuilder})">
             <summary>
             Configures the client-side events.
@@ -27047,9 +27109,21 @@
         </member>
         <member name="M:Kendo.Mvc.UI.Fluent.ButtonGroupItemBuilder.Icon(System.String)">
             <summary>
-            The icon of the button. It can be either one of the built-in icons, or a custom one
+            Defines the name of an existing icon in a Kendo theme.
             </summary>
             <param name="value">The value that configures the icon.</param>
+        </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.ButtonGroupItemBuilder.IconClass(System.String)">
+            <summary>
+            Allows the usage of custom icons. Defines CSS classes which are to be applied to a span element inside the ButtonGroup item
+            </summary>
+            <param name="value">The value that configures the custom icon.</param>
+        </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.ButtonGroupItemBuilder.Encoded(System.Boolean)">
+            <summary>
+            Specifies if text field of the ButtonGroup item should be encoded.
+            </summary>
+            <param name="value">The value that configures whether text should be encoded.</param>
         </member>
         <member name="M:Kendo.Mvc.UI.Fluent.ButtonGroupItemBuilder.Text(System.String)">
             <summary>
@@ -27062,6 +27136,16 @@
             Specifies the value shown in badge icon
             </summary>
             <param name="value">The value that configures the badge.</param>
+        </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.ButtonGroupItemBuilder.Selected(System.Boolean)">
+            <summary>
+            Selects or unselects the item. By default items are not selected.
+            </summary>
+        </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.ButtonGroupItemBuilder.Enabled(System.Boolean)">
+            <summary>
+            Enables or disables the item. Disabled item cannot be clicked.
+            </summary>
         </member>
         <member name="M:Kendo.Mvc.UI.Fluent.ButtonGroupItemBuilder.HtmlAttributes(System.Object)">
             <summary>
@@ -36157,7 +36241,28 @@
                       .Render();
             %&gt;
             </code>
-            </example>        
+            </example>
+        </member>
+        <member name="M:Kendo.Mvc.UI.Fluent.GaugeRadialPointerBuilder.Length(System.Double)">
+            <summary>
+            Sets the pointer length.
+            </summary>
+            <param name="length">
+            The pointer length (in percent) that is based on the distance to the scale.
+            The default length of 1 indicates that the pointer exactly reaches the scale.
+            Accepts values between 0.1 and 1.5.
+            </param>
+            <example>
+            <code lang="CS">
+            &lt;% Html.Kendo().RadialGauge()
+                      .Name("radialGauge")
+                      .Pointer(pointer => pointer
+                          .Length(0.5)
+                      )
+                      .Render();
+            %&gt;
+            </code>
+            </example>
         </member>
         <member name="M:Kendo.Mvc.UI.Fluent.GaugeRadialPointerBuilder.Opacity(System.Double)">
             <summary>
@@ -36173,7 +36278,7 @@
                       .Name("radialGauge")
                       .Pointer(pointer => pointer
                           .Opacity(0.5)
-                      )        
+                      )
                       .Render();
             %&gt;
             </code>
@@ -36190,7 +36295,7 @@
                       .Name("radialGauge")
                       .Pointer(pointer => pointer
                           .Value(25)
-                      )        
+                      )
                       .Render();
             %&gt;
             </code>
@@ -36207,7 +36312,7 @@
                       .Name("radialGauge")
                       .Pointer(pointer => pointer
                           .Cap(cap => cap.Color("red"))
-                      )        
+                      )
                       .Render();
             %&gt;
             </code>
@@ -36247,6 +36352,11 @@
         <member name="P:Kendo.Mvc.UI.GaugeRadialPointer.Color">
             <summary>
             Gets or sets pointer color
+            </summary>
+        </member>
+        <member name="P:Kendo.Mvc.UI.GaugeRadialPointer.Length">
+            <summary>
+            The pointer length (in percent) that is based on the distance to the scale. The default length of 1 indicates that the pointer exactly reaches the scale. Accepts values between 0.1 and 1.5.
             </summary>
         </member>
         <member name="P:Kendo.Mvc.UI.GaugeRadialPointer.Opacity">

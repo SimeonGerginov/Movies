@@ -17,19 +17,23 @@ namespace Movies.Services
         private readonly IRepository<Person> personRepository;
         private readonly IRepository<Genre> genreRepository;
         private readonly IRepository<MovieRole> movieRoleRepository;
+        private readonly IRepository<MovieRating> movieRatingRepository;
 
         public MovieService(IRepository<Movie> movieRepository, IRepository<Person> personRepository, 
-            IRepository<Genre> genreRepository, IRepository<MovieRole> movieRoleRepository)
+            IRepository<Genre> genreRepository, IRepository<MovieRole> movieRoleRepository,
+            IRepository<MovieRating> movieRatingRepository)
         {
             Guard.WhenArgument(movieRepository, "Movie Repository").IsNull().Throw();
             Guard.WhenArgument(personRepository, "Person Repository").IsNull().Throw();
             Guard.WhenArgument(genreRepository, "Genre Repository").IsNull().Throw();
             Guard.WhenArgument(movieRoleRepository, "Movie Role Repository").IsNull().Throw();
+            Guard.WhenArgument(movieRatingRepository, "Movie Rating Repository").IsNull().Throw();
 
             this.movieRepository = movieRepository;
             this.personRepository = personRepository;
             this.genreRepository = genreRepository;
             this.movieRoleRepository = movieRoleRepository;
+            this.movieRatingRepository = movieRatingRepository;
         }
 
         public void AddMovie(Movie movie, string genreName)
@@ -111,16 +115,42 @@ namespace Movies.Services
                 targetMovie.Year = movieToUpdate.Year;
                 targetMovie.RunningTime = movieToUpdate.RunningTime;
                 targetMovie.Description = movieToUpdate.Description;
-                targetMovie.Rating = movieToUpdate.Rating;
                 targetMovie.ModifiedOn = DateTime.UtcNow;
 
                 this.movieRepository.Update(targetMovie);
             }
         }
 
+        public byte[] GetMovieImage(int movieId)
+        {
+            var movie = this.movieRepository.GetById(movieId);
+
+            Guard.WhenArgument(movie, "Movie").IsNull().Throw();
+
+            return movie.Image;
+        }
+
+        public Movie GetMovie(int movieId)
+        {
+            var movie = this.movieRepository.GetById(movieId);
+
+            Guard.WhenArgument(movie, "Movie").IsNull().Throw();
+
+            return movie;
+        }
+
         public IEnumerable<Movie> GetAllMovies()
         {
             return this.movieRepository.GetAllAndIncludeEntity("Genre");
+        }
+
+        public IEnumerable<Movie> GetTopRatedMovies(int moviesToTake)
+        {
+            return this.movieRatingRepository
+                .GetAllAndIncludeEntity("Movie")
+                .OrderBy(mr => mr.Rating)
+                .Select(mr => mr.Movie)
+                .Take(moviesToTake);
         }
     }
 }

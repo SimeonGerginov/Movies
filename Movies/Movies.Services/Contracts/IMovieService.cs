@@ -15,6 +15,12 @@ namespace Movies.Services.Contracts
 
         void UpdateMovie(Movie movieToUpdate);
 
+        byte[] GetMovieImage(int movieId);
+
+        Movie GetMovie(int movieId);
+
         IEnumerable<Movie> GetAllMovies();
+
+        IEnumerable<Movie> GetTopRatedMovies(int moviesToTake);
     }
 }

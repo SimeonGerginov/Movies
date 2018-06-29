@@ -14,6 +14,7 @@
         public const int MovieDescriptionLength = 200;
         public const int MinMovieRating = 1;
         public const int MaxMovieRating = 10;
+        public const int TopRatedMoviesCount = 10;
 
         // Genre Constants
         public const int MinGenreNameLength = 3;
@@ -30,6 +31,10 @@
         // User Constants
         public const int MinUserNameLength = 3;
         public const int MaxUserNameLength = 30;
+
+        // Comment Constants
+        public const int MinCommentLength = 10;
+        public const int MaxCommentLength = 200;
 
         // Grids
         public const int GridsPageSize = 12;

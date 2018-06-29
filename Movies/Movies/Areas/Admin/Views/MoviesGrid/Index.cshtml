@@ -1,5 +1,4 @@
-﻿@using Movies.ViewModels.GridViewModels
-
+﻿@using Movies.Web.ViewModels.Grid
 <div class="container body-content">
     <h1>
         <i class="fa fa-globe fa-3x" aria-hidden="true"></i>
@@ -11,10 +10,11 @@
           .Name("MoviesGrid")
           .Columns(columns =>
           {
+              columns.Bound(m => m.Image)
+                  .ClientTemplate("<img class='grid-photo' src='" + Url.Action("getImage", "MoviesGrid") + "/#= Id #" + "'/>");
               columns.Bound(m => m.Name).Title("Name").Width(300);
               columns.Bound(m => m.Year).Title("Year").Width(150);
               columns.Bound(m => m.RunningTime).Title("Running Time");
-              columns.Bound(m => m.Rating).Title("Rating");
               columns.Bound(m => m.GenreName).Title("Genre").Width(150);
               columns.Bound(m => m.CreatedOn).Title("Created On").Format("{0:MM/dd/yy H:mm:ss}").Width(300);
               columns.Bound(m => m.ModifiedOn).Title("Modified On").Format("{0:MM/dd/yy H:mm:ss}").Width(300);
@@ -37,6 +37,7 @@
                   .Model(m =>
                   {
                       m.Id(mv => mv.Id);
+                      m.Field(mv => mv.Image).Editable(false);
                       m.Field(mv => mv.GenreName).Editable(false);
                       m.Field(mv => mv.CreatedOn).Editable(false);
                       m.Field(mv => mv.ModifiedOn).Editable(false);

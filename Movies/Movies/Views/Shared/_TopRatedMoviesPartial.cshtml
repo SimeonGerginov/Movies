@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Movies.Web.ViewModels.MovieViewModels.TopRatedMovieViewModel>
+
+<div class="row">
+    @if (Model.Any())
+    {
+        foreach (var movie in Model)
+        {
+            <div class="col-md-4">
+                <div class="media">
+                    <div class="media-left">
+                        <img class="media-object" 
+                             src="@Url.Action("MovieImage", "Movie", new { area = "", movieId = movie.Id })"/>
+                    </div>
+    
+                    <div class="media-body">
+                        <a href="#movie-details">
+                            <h4 class="media-heading">
+                                @movie.Name
+                            </h4>
+                        </a>
+                        
+                        <p class="media-heading">
+                            @movie.Year
+                        </p>
+                    </div>
+                    
+                    <div id="movie-details">
+                        @{Html.RenderAction("MovieDetails", "Movie", new { area = "", movieId = movie.Id });}
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h2>
+            There are no movies at the moment.
+        </h2>
+    }
+</div>

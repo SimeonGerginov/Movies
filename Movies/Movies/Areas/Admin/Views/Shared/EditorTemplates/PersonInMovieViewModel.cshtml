@@ -1,5 +1,4 @@
-﻿@using Movies.ViewModels.AdminViewModels
-@model PersonInMovieViewModel
+﻿@model Movies.Web.ViewModels.Admin.PersonInMovieViewModel
 
 @using (Html.BeginForm<PanelController>(c => c.AddPersonToMovie(null), FormMethod.Post, null, new { id = "add-data-form" }))
 {

@@ -1,0 +1,26 @@
+﻿@model Movies.Web.ViewModels.UserViewModels.UserDetailsViewModel
+    
+<div class="media">
+    <div class="media-left">
+        <img class="media-object" 
+             src="@Url.Action("UserPhoto", "User", new { area = "", username = this.User.Identity.Name})"/>
+    </div>
+    
+    <div class="media-body">
+        <h4 class="media-heading">
+            @Model.FirstName
+        </h4>
+
+        <h4 class="media-heading">
+            @Model.LastName
+        </h4>
+
+        <h4 class="media-heading">
+            @Model.Email
+        </h4>
+
+        <h4 class="media-heading">
+            @Model.Gender
+        </h4>
+    </div>
+</div>

@@ -9,9 +9,8 @@ using Movies.Common;
 using Movies.Core.Models;
 using Movies.Core.Models.Enums;
 using Movies.Services.Contracts;
-using Movies.ViewModels.AdminViewModels;
 using Movies.Web.Areas.Admin.Controllers;
-
+using Movies.Web.ViewModels.Admin;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
@@ -75,7 +74,6 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
                 Year = "2000",
                 RunningTime = 120,
                 Description = "Movie Description",
-                Rating = 5,
                 GenreId = 1
             };
 

@@ -11,6 +11,8 @@ namespace Movies.Services.Contracts
 
         void UpdatePerson(Person personToUpdate);
 
+        byte[] GetPersonImage(int personId);
+
         IEnumerable<Person> GetAllPeople();
     }
 }

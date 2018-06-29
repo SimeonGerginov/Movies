@@ -10,9 +10,9 @@ using Movies.Core.Models;
 using Movies.Core.Models.Enums;
 using Movies.Infrastructure.Attributes;
 using Movies.Services.Contracts;
-using Movies.ViewModels.AdminViewModels;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
 using Movies.Web.Areas.Admin.Controllers.Grids;
+using Movies.Web.ViewModels.Admin;
 
 namespace Movies.Web.Areas.Admin.Controllers
 {
@@ -55,14 +55,13 @@ namespace Movies.Web.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [SaveChanges]
-        public ActionResult AddGenre(GenreViewModel genreViewModel)
+        public ActionResult AddGenre(AddGenreViewModel genreViewModel)
         {
             if (!this.ModelState.IsValid)
             {
-                return this.PartialView(PartialViews.AddGenre);
+                return this.RedirectToAction<PanelController>(c => c.Index());
             }
-
-            // var mappedGenre = MappingService.MappingProvider.Map<Genre>(genreViewModel);
+            
             var mappedGenre = this.mapper.Map<Genre>(genreViewModel);
             this.genreService.AddGenre(mappedGenre);
 
@@ -77,7 +76,7 @@ namespace Movies.Web.Areas.Admin.Controllers
                 .GetAllGenres()
                 .Select(g => new SelectListItem() { Text = g.Name, Value = g.Name });
 
-            var movieViewModel = new MovieViewModel()
+            var movieViewModel = new AddMovieViewModel()
             {
                 GenresSelectList = genresSelectList
             };
@@ -88,14 +87,21 @@ namespace Movies.Web.Areas.Admin.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [SaveChanges]
-        public ActionResult AddMovie(MovieViewModel movieViewModel)
+        public ActionResult AddMovie([Bind(Exclude = "Image")]AddMovieViewModel movieViewModel)
         {
             if (!this.ModelState.IsValid)
             {
-                return this.PartialView(PartialViews.AddMovie, movieViewModel);
+                return this.RedirectToAction<PanelController>(c => c.Index());
             }
 
-            // var movieModel = MappingService.MappingProvider.Map<Movie>(movieViewModel);
+            if (this.Request.Files.Count > 0)
+            {
+                var image = this.Request.Files["Image"];
+                var imageData = this.fileConverter.PostedToByteArray(image);
+
+                movieViewModel.Image = imageData;
+            }
+            
             var movieModel = this.mapper.Map<Movie>(movieViewModel);
             this.movieService.AddMovie(movieModel, movieViewModel.GenreName);
 
@@ -126,8 +132,7 @@ namespace Movies.Web.Areas.Admin.Controllers
 
                 personViewModel.Picture = imageData;
             }
-
-            // var personModel = MappingService.MappingProvider.Map<Person>(personViewModel);
+            
             var personModel = this.mapper.Map<Person>(personViewModel);
             this.personService.AddPerson(personModel);
 

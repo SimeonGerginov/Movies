@@ -7,9 +7,8 @@ using Moq;
 using Movies.Common;
 using Movies.Core.Models;
 using Movies.Services.Contracts;
-using Movies.ViewModels.AdminViewModels;
 using Movies.Web.Areas.Admin.Controllers;
-
+using Movies.Web.ViewModels.Admin;
 using NUnit.Framework;
 using TestStack.FluentMVCTesting;
 
@@ -46,7 +45,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             panelController
                 .WithCallTo(c => c.AddMovie())
                 .ShouldRenderPartialView(addMoviePartialView)
-                .WithModel<MovieViewModel>(viewModel =>
+                .WithModel<AddMovieViewModel>(viewModel =>
                 {
                     Assert.AreEqual(viewModel.GenresSelectList.FirstOrDefault().Text, genreModel.Name);
                 });

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 
+using AutoMapper;
 using Bytes2you.Validation;
 
 using Kendo.Mvc.Extensions;
@@ -8,11 +10,9 @@ using Kendo.Mvc.UI;
 
 using Movies.Core.Models;
 using Movies.Infrastructure.Attributes;
-using Movies.Infrastructure.Extensions;
 using Movies.Services.Contracts;
-using Movies.Services.Mappings;
-using Movies.ViewModels.GridViewModels;
 using Movies.Web.Areas.Admin.Controllers.Abstraction;
+using Movies.Web.ViewModels.Grid;
 
 using WebGrease.Css.Extensions;
 
@@ -22,17 +22,20 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
     {
         private readonly IPersonService personService;
         private readonly IFileConverter fileConverter;
+        private readonly IMapper mapper;
 
         private IEnumerable<GridPersonViewModel> people;
         private IDictionary<int, FileContentResult> pictures;
 
-        public PeopleGridController(IPersonService personService, IFileConverter fileConverter)
+        public PeopleGridController(IPersonService personService, IFileConverter fileConverter, IMapper mapper)
         {
             Guard.WhenArgument(personService, "Person Service").IsNull().Throw();
             Guard.WhenArgument(fileConverter, "File Converter").IsNull().Throw();
+            Guard.WhenArgument(mapper, "Mapper").IsNull().Throw();
 
             this.personService = personService;
             this.fileConverter = fileConverter;
+            this.mapper = mapper;
 
             this.pictures = new Dictionary<int, FileContentResult>();
             this.GetPeople();
@@ -66,7 +69,7 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
         {
             if (personModel != null)
             {
-                var person = MappingService.MappingProvider.Map<Person>(personModel);
+                var person = this.mapper.Map<Person>(personModel);
                 this.personService.UpdatePerson(person);
             }
 
@@ -82,7 +85,7 @@ namespace Movies.Web.Areas.Admin.Controllers.Grids
         {
             this.people = this.personService
                 .GetAllPeople()
-                .Map<Person, GridPersonViewModel>();
+                .Select(p => this.mapper.Map<GridPersonViewModel>(p));
 
             this.people.ForEach(p => p.PictureFile = this.SetPersonPhoto(p));
         }

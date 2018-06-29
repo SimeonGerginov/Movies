@@ -79,6 +79,15 @@ namespace Movies.Services
             }
         }
 
+        public byte[] GetPersonImage(int personId)
+        {
+            var person = this.personRepository.GetById(personId);
+
+            Guard.WhenArgument(person, "Person").IsNull().Throw();
+
+            return person.Picture;
+        }
+
         public IEnumerable<Person> GetAllPeople()
         {
             return this.personRepository.GetAll();
