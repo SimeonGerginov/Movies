@@ -107,6 +107,12 @@
     <Compile Include="Controllers\Grids\MoviesGridControllerTests\GetImage_Should.cs" />
     <Compile Include="Controllers\Grids\MoviesGridControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\Grids\MoviesGridControllerTests\ReadMovies_Should.cs" />
+    <Compile Include="Controllers\Grids\PeopleGridControllerTests\Ctor_Should.cs" />
+    <Compile Include="Controllers\Grids\PeopleGridControllerTests\DeletePerson_Should.cs" />
+    <Compile Include="Controllers\Grids\PeopleGridControllerTests\EditPerson_Should.cs" />
+    <Compile Include="Controllers\Grids\PeopleGridControllerTests\GetPhoto_Should.cs" />
+    <Compile Include="Controllers\Grids\PeopleGridControllerTests\Index_Should.cs" />
+    <Compile Include="Controllers\Grids\PeopleGridControllerTests\ReadPeople_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GenreServiceTests\AddGenre_Should.cs" />
     <Compile Include="Services\GenreServiceTests\Ctor_Should.cs" />
@@ -146,6 +152,7 @@
       <Name>Movies.Web</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

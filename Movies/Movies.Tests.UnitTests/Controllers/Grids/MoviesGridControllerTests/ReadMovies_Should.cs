@@ -18,7 +18,7 @@ namespace Movies.Tests.UnitTests.Controllers.Grids.MoviesGridControllerTests
     public class ReadMovies_Should
     {
         [Test]
-        public void ReturnJsonContainingGenres()
+        public void ReturnJsonContainingMovies()
         {
             // Arrange
             var movieServiceMock = new Mock<IMovieService>();

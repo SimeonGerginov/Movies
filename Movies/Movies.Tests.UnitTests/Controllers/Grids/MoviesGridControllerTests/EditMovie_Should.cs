@@ -38,12 +38,13 @@ namespace Movies.Tests.UnitTests.Controllers.Grids.MoviesGridControllerTests
             var movieServiceMock = new Mock<IMovieService>();
             var fileConverterMock = new Mock<IFileConverter>();
             var mapperMock = new Mock<IMapper>();
+            var image = new byte[128];
 
             var gridMovieViewModel = new GridMovieViewModel()
             {
                 Id = 1,
                 Name = "Movie name",
-                Image = null,
+                Image = image,
                 Year = "1980",
                 RunningTime = 120,
                 GenreName = "Genre name"
