@@ -13,6 +13,7 @@ using Movies.Core.Models.Enums;
 using Movies.Services.Contracts;
 using Movies.Web.Areas.Admin.Controllers;
 using Movies.Web.ViewModels.Admin;
+
 using NUnit.Framework;
 
 namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
@@ -43,6 +44,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
         [Test]
         public void NotCallAddMethodOfPersonService_WhenModelStateIsInvalid()
         {
+            // Arrange
             var genreServiceMock = new Mock<IGenreService>();
             var movieServiceMock = new Mock<IMovieService>();
             var personServiceMock = new Mock<IPersonService>();
@@ -80,6 +82,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
         [Test]
         public void CallAddMethodOfPersonService_WhenModelStateIsValid()
         {
+            // Arrange
             var genreServiceMock = new Mock<IGenreService>();
             var movieServiceMock = new Mock<IMovieService>();
             var personServiceMock = new Mock<IPersonService>();
@@ -137,6 +140,7 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
         [Test]
         public void CallPostedToByteArrayMethodOfFileConverter_WhenModelStateIsValidAndThereAreFilesInTheRequest()
         {
+            // Arrange
             var genreServiceMock = new Mock<IGenreService>();
             var movieServiceMock = new Mock<IMovieService>();
             var personServiceMock = new Mock<IPersonService>();

@@ -42,28 +42,28 @@ namespace Movies.Web.Controllers
         [SaveChanges]
         public ActionResult EditUser([Bind(Exclude = "ProfilePicture")]UserDetailsViewModel userVm)
         {
-            if (this.ModelState.IsValid)
+            if (!this.ModelState.IsValid)
             {
-                if (this.Request.Files.Count > 0)
-                {
-                    var profilePicture = this.Request.Files["ProfilePicture"];
-
-                    if (profilePicture.ContentLength > 0)
-                    {
-                        var imageData = this.fileConverter.PostedToByteArray(profilePicture);
-                        userVm.ProfilePicture = imageData;
-                    }
-                }
-
-                var userId = this.User.Identity.GetUserId();
-                var user = this.mapper.Map<User>(userVm);
-
-                this.userService.EditUser(userId, user);
-
-                return this.RedirectToAction("Index", "Home");
+                return this.View(userVm);
             }
 
-            return this.View(userVm);
+            if (this.Request.Files.Count > 0)
+            {
+                var profilePicture = this.Request.Files["ProfilePicture"];
+
+                if (profilePicture.ContentLength > 0)
+                {
+                    var imageData = this.fileConverter.PostedToByteArray(profilePicture);
+                    userVm.ProfilePicture = imageData;
+                }
+            }
+
+            var userId = this.User.Identity.GetUserId();
+            var user = this.mapper.Map<User>(userVm);
+
+            this.userService.EditUser(userId, user);
+
+            return this.RedirectToAction("Index", "Home");
         }
 
         public ActionResult UserProfile(string username)
@@ -80,17 +80,18 @@ namespace Movies.Web.Controllers
             {
                 var user = this.userService.GetUser(username);
                 var userProfilePicture = user.ProfilePicture;
+                FileContentResult file = null;
 
                 if (userProfilePicture == null)
                 {
                     var defaultImage = this.fileConverter.GetDefaultPicture();
-                    var file = this.File(defaultImage, "image/png");
+                    file = this.File(defaultImage, "image/png");
 
                     return file;
                 }
                 else
                 {
-                    var file = this.File(userProfilePicture, "image/jpeg");
+                    file = this.File(userProfilePicture, "image/jpeg");
                     
                     return file;
                 }
