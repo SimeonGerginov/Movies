@@ -124,6 +124,8 @@
     <Compile Include="Services\MovieServiceTests\Ctor_Should.cs" />
     <Compile Include="Services\MovieServiceTests\DeleteMovie_Should.cs" />
     <Compile Include="Services\MovieServiceTests\GetAllMovies_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\GetMovieImage_Should.cs" />
+    <Compile Include="Services\MovieServiceTests\GetMovie_Should.cs" />
     <Compile Include="Services\MovieServiceTests\UpdateMovie_Should.cs" />
   </ItemGroup>
   <ItemGroup>
