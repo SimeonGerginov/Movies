@@ -58,17 +58,18 @@ namespace Movies.Web.Controllers
         public ActionResult MovieImage(int movieId)
         {
             var image = this.movieService.GetMovieImage(movieId);
+            FileContentResult file = null;
 
             if (image == null)
             {
                 var defaultImage = this.fileConverter.GetDefaultPicture();
-                var file = this.File(defaultImage, "image/png");
+                file = this.File(defaultImage, "image/png");
 
                 return file;
             }
             else
             {
-                var file = this.File(image, "image/jpeg");
+                file = this.File(image, "image/jpeg");
 
                 return file;
             }

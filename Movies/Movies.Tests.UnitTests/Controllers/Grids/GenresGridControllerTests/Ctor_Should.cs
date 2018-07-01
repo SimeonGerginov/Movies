@@ -33,7 +33,7 @@ namespace Movies.Tests.UnitTests.Controllers.Grids.GenresGridControllerTests
         }
 
         [Test]
-        public void CreateAnInstanceOfGenresGridController_WhenPassedArgumentAreNotNull()
+        public void CreateAnInstanceOfGenresGridController_WhenPassedArgumentsAreNotNull()
         {
             // Arrange
             var genreServiceMock = new Mock<IGenreService>();
@@ -41,6 +41,9 @@ namespace Movies.Tests.UnitTests.Controllers.Grids.GenresGridControllerTests
 
             // Act
             var genresGridController = new GenresGridController(genreServiceMock.Object, mapperMock.Object);
+
+            // Assert
+            Assert.IsInstanceOf<GenresGridController>(genresGridController);
         }
     }
 }
