@@ -127,6 +127,12 @@
     <Compile Include="Services\MovieServiceTests\GetMovieImage_Should.cs" />
     <Compile Include="Services\MovieServiceTests\GetMovie_Should.cs" />
     <Compile Include="Services\MovieServiceTests\UpdateMovie_Should.cs" />
+    <Compile Include="Services\PersonServiceTests\AddPerson_Should.cs" />
+    <Compile Include="Services\PersonServiceTests\Ctor_Should.cs" />
+    <Compile Include="Services\PersonServiceTests\DeletePerson_Should.cs" />
+    <Compile Include="Services\PersonServiceTests\GetAllPeople_Should.cs" />
+    <Compile Include="Services\PersonServiceTests\GetPersonImage_Should.cs" />
+    <Compile Include="Services\PersonServiceTests\UpdatePerson_Should.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
