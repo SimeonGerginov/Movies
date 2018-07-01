@@ -21,10 +21,11 @@ namespace Movies.Tests.UnitTests.Controllers.MovieControllerTests
             var mapperMock = new Mock<IMapper>();
             var movieId = 1;
 
-            movieServiceMock.Setup(ms => ms.GetMovieImage(movieId)).Returns((byte[]) null);
+            movieServiceMock.Setup(ms => ms.GetMovieImage(movieId)).Returns((byte[])null);
 
             var movieController =
-                new MovieController(movieServiceMock.Object,
+                new MovieController(
+                    movieServiceMock.Object,
                     movieRoleServiceMock.Object,
                     fileConverterMock.Object,
                     mapperMock.Object);
@@ -50,7 +51,8 @@ namespace Movies.Tests.UnitTests.Controllers.MovieControllerTests
             movieServiceMock.Setup(ms => ms.GetMovieImage(movieId)).Returns(image);
 
             var movieController =
-                new MovieController(movieServiceMock.Object,
+                new MovieController(
+                    movieServiceMock.Object,
                     movieRoleServiceMock.Object,
                     fileConverterMock.Object,
                     mapperMock.Object);

@@ -39,13 +39,13 @@ namespace Movies.Persistence.Data.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.PersonMovie", "MovieId", "dbo.Movies");
-            DropForeignKey("dbo.PersonMovie", "PersonId", "dbo.People");
-            DropIndex("dbo.PersonMovie", new[] { "MovieId" });
-            DropIndex("dbo.PersonMovie", new[] { "PersonId" });
-            DropIndex("dbo.People", new[] { "IsDeleted" });
-            DropTable("dbo.PersonMovie");
-            DropTable("dbo.People");
+            this.DropForeignKey("dbo.PersonMovie", "MovieId", "dbo.Movies");
+            this.DropForeignKey("dbo.PersonMovie", "PersonId", "dbo.People");
+            this.DropIndex("dbo.PersonMovie", new[] { "MovieId" });
+            this.DropIndex("dbo.PersonMovie", new[] { "PersonId" });
+            this.DropIndex("dbo.People", new[] { "IsDeleted" });
+            this.DropTable("dbo.PersonMovie");
+            this.DropTable("dbo.People");
         }
     }
 }

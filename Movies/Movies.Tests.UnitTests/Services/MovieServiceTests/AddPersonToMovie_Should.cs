@@ -29,8 +29,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
 
             personRepositoryMock.Setup(pr => pr.GetById(It.IsAny<int>())).Returns(person);
 
-            var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
+            var movieService = new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object);
 
             // Act && Assert
             Assert.Throws<ArgumentNullException>(() => movieService
@@ -53,8 +57,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             personRepositoryMock.Setup(pr => pr.GetById(It.IsAny<int>())).Returns(personMock.Object);
             movieRepositoryMock.Setup(mr => mr.GetById(It.IsAny<int>())).Returns(movie);
 
-            var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
+            var movieService = new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object);
 
             // Act && Assert
             Assert.Throws<ArgumentNullException>(() => movieService
@@ -81,8 +89,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             personRepositoryMock.Setup(pr => pr.GetById(It.IsAny<int>())).Returns(personMock.Object);
             movieRepositoryMock.Setup(mr => mr.GetById(It.IsAny<int>())).Returns(movieMock.Object);
 
-            var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
+            var movieService = new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object);
 
             // Act
             movieService.AddPersonToMovie(It.IsAny<int>(), It.IsAny<int>(), role);
@@ -110,8 +122,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             personRepositoryMock.Setup(pr => pr.GetById(It.IsAny<int>())).Returns(personMock.Object);
             movieRepositoryMock.Setup(mr => mr.GetById(It.IsAny<int>())).Returns(movieMock.Object);
 
-            var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
+            var movieService = new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object);
 
             // Act
             movieService.AddPersonToMovie(It.IsAny<int>(), It.IsAny<int>(), role);
@@ -139,8 +155,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             personRepositoryMock.Setup(pr => pr.GetById(It.IsAny<int>())).Returns(personMock.Object);
             movieRepositoryMock.Setup(mr => mr.GetById(It.IsAny<int>())).Returns(movieMock.Object);
 
-            var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
+            var movieService = new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object);
 
             // Act
             movieService.AddPersonToMovie(It.IsAny<int>(), It.IsAny<int>(), role);

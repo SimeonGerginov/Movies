@@ -38,8 +38,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             genreServiceMock.Setup(gs => gs.GetAllGenres()).Returns(genreList);
 
             // Act
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             // Assert
             panelController

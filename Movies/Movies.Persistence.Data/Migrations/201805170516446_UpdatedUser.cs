@@ -6,18 +6,18 @@ namespace Movies.Persistence.Data.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.AspNetUsers", "FirstName", c => c.String(nullable: false, maxLength: 30));
-            AddColumn("dbo.AspNetUsers", "LastName", c => c.String(nullable: false, maxLength: 30));
-            AddColumn("dbo.AspNetUsers", "Gender", c => c.Int(nullable: false));
-            AddColumn("dbo.AspNetUsers", "ProfilePicture", c => c.Binary());
+            this.AddColumn("dbo.AspNetUsers", "FirstName", c => c.String(nullable: false, maxLength: 30));
+            this.AddColumn("dbo.AspNetUsers", "LastName", c => c.String(nullable: false, maxLength: 30));
+            this.AddColumn("dbo.AspNetUsers", "Gender", c => c.Int(nullable: false));
+            this.AddColumn("dbo.AspNetUsers", "ProfilePicture", c => c.Binary());
         }
         
         public override void Down()
         {
-            DropColumn("dbo.AspNetUsers", "ProfilePicture");
-            DropColumn("dbo.AspNetUsers", "Gender");
-            DropColumn("dbo.AspNetUsers", "LastName");
-            DropColumn("dbo.AspNetUsers", "FirstName");
+            this.DropColumn("dbo.AspNetUsers", "ProfilePicture");
+            this.DropColumn("dbo.AspNetUsers", "Gender");
+            this.DropColumn("dbo.AspNetUsers", "LastName");
+            this.DropColumn("dbo.AspNetUsers", "FirstName");
         }
     }
 }

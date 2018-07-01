@@ -23,8 +23,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new MovieService(null, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object));
+            Assert.Throws<ArgumentNullException>(() => new MovieService(
+                null, 
+                personRepositoryMock.Object,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object));
         }
 
         [Test]
@@ -37,8 +41,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new MovieService(movieRepositoryMock.Object, null,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object));
+            Assert.Throws<ArgumentNullException>(() => new MovieService(
+                movieRepositoryMock.Object, 
+                null,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object));
         }
 
         [Test]
@@ -51,8 +59,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new MovieService(movieRepositoryMock.Object, 
-                personRepositoryMock.Object, null, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object));
+            Assert.Throws<ArgumentNullException>(() => new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object, 
+                null, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object));
         }
 
         [Test]
@@ -65,8 +77,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new MovieService(movieRepositoryMock.Object,
-                personRepositoryMock.Object, genreRepositoryMock.Object, null, movieRatingRepositoryMock.Object));
+            Assert.Throws<ArgumentNullException>(() => new MovieService(
+                movieRepositoryMock.Object,
+                personRepositoryMock.Object, 
+                genreRepositoryMock.Object, 
+                null, 
+                movieRatingRepositoryMock.Object));
         }
 
         [Test]
@@ -79,8 +95,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var movieRoleRepositoryMock = new Mock<IRepository<MovieRole>>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, null));
+            Assert.Throws<ArgumentNullException>(() => new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                null));
         }
 
         [Test]
@@ -94,8 +114,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var movieRatingRepositoryMock = new Mock<IRepository<MovieRating>>();
 
             // Act
-            var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object, 
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
+            var movieService = new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object, 
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object);
 
             // Assert
             Assert.IsInstanceOf<IMovieService>(movieService);

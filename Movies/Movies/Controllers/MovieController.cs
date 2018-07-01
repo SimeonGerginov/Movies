@@ -17,8 +17,11 @@ namespace Movies.Web.Controllers
         private readonly IFileConverter fileConverter;
         private readonly IMapper mapper;
 
-        public MovieController(IMovieService movieService, IMovieRoleService movieRoleService,
-            IFileConverter fileConverter, IMapper mapper)
+        public MovieController(
+            IMovieService movieService, 
+            IMovieRoleService movieRoleService,
+            IFileConverter fileConverter, 
+            IMapper mapper)
         {
             Guard.WhenArgument(movieService, "Movie Service").IsNull().Throw();
             Guard.WhenArgument(movieRoleService, "Movie Role Service").IsNull().Throw();

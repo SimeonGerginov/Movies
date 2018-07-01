@@ -26,18 +26,18 @@ namespace Movies.Persistence.Data.Migrations
                 .Index(t => t.MovieId)
                 .Index(t => t.IsDeleted);
             
-            DropColumn("dbo.People", "Role");
+            this.DropColumn("dbo.People", "Role");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.People", "Role", c => c.Int(nullable: false));
-            DropForeignKey("dbo.MovieRoles", "PersonId", "dbo.People");
-            DropForeignKey("dbo.MovieRoles", "MovieId", "dbo.Movies");
-            DropIndex("dbo.MovieRoles", new[] { "IsDeleted" });
-            DropIndex("dbo.MovieRoles", new[] { "MovieId" });
-            DropIndex("dbo.MovieRoles", new[] { "PersonId" });
-            DropTable("dbo.MovieRoles");
+            this.AddColumn("dbo.People", "Role", c => c.Int(nullable: false));
+            this.DropForeignKey("dbo.MovieRoles", "PersonId", "dbo.People");
+            this.DropForeignKey("dbo.MovieRoles", "MovieId", "dbo.Movies");
+            this.DropIndex("dbo.MovieRoles", new[] { "IsDeleted" });
+            this.DropIndex("dbo.MovieRoles", new[] { "MovieId" });
+            this.DropIndex("dbo.MovieRoles", new[] { "PersonId" });
+            this.DropTable("dbo.MovieRoles");
         }
     }
 }

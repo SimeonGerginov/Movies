@@ -75,8 +75,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
 
             mapperMock.Setup(x => x.Map<Movie>(movieViewModel)).Returns(movieDbModel);
 
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             var contextMock = new Mock<HttpContextBase>();
             var requestMock = new Mock<HttpRequestBase>();
@@ -121,8 +125,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
 
             var isModelValid = Validator.TryValidateObject(movieViewModel, validationContext, results);
 
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             panelController.ModelState.AddModelError("name", "No movie name!");
 
@@ -170,8 +178,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
 
             mapperMock.Setup(x => x.Map<Movie>(movieViewModel)).Returns(movieDbModel);
 
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             var contextMock = new Mock<HttpContextBase>();
             var requestMock = new Mock<HttpRequestBase>();

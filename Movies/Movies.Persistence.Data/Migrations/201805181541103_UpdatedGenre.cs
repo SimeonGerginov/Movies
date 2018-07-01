@@ -6,20 +6,20 @@ namespace Movies.Persistence.Data.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Genres", "CreatedOn", c => c.DateTime(precision: 7, storeType: "datetime2"));
-            AddColumn("dbo.Genres", "ModifiedOn", c => c.DateTime(precision: 7, storeType: "datetime2"));
-            AddColumn("dbo.Genres", "IsDeleted", c => c.Boolean(nullable: false));
-            AddColumn("dbo.Genres", "DeletedOn", c => c.DateTime(precision: 7, storeType: "datetime2"));
-            CreateIndex("dbo.Genres", "IsDeleted");
+            this.AddColumn("dbo.Genres", "CreatedOn", c => c.DateTime(precision: 7, storeType: "datetime2"));
+            this.AddColumn("dbo.Genres", "ModifiedOn", c => c.DateTime(precision: 7, storeType: "datetime2"));
+            this.AddColumn("dbo.Genres", "IsDeleted", c => c.Boolean(nullable: false));
+            this.AddColumn("dbo.Genres", "DeletedOn", c => c.DateTime(precision: 7, storeType: "datetime2"));
+            this.CreateIndex("dbo.Genres", "IsDeleted");
         }
         
         public override void Down()
         {
-            DropIndex("dbo.Genres", new[] { "IsDeleted" });
-            DropColumn("dbo.Genres", "DeletedOn");
-            DropColumn("dbo.Genres", "IsDeleted");
-            DropColumn("dbo.Genres", "ModifiedOn");
-            DropColumn("dbo.Genres", "CreatedOn");
+            this.DropIndex("dbo.Genres", new[] { "IsDeleted" });
+            this.DropColumn("dbo.Genres", "DeletedOn");
+            this.DropColumn("dbo.Genres", "IsDeleted");
+            this.DropColumn("dbo.Genres", "ModifiedOn");
+            this.DropColumn("dbo.Genres", "CreatedOn");
         }
     }
 }

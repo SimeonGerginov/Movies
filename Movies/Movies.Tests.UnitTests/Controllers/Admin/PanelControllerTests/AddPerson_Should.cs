@@ -25,8 +25,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var mapperMock = new Mock<IMapper>();
 
             // Act
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             // Assert
             panelController

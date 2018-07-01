@@ -24,8 +24,12 @@ namespace Movies.Web.Areas.Admin.Controllers
         private readonly IFileConverter fileConverter;
         private readonly IMapper mapper;
 
-        public PanelController(IGenreService genreService, IMovieService movieService,
-            IPersonService personService, IFileConverter fileConverter, IMapper mapper)
+        public PanelController(
+            IGenreService genreService, 
+            IMovieService movieService,
+            IPersonService personService, 
+            IFileConverter fileConverter, 
+            IMapper mapper)
         {
             Guard.WhenArgument(genreService, "Genre Service").IsNull().Throw();
             Guard.WhenArgument(movieService, "Movie Service").IsNull().Throw();
@@ -145,8 +149,11 @@ namespace Movies.Web.Areas.Admin.Controllers
         {
             var peopleSelectList = this.personService
                 .GetAllPeople()
-                .Select(p => new SelectListItem() { Text = $"{p.FirstName} {p.LastName} ({p.DateOfBirth.Year})",
-                    Value = p.Id.ToString() });
+                .Select(p => new SelectListItem()
+                {
+                  Text = $"{p.FirstName} {p.LastName} ({p.DateOfBirth.Year})",
+                  Value = p.Id.ToString()
+                });
 
             var moviesSelectList = this.movieService
                 .GetAllMovies()

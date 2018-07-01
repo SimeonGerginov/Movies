@@ -24,8 +24,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             var movieId = -1;
 
             // Act
-            var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
+            var movieService = new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object);
 
             // Assert
             Assert.Throws<ArgumentNullException>(() => movieService.GetMovie(movieId));
@@ -54,8 +58,12 @@ namespace Movies.Tests.UnitTests.Services.MovieServiceTests
             movieRepositoryMock.Setup(mr => mr.GetById(movie.Id)).Returns(movie);
 
             // Act
-            var movieService = new MovieService(movieRepositoryMock.Object, personRepositoryMock.Object,
-                genreRepositoryMock.Object, movieRoleRepositoryMock.Object, movieRatingRepositoryMock.Object);
+            var movieService = new MovieService(
+                movieRepositoryMock.Object, 
+                personRepositoryMock.Object,
+                genreRepositoryMock.Object, 
+                movieRoleRepositoryMock.Object, 
+                movieRatingRepositoryMock.Object);
             var expectedMovie = movieService.GetMovie(movie.Id);
 
             // Assert

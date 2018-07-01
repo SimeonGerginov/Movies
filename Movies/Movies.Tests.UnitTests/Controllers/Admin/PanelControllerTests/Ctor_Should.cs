@@ -22,8 +22,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var mapperMock = new Mock<IMapper>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new PanelController(null, movieServiceMock.Object,
-                personServiceMock.Object, fileConverterMock.Object, mapperMock.Object));
+            Assert.Throws<ArgumentNullException>(() => new PanelController(
+                null, 
+                movieServiceMock.Object,
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object));
         }
 
         [Test]
@@ -36,8 +40,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var mapperMock = new Mock<IMapper>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new PanelController(genreServiceMock.Object, null, 
-                personServiceMock.Object, fileConverterMock.Object, mapperMock.Object));
+            Assert.Throws<ArgumentNullException>(() => new PanelController(
+                genreServiceMock.Object, 
+                null, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object));
         }
 
         [Test]
@@ -50,8 +58,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var mapperMock = new Mock<IMapper>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new PanelController(genreServiceMock.Object, 
-                movieServiceMock.Object, null, fileConverterMock.Object, mapperMock.Object));
+            Assert.Throws<ArgumentNullException>(() => new PanelController(
+                genreServiceMock.Object, 
+                movieServiceMock.Object, 
+                null, 
+                fileConverterMock.Object, 
+                mapperMock.Object));
         }
 
         [Test]
@@ -64,8 +76,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var mapperMock = new Mock<IMapper>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, null, mapperMock.Object));
+            Assert.Throws<ArgumentNullException>(() => new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                null, 
+                mapperMock.Object));
         }
 
         [Test]
@@ -78,8 +94,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var fileConverterMock = new Mock<IFileConverter>();
 
             // Act && Assert
-            Assert.Throws<ArgumentNullException>(() => new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, null));
+            Assert.Throws<ArgumentNullException>(() => new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                null));
         }
 
         [Test]
@@ -93,8 +113,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             var mapperMock = new Mock<IMapper>();
 
             // Act
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             // Assert
             Assert.IsInstanceOf<PanelController>(panelController);

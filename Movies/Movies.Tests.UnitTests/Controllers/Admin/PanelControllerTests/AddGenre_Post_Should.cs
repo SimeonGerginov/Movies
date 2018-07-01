@@ -64,8 +64,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
 
             mapperMock.Setup(x => x.Map<Genre>(genreViewModel)).Returns(genreDbModel);
 
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             // Act
             panelController.AddGenre(genreViewModel);
@@ -99,8 +103,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
 
             var isModelValid = Validator.TryValidateObject(genreViewModel, validationContext, results);
 
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             panelController.ModelState.AddModelError("name", "No genre name!");
 

@@ -48,7 +48,8 @@ namespace Movies.Tests.UnitTests.Controllers.MovieControllerTests
 
             // Act
             var movieController =
-                new MovieController(movieServiceMock.Object,
+                new MovieController(
+                    movieServiceMock.Object,
                     movieRoleServiceMock.Object,
                     fileConverterMock.Object,
                     mapperMock.Object);

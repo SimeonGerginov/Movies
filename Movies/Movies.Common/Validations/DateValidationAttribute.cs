@@ -7,7 +7,7 @@ namespace Movies.Common.Validations
     {
         public override bool IsValid(object value)
         {
-            DateTime date = (DateTime) value;
+            DateTime date = (DateTime)value;
 
             return date < DateTime.UtcNow;
         }

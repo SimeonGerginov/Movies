@@ -44,8 +44,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             personServiceMock.Setup(ps => ps.GetAllPeople()).Returns(peopleList);
 
             // Act
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             // Assert
             panelController
@@ -82,8 +86,12 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
             movieServiceMock.Setup(ms => ms.GetAllMovies()).Returns(moviesList);
 
             // Act
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             // Assert
             panelController

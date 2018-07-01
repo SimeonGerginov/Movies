@@ -24,18 +24,17 @@ namespace Movies.Persistence.Data.Migrations
                 .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
                 .Index(t => t.UserId)
                 .Index(t => t.MovieId)
-                .Index(t => t.IsDeleted);
-            
+                .Index(t => t.IsDeleted);          
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.Comments", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.Comments", "MovieId", "dbo.Movies");
-            DropIndex("dbo.Comments", new[] { "IsDeleted" });
-            DropIndex("dbo.Comments", new[] { "MovieId" });
-            DropIndex("dbo.Comments", new[] { "UserId" });
-            DropTable("dbo.Comments");
+            this.DropForeignKey("dbo.Comments", "UserId", "dbo.AspNetUsers");
+            this.DropForeignKey("dbo.Comments", "MovieId", "dbo.Movies");
+            this.DropIndex("dbo.Comments", new[] { "IsDeleted" });
+            this.DropIndex("dbo.Comments", new[] { "MovieId" });
+            this.DropIndex("dbo.Comments", new[] { "UserId" });
+            this.DropTable("dbo.Comments");
         }
     }
 }

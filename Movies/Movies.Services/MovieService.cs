@@ -19,8 +19,11 @@ namespace Movies.Services
         private readonly IRepository<MovieRole> movieRoleRepository;
         private readonly IRepository<MovieRating> movieRatingRepository;
 
-        public MovieService(IRepository<Movie> movieRepository, IRepository<Person> personRepository, 
-            IRepository<Genre> genreRepository, IRepository<MovieRole> movieRoleRepository,
+        public MovieService(
+            IRepository<Movie> movieRepository, 
+            IRepository<Person> personRepository, 
+            IRepository<Genre> genreRepository, 
+            IRepository<MovieRole> movieRoleRepository,
             IRepository<MovieRating> movieRatingRepository)
         {
             Guard.WhenArgument(movieRepository, "Movie Repository").IsNull().Throw();

@@ -15,7 +15,8 @@ namespace Movies.Core.Contracts
 
         IEnumerable<T> GetAllAndIncludeEntity(string entityToInclude);
 
-        IEnumerable<T> GetAllFilteredAndOrdered(Expression<Func<T, bool>> filterExpression, 
+        IEnumerable<T> GetAllFilteredAndOrdered(
+            Expression<Func<T, bool>> filterExpression, 
             Func<T, object> orderByFunc);
 
         void Add(T entity);

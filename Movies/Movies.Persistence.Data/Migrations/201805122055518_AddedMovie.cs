@@ -27,8 +27,8 @@ namespace Movies.Persistence.Data.Migrations
         
         public override void Down()
         {
-            DropIndex("dbo.Movies", new[] { "IsDeleted" });
-            DropTable("dbo.Movies");
+            this.DropIndex("dbo.Movies", new[] { "IsDeleted" });
+            this.DropTable("dbo.Movies");
         }
     }
 }

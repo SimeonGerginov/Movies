@@ -38,18 +38,24 @@ namespace Movies.Tests.UnitTests.Controllers.Admin.PanelControllerTests
 
             var isModelValid = Validator.TryValidateObject(personInMovieViewModel, validationContext, results);
 
-            var panelController = new PanelController(genreServiceMock.Object,
-                movieServiceMock.Object, personServiceMock.Object, fileConverterMock.Object, mapperMock.Object);
+            var panelController = new PanelController(
+                genreServiceMock.Object,
+                movieServiceMock.Object, 
+                personServiceMock.Object, 
+                fileConverterMock.Object, 
+                mapperMock.Object);
 
             // Act
             panelController.AddPersonToMovie(personInMovieViewModel);
 
             // Assert
             Assert.IsTrue(isModelValid);
-            movieServiceMock.Verify(ms => ms.AddPersonToMovie(
+            movieServiceMock.Verify(
+                ms => ms.AddPersonToMovie(
                 personInMovieViewModel.MovieId, 
                 personInMovieViewModel.PersonId, 
-                personInMovieViewModel.Role), Times.Once);
+                personInMovieViewModel.Role), 
+                Times.Once);
         }
     }
 }

@@ -26,26 +26,26 @@ namespace Movies.Persistence.Data.Migrations
                 .Index(t => t.MovieId)
                 .Index(t => t.IsDeleted);
             
-            AddColumn("dbo.Movies", "Image", c => c.Binary());
-            AlterColumn("dbo.AspNetUsers", "FirstName", c => c.String(maxLength: 30));
-            AlterColumn("dbo.AspNetUsers", "LastName", c => c.String(maxLength: 30));
-            AlterColumn("dbo.AspNetUsers", "Gender", c => c.Int());
-            DropColumn("dbo.Movies", "Rating");
+            this.AddColumn("dbo.Movies", "Image", c => c.Binary());
+            this.AlterColumn("dbo.AspNetUsers", "FirstName", c => c.String(maxLength: 30));
+            this.AlterColumn("dbo.AspNetUsers", "LastName", c => c.String(maxLength: 30));
+            this.AlterColumn("dbo.AspNetUsers", "Gender", c => c.Int());
+            this.DropColumn("dbo.Movies", "Rating");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Movies", "Rating", c => c.Int(nullable: false));
-            DropForeignKey("dbo.MovieRatings", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.MovieRatings", "MovieId", "dbo.Movies");
-            DropIndex("dbo.MovieRatings", new[] { "IsDeleted" });
-            DropIndex("dbo.MovieRatings", new[] { "MovieId" });
-            DropIndex("dbo.MovieRatings", new[] { "UserId" });
-            AlterColumn("dbo.AspNetUsers", "Gender", c => c.Int(nullable: false));
-            AlterColumn("dbo.AspNetUsers", "LastName", c => c.String(nullable: false, maxLength: 30));
-            AlterColumn("dbo.AspNetUsers", "FirstName", c => c.String(nullable: false, maxLength: 30));
-            DropColumn("dbo.Movies", "Image");
-            DropTable("dbo.MovieRatings");
+            this.AddColumn("dbo.Movies", "Rating", c => c.Int(nullable: false));
+            this.DropForeignKey("dbo.MovieRatings", "UserId", "dbo.AspNetUsers");
+            this.DropForeignKey("dbo.MovieRatings", "MovieId", "dbo.Movies");
+            this.DropIndex("dbo.MovieRatings", new[] { "IsDeleted" });
+            this.DropIndex("dbo.MovieRatings", new[] { "MovieId" });
+            this.DropIndex("dbo.MovieRatings", new[] { "UserId" });
+            this.AlterColumn("dbo.AspNetUsers", "Gender", c => c.Int(nullable: false));
+            this.AlterColumn("dbo.AspNetUsers", "LastName", c => c.String(nullable: false, maxLength: 30));
+            this.AlterColumn("dbo.AspNetUsers", "FirstName", c => c.String(nullable: false, maxLength: 30));
+            this.DropColumn("dbo.Movies", "Image");
+            this.DropTable("dbo.MovieRatings");
         }
     }
 }

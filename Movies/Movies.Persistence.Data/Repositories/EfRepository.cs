@@ -22,7 +22,8 @@ namespace Movies.Persistence.Data.Repositories
             this.dbSet = this.dbContext.Set<T>();
         }
 
-        public IEnumerable<T> GetAllFilteredAndOrdered(Expression<Func<T, bool>> filterExpression, 
+        public IEnumerable<T> GetAllFilteredAndOrdered(
+            Expression<Func<T, bool>> filterExpression, 
             Func<T, object> orderByFunc)
         {
             return this.dbSet
