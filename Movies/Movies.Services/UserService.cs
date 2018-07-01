@@ -43,14 +43,14 @@ namespace Movies.Services
                 user.LastName = userModel.LastName;
                 user.Email = userModel.Email;
                 user.Gender = userModel.Gender;
-            }
 
-            if (userModel.ProfilePicture != null)
-            {
-                user.ProfilePicture = userModel.ProfilePicture;
-            }
+                if (userModel.ProfilePicture != null)
+                {
+                    user.ProfilePicture = userModel.ProfilePicture;
+                }
 
-            this.userRepository.Update(user);
+                this.userRepository.Update(user);
+            }
         }
     }
 }
