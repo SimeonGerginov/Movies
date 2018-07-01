@@ -115,6 +115,10 @@
     <Compile Include="Controllers\Grids\PeopleGridControllerTests\GetPhoto_Should.cs" />
     <Compile Include="Controllers\Grids\PeopleGridControllerTests\Index_Should.cs" />
     <Compile Include="Controllers\Grids\PeopleGridControllerTests\ReadPeople_Should.cs" />
+    <Compile Include="Controllers\MovieControllerTests\Ctor_Should.cs" />
+    <Compile Include="Controllers\MovieControllerTests\GetTopRatedMovies_Should.cs" />
+    <Compile Include="Controllers\MovieControllerTests\MovieDetails_Should.cs" />
+    <Compile Include="Controllers\MovieControllerTests\MovieImage_Should.cs" />
     <Compile Include="Controllers\PersonControllerTests\Ctor_Should.cs" />
     <Compile Include="Controllers\PersonControllerTests\PersonPicture_Should.cs" />
     <Compile Include="Controllers\UserControllerTests\Ctor_Should.cs" />
